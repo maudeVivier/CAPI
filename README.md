@@ -29,4 +29,5 @@ Vous devez, dans votre projet, utiliser au moins trois des design patterns prés
 
 ## Utilisation
 Aller dans le fichier: *CAPI_projet/CAPI_projet/src/Main.java*
+
 Faire clique droit > ouvrir avec IntelliJ
