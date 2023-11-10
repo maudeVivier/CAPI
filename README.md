@@ -8,6 +8,11 @@
 - VIVIER Maude
 - RANDRIAMITANDRINA Finaritra
 
+## Utilisation
+Aller dans le fichier: *CAPI_projet/CAPI_projet/src/Main.java*
+
+Faire clique droit > ouvrir avec IntelliJ
+
 ## Description
 L'objectif de l'application est de permettre à des joueurs de faire une partie de planning poker, en respectant les règles vues en cours.
 
@@ -27,8 +32,3 @@ Lorsque tout le backlog est validé, l'application enregistre un fichier JSON av
  Vous êtres très fortement encouragés à ajouter des fonctionnalités qui vous semblent utiles au bon déroulement du planning poker (chronomètre, espace de discussion, etc.)
 
 Vous devez, dans votre projet, utiliser au moins trois des design patterns présentés en cours. Vous devez justifier l'utilisation de ces designs patterns dans votre rapport, ainsi que de la façon dont vous les avez implémenté dans votre projet.
-
-## Utilisation
-Aller dans le fichier: *CAPI_projet/CAPI_projet/src/Main.java*
-
-Faire clique droit > ouvrir avec IntelliJ
