@@ -1,7 +1,8 @@
 # CAPI - Application de planning poker
 ## Support
-- Java
-- IntelliJ
+- Langage : Java
+- Editeur : IntelliJ
+- Bibliothèque : JFrame
 
 ## Autrices
 - VIVIER Maude
