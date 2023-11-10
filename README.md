@@ -1,6 +1,7 @@
 # CAPI - Application de planning poker
-## Langage
+## Support
 - Java
+- IntelliJ
 
 ## Autrices
 - VIVIER Maude
@@ -27,5 +28,5 @@ Lorsque tout le backlog est validé, l'application enregistre un fichier JSON av
 Vous devez, dans votre projet, utiliser au moins trois des design patterns présentés en cours. Vous devez justifier l'utilisation de ces designs patterns dans votre rapport, ainsi que de la façon dont vous les avez implémenté dans votre projet.
 
 ## Utilisation
-Aller dans le fichier: 'CAPI_projet/CAPI_projet/src/Main.java'
+Aller dans le fichier: *CAPI_projet/CAPI_projet/src/Main.java*
 Faire clique droit > ouvrir avec IntelliJ
