@@ -5,6 +5,7 @@ Langage : Java
 Autrices : 
 - VIVIER Maude
 - RANDRIAMITANDRINA Finaritra
+
 L'objectif de l'application est de permettre à des joueurs de faire une partie de planning poker, en respectant les règles vues en cours.
 
 L'application peut être à distance (chaque joueur utilise son propre dispositif) ou locale (les joueurs choisissent chacun à leur tour leurs cartes).
