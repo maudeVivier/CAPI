@@ -31,5 +31,5 @@ public class AffichageInfo {
     public static JSpinner nb_joueur_Spinner = new JSpinner(spinnerModel);
 
     /* --------------------Variable menu qui varie--------------------- */
-    public static int menu = 0;
+    public static int menu = 1;
 }

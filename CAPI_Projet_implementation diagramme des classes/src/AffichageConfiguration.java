@@ -46,7 +46,9 @@ public class AffichageConfiguration extends JPanel {
 
         if(AffichageInfo.menu == 1){ //menu choisi nombre de joueur et pseudo
             remove(AffichageInfo.boutonNouvellePartie);
+            setLayout(new FlowLayout());
             add(AffichageInfo.nb_joueur_Spinner);
+            revalidate();
             Affichage.MenuConfigPartie(g);
             setFocusable(true);
         }

@@ -30,11 +30,14 @@ public class Affichage {
         AffichageInfo.nb_joueur.setFont(new Font("Arial", Font.BOLD, AffichageInfo.sizeTexte));
         AffichageInfo.nb_joueur.setBounds
          */
-        AffichageInfo.nb_joueur_Spinner.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        AffichageInfo.nb_joueur_Spinner.setBorder(null);
+        AffichageInfo.nb_joueur_Spinner.setOpaque(false);
+
         AffichageInfo.nb_joueur_Spinner.setBounds((AffichageInfo.screenWidth/3)+(AffichageInfo.screenWidth/10), (AffichageInfo.screenHeight/4)+(AffichageInfo.screenHeight/18), AffichageInfo.largeurReponse, AffichageInfo.hauteurReponse);
+        //AffichageInfo.nb_joueur_Spinner.setBounds((AffichageInfo.screenWidth/3)+(AffichageInfo.screenWidth/10), (AffichageInfo.screenHeight/4)+(AffichageInfo.screenHeight/18), AffichageInfo.largeurReponse*2, AffichageInfo.hauteurReponse);
         JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) AffichageInfo.nb_joueur_Spinner.getEditor();
         editor.getTextField().setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
         AffichageInfo.nb_joueur_Spinner.setEnabled(true);
-
     }
 }
