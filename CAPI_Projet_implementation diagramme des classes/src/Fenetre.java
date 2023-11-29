@@ -5,20 +5,20 @@ public class Fenetre extends JFrame{
     public static void main(String[] args) {
         /*Créer une nouvelle fenêtre*/
         JFrame frame = new JFrame("Planning Poker");
-        Backlog backlog;
+        AffichageConfiguration affichage;
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        backlog = new Backlog(Info.screenWidth, Info.screenHeight, frame);
-        backlog.setFocusable(true);
+        affichage = new AffichageConfiguration(Info.screenWidth, Info.screenHeight, frame);
+        affichage.setFocusable(true);
 
-        frame.getContentPane().add(backlog, BorderLayout.CENTER);
+        frame.getContentPane().add(affichage, BorderLayout.CENTER);
 
         frame.setPreferredSize(new Dimension(Info.screenWidth, Info.screenHeight));
         frame.pack();
 
         frame.setVisible(true);
-        frame.getContentPane().add(backlog);
+        frame.getContentPane().add(affichage);
 
     }
 }

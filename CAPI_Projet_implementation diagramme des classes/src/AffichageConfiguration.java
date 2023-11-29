@@ -4,13 +4,13 @@ import java.util.*;
 import java.awt.event.*;
 
 
-public class Backlog extends JPanel {
+public class AffichageConfiguration extends JPanel {
     private ArrayList<Fonctionnalite> monFonctionnalites;
 
     /*Fonction ou on va mettre des actions avec des touches claviers,
     toucher un bouton, ect
     */
-    public Backlog(int screenWidth, int screenHeight, JFrame frame){
+    public AffichageConfiguration(int screenWidth, int screenHeight, JFrame frame){
         this.setLayout(null);
 
         /* -------------------Bouton pour choisir le nombre de joueur ainsi que les pseudos---------------------- */
