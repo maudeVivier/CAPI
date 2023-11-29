@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.awt.event.*;
+import javax.swing.JSpinner;
 
 
 public class AffichageConfiguration extends JPanel {
@@ -32,14 +33,14 @@ public class AffichageConfiguration extends JPanel {
 
         if (AffichageInfo.menu == 0) { //accueil
             add(AffichageInfo.boutonNouvellePartie);
-            SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 100, 1);
+            /*SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 100, 1);
 
             // Créer un JSpinner avec le SpinnerModel
             JSpinner nbJoueurSpinner = new JSpinner(spinnerModel);
             nbJoueurSpinner.setBounds((AffichageInfo.screenWidth/3)+(AffichageInfo.screenWidth/10), (AffichageInfo.screenHeight/4)+(AffichageInfo.screenHeight/18), AffichageInfo.largeurReponse, AffichageInfo.hauteurReponse);
 
-            add(AffichageInfo.nb_joueur_Spinner, BorderLayout.CENTER);
-
+            add(nbJoueurSpinner, BorderLayout.CENTER);
+            */
             Affichage.PageAccueil(g);
         }
 
