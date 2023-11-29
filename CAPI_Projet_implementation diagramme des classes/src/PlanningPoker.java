@@ -2,7 +2,7 @@ import java.util.*;
 public class PlanningPoker {
     private ArrayList<Joueur> monJoueurs;
     private ReglesPlanningPoker moRegles;
-    private AffichageConfiguration monBacklog;
+    private Backlog monBacklog;
 
     public PlanningPoker(ArrayList<Joueur> unListeJoueur, ReglesPlanningPoker unRegles, Backlog unBacklog)
     {

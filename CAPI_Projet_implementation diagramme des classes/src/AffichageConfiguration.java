@@ -5,7 +5,6 @@ import java.awt.event.*;
 
 
 public class AffichageConfiguration extends JPanel {
-    private ArrayList<Fonctionnalite> monFonctionnalites;
 
     /*Fonction ou on va mettre des actions avec des touches claviers,
     toucher un bouton, ect
@@ -14,9 +13,9 @@ public class AffichageConfiguration extends JPanel {
         this.setLayout(null);
 
         /* -------------------Bouton pour choisir le nombre de joueur ainsi que les pseudos---------------------- */
-        Info.boutonConfig.addActionListener(new ActionListener() {
+        AffichageInfo.boutonNouvellePartie.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Info.menu=1;
+                AffichageInfo.menu=1;
                 repaint();
             }
         });
@@ -31,20 +30,25 @@ public class AffichageConfiguration extends JPanel {
         super.paintComponent(g);
         setBackground(new Color(0, 0, 50));
 
-        if (Info.menu == 0) { //accueil
-            add(Info.boutonConfig);
+        if (AffichageInfo.menu == 0) { //accueil
+            add(AffichageInfo.boutonNouvellePartie);
+            SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 100, 1);
+
+            // Créer un JSpinner avec le SpinnerModel
+            JSpinner nbJoueurSpinner = new JSpinner(spinnerModel);
+            nbJoueurSpinner.setBounds((AffichageInfo.screenWidth/3)+(AffichageInfo.screenWidth/10), (AffichageInfo.screenHeight/4)+(AffichageInfo.screenHeight/18), AffichageInfo.largeurReponse, AffichageInfo.hauteurReponse);
+
+            add(AffichageInfo.nb_joueur_Spinner, BorderLayout.CENTER);
+
             Affichage.PageAccueil(g);
         }
 
-        if(Info.menu == 1){ //menu choisi nombre de joueur et pseudo
-            remove(Info.boutonConfig);
-            add(Info.nb_joueur);
+        if(AffichageInfo.menu == 1){ //menu choisi nombre de joueur et pseudo
+            remove(AffichageInfo.boutonNouvellePartie);
+            add(AffichageInfo.nb_joueur_Spinner);
             Affichage.MenuConfigPartie(g);
+            setFocusable(true);
         }
 
-    }
-
-    public void ajouterFonctionnalite(Fonctionnalite fonctionnalite) {
-        // Logique d'ajout de fonctionnalité au backlog
     }
 }

@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Info {
+public class AffichageInfo {
     /* --------------------Dimension de l'écran--------------------- */
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int screenWidth = (int) screenSize.getWidth();
@@ -20,10 +20,15 @@ public class Info {
     public static int hauteurReponse = screenHeight / 18;
 
     /* --------------------Different boutons--------------------- */
-    public static JButton boutonConfig = new JButton("Configuration");
+    public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
 
-    public static JTextArea nb_joueur =  new JTextArea();
+    //public static JTextArea nb_joueur =  new JTextArea();
+    //public static SpinnerModel SpinnerModel_nb_joueur =  new SpinnerNumberModel(1, 0, 100, 1);
 
+    public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 100, 1);
+
+    // Créer un JSpinner avec le SpinnerModel
+    public static JSpinner nb_joueur_Spinner = new JSpinner(spinnerModel);
 
     /* --------------------Variable menu qui varie--------------------- */
     public static int menu = 0;
