@@ -6,8 +6,6 @@ public class AffichageInfo {
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int screenWidth = (int) screenSize.getWidth();
     public static final int screenHeight = (int) screenSize.getHeight();
-    //variable menu va varier en fonction d'ou on est
-
 
     /* --------------------Differentes tailles de police--------------------- */
     public static int sizeTitre = (int) (screenWidth * 0.059);
@@ -19,17 +17,25 @@ public class AffichageInfo {
     public static int largeurReponse = screenWidth / 5;
     public static int hauteurReponse = screenHeight / 18;
 
-    /* --------------------Different boutons--------------------- */
+    /* --------------------Differents boutons--------------------- */
     public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
 
-    //public static JTextArea nb_joueur =  new JTextArea();
-    //public static SpinnerModel SpinnerModel_nb_joueur =  new SpinnerNumberModel(1, 0, 100, 1);
+    public static JButton boutonValiderNbJoueur = new JButton("Valider");
 
-    public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 100, 1);
+    public static JButton boutonValiderPseudo = new JButton("Valider");
+
+    public static JTextArea[] areaTabPseudo ;
+
+    /* --------------------Spinner--------------------- */
+    public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
 
     // Créer un JSpinner avec le SpinnerModel
     public static JSpinner nb_joueur_Spinner = new JSpinner(spinnerModel);
 
+    /* --------------------Différentes variables--------------------- */
+    public static int nbJoueur = 2;
+
     /* --------------------Variable menu qui varie--------------------- */
-    public static int menu = 1;
+    public static int menu = 0;
+    //public static JTextArea nb_joueur =  new JTextArea();
 }

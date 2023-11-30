@@ -9,7 +9,7 @@ public class Fenetre extends JFrame{
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        affichage = new AffichageConfiguration(AffichageInfo.screenWidth, AffichageInfo.screenHeight, frame);
+        affichage = new AffichageConfiguration();
         affichage.setFocusable(true);
 
         frame.getContentPane().add(affichage, BorderLayout.CENTER);

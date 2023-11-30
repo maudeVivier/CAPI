@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Joueur {
-    private int monId;
-    private String monPseudo;
+    private final int monId;
+    private final String monPseudo;
     private ArrayList<Carte> monCartes;
     private Carte monVoteCourant;
 
