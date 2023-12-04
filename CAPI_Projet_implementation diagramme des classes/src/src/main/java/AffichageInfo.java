@@ -1,3 +1,5 @@
+package src.main.java;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -25,8 +27,8 @@ public class AffichageInfo {
     /* --------------------Differents boutons--------------------- */
     public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
-
     public static JButton boutonValiderPseudo = new JButton("Valider");
+    public static JButton boutonValiderMode = new JButton("Valider");
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
@@ -40,5 +42,9 @@ public class AffichageInfo {
     public static JLabel labelTitreNbJoueur = new JLabel("Configuration de la partie");
     public static JLabel labelNbJoueur = new JLabel("Nombre de joueur :\n(entre 2 et 12)");
     public static JLabel labelTitrePseudoJoueur = new JLabel("Choix des pseudos");
+    public static JLabel labelTitreMode = new JLabel("Choix du mode de jeu");
 
+    /* --------------------Checkbox--------------------- */
+    public static JCheckBox checkUnanimate = new JCheckBox("Unanimité");
+    public static JCheckBox checkMoyenne = new JCheckBox("Moyenne");
 }

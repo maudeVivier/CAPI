@@ -1,3 +1,5 @@
+package src.main.java;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,6 +9,9 @@ public class AffichageConfiguration extends JPanel {
     private JPanel accueilPanel = new JPanel();
     private JPanel nbJoueurPanel = new JPanel();
     private JPanel pseudoPanel = new JPanel();
+    private JPanel modePanel = new JPanel();
+
+    private Color couleurFond = new Color(0, 0, 50);
 
     public AffichageConfiguration(){
         accueilPanel.setLayout(new BoxLayout(accueilPanel, BoxLayout.Y_AXIS));
@@ -27,7 +32,7 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonNouvellePartie.setAlignmentX(Component.CENTER_ALIGNMENT);
         accueilPanel.add(AffichageInfo.boutonNouvellePartie);
 
-        accueilPanel.setBackground(new Color(0, 0, 50));
+        accueilPanel.setBackground(couleurFond);
         accueilPanel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
         add(accueilPanel);
 
@@ -66,7 +71,7 @@ public class AffichageConfiguration extends JPanel {
 
                 //nbJoueurPanel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
 
-                nbJoueurPanel.setBackground(new Color(0, 0, 50));
+                nbJoueurPanel.setBackground(couleurFond);
                 nbJoueurPanel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
                 add(nbJoueurPanel);
 
@@ -89,7 +94,7 @@ public class AffichageConfiguration extends JPanel {
                 JPanel textAreaPanel = new JPanel();
                 initialiserComposants(textAreaPanel);
 
-                textAreaPanel.setBackground(new Color(0, 0, 50));
+                textAreaPanel.setBackground(couleurFond);
                 // Ajouter le panneau de JTextArea au centre du BorderLayout
                 pseudoPanel.add(textAreaPanel, BorderLayout.CENTER);
 
@@ -113,12 +118,56 @@ public class AffichageConfiguration extends JPanel {
                 afficherContenuPseudos();
                 if (verifierPseudosNonNuls() && verifierPseudosUniques()) {
                     System.out.println("Tous les pseudos sont valides.");
+                    modePanel.setLayout(new BoxLayout(modePanel, BoxLayout.Y_AXIS));
+
+                    // Titre
+                    AffichageInfo.labelTitreMode.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+                    AffichageInfo.labelTitreMode.setForeground(Color.WHITE);
+                    AffichageInfo.labelTitreMode.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    modePanel.add(AffichageInfo.labelTitreMode);
+
+                    // Ajouter un espace vertical
+                    modePanel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
+
+                    // Checkbox
+                    AffichageInfo.checkUnanimate.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+                    AffichageInfo.checkUnanimate.setBackground(couleurFond);
+                    AffichageInfo.checkUnanimate.setForeground(Color.WHITE);
+
+                    AffichageInfo.checkMoyenne.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+                    AffichageInfo.checkMoyenne.setBackground(couleurFond);
+                    AffichageInfo.checkMoyenne.setForeground(Color.WHITE);
+                    modePanel.add(AffichageInfo.checkUnanimate);
+                    modePanel.add(AffichageInfo.checkMoyenne);
+
+                    // Ajouter un espace vertical
+                    modePanel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
+
+                    // Bouton
+                    AffichageInfo.boutonValiderMode.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+                    AffichageInfo.boutonValiderMode.setBackground(Color.darkGray);
+                    AffichageInfo.boutonValiderMode.setForeground(Color.WHITE);
+                    AffichageInfo.boutonValiderMode.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    modePanel.add(AffichageInfo.boutonValiderMode);
+
+                    modePanel.setBackground(couleurFond);
+                    modePanel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+                    add(modePanel);
                     setMenu(3);
                 } else {
                     System.out.println("Certains pseudos sont manquants ou identiques.");
                 }
             }
         });
+
+        /* -------------------Bouton pour choisir le mode de jeu---------------------- */
+        AffichageInfo.boutonValiderMode.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setMenu(4);
+            }
+        });
+
     }
 
     public void setMenu(int menu) {
@@ -128,18 +177,28 @@ public class AffichageConfiguration extends JPanel {
                 accueilPanel.setVisible(true);
                 nbJoueurPanel.setVisible(false);
                 pseudoPanel.setVisible(false);
+                modePanel.setVisible(false);
                 break;
             case 1:
                 // Affichage du menu pour choisir le nombre de joueurs
                 accueilPanel.setVisible(false);
                 nbJoueurPanel.setVisible(true);
                 pseudoPanel.setVisible(false);
+                modePanel.setVisible(false);
                 break;
             case 2:
                 // Affichage du menu pour choisir les pseudos
                 accueilPanel.setVisible(false);
                 nbJoueurPanel.setVisible(false);
                 pseudoPanel.setVisible(true);
+                modePanel.setVisible(false);
+                break;
+            case 3:
+                // Affichage du menu pour choisir le mode de jeu
+                accueilPanel.setVisible(false);
+                nbJoueurPanel.setVisible(false);
+                pseudoPanel.setVisible(false);
+                modePanel.setVisible(true);
                 break;
         }
     }

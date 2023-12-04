@@ -1,3 +1,5 @@
+package src.main.java;
+
 import javax.swing.*;
 
 public class Fenetre extends JFrame{
