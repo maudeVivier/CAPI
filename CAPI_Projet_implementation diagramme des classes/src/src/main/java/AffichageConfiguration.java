@@ -79,6 +79,7 @@ public class AffichageConfiguration extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AffichageInfo.nbJoueur = (int) AffichageInfo.nb_joueur_Spinner.getValue();
+
                 pseudoPanel.setLayout(new BorderLayout());
 
                 AffichageInfo.labelTitrePseudoJoueur.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
@@ -226,6 +227,7 @@ public class AffichageConfiguration extends JPanel {
     private void afficherContenuPseudos() {
         System.out.println("Contenu des pseudos : ");
         for (int i = 0; i < AffichageInfo.nbJoueur; i++) {
+            //Récuper les noms des pseudos
             String texte = AffichageInfo.areaTabPseudo[i].getText();
             System.out.println("Joueur " + (i + 1) + ": " + texte);
         }
