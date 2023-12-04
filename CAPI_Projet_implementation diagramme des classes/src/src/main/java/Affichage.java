@@ -47,7 +47,7 @@ public class Affichage {
             int valDecY = AffichageInfo.screenHeight/9;
             int valDecX = AffichageInfo.screenWidth/5 + AffichageInfo.screenWidth/23;
 
-            /*Affichage de texte pseudo :*/
+            /*Affichage de texte pseudo : */
             g.setFont(new Font("Calibri", Font.PLAIN, AffichageInfo.sizeTexte));
             for (int i = 0, decx = 0, decy = 0; i < AffichageInfo.nbJoueur; i++, decy+= valDecY) {
                 if(i<=5){
@@ -61,35 +61,11 @@ public class Affichage {
                     g.drawString("Pseudo "+ (i+1) + " : ", x0 + decx, y0 + decy);
                 }
             }
-
             AffichageInfo.boutonValiderPseudo.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
             AffichageInfo.boutonValiderPseudo.setBackground(Color.darkGray);
             AffichageInfo.boutonValiderPseudo.setForeground(Color.white);
             AffichageInfo.boutonValiderPseudo.setBounds((AffichageInfo.screenWidth / 3) + (AffichageInfo.screenWidth / 2)  + (AffichageInfo.screenWidth / 30), (AffichageInfo.screenHeight / 3) + (AffichageInfo.screenHeight / 2), AffichageInfo.largeurBouton / 2, AffichageInfo.hauteurBouton / 2);
+
         }
     }
 }
-
-/*
- accueilPanel.setLayout(new BoxLayout(accueilPanel, BoxLayout.Y_AXIS));
-        // Titre
-        AffichageInfo.labelTitreAccueil.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
-        AffichageInfo.labelTitreAccueil.setForeground(Color.WHITE);
-        AffichageInfo.labelTitreAccueil.setAlignmentX(Component.CENTER_ALIGNMENT);
-        accueilPanel.add(AffichageInfo.labelTitreAccueil);
-
-        // Ajouter un espace vertical
-        accueilPanel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5)); // Ajustez la taille de l'espace selon vos besoins
-
-        // Bouton
-        AffichageInfo.boutonNouvellePartie.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
-        AffichageInfo.boutonNouvellePartie.setBackground(Color.darkGray);
-        AffichageInfo.boutonNouvellePartie.setForeground(Color.WHITE);
-        AffichageInfo.boutonNouvellePartie.setAlignmentX(Component.CENTER_ALIGNMENT);
-        accueilPanel.add(AffichageInfo.boutonNouvellePartie);
-
-        accueilPanel.setBackground(new Color(0, 0, 50));
-        accueilPanel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
-        add(accueilPanel, BorderLayout.WEST);
-
- */
