@@ -19,16 +19,14 @@ public class AffichageInfo {
     public static int largeurReponse = screenWidth / 5;
     public static int hauteurReponse = screenHeight / 18;
 
-    /* --------------------Différentes variables--------------------- */
-    public static int nbJoueur = 2;
-
-    /* --------------------Variable menu qui varie--------------------- */
-    public static int menu = 0;
     /* --------------------Differents boutons--------------------- */
     public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
+
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
+
+    public static JTextArea[] areaTabPseudo ;
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
