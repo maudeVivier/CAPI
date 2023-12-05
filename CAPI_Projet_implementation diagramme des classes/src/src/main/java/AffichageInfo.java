@@ -24,6 +24,9 @@ public class AffichageInfo {
 
     /* --------------------Variable menu qui varie--------------------- */
     public static int menu = 0;
+
+    public static Color couleurFond = new Color(0, 0, 50);
+
     /* --------------------Differents boutons--------------------- */
     public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
@@ -32,9 +35,7 @@ public class AffichageInfo {
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
-
-    // Créer un JSpinner avec le SpinnerModel
-    public static JSpinner nb_joueur_Spinner = new JSpinner(spinnerModel);
+    public static JSpinner spinnerNbJoueur = new JSpinner(spinnerModel);
 
     /* --------------------TextArea--------------------- */
     public static JTextArea[] areaTabPseudo = null;

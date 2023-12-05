@@ -3,95 +3,163 @@ package src.main.java;
 import java.awt.*;
 import javax.swing.*;
 
-//Classe qui va permettre de creer les differentes fonction d'affichage du panel
+//Classe qui va permettre de creer les differentes fonction d'affichage des panels
 public class Affichage {
-    public static void PageAccueil(Graphics g) {
-        g.setColor(Color.white);
-        g.setFont(new Font("Calibri", Font.PLAIN, AffichageInfo.sizeTitre));
-        g.drawString("Planning Poker", AffichageInfo.screenWidth / 3, AffichageInfo.screenHeight / 6);
-
-        AffichageInfo.boutonNouvellePartie.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
-        AffichageInfo.boutonNouvellePartie.setBackground(Color.darkGray);
-        AffichageInfo.boutonNouvellePartie.setForeground(Color.white);
-        AffichageInfo.boutonNouvellePartie.setBounds((AffichageInfo.screenWidth / 3) + (AffichageInfo.screenWidth / 12), (AffichageInfo.screenHeight / 3), AffichageInfo.largeurBouton, AffichageInfo.hauteurBouton);
-    }
-
-    public static void MenuConfigPartie(Graphics g){
-        if(AffichageInfo.menu==1) { //Partie pour choisir le nombre de joueurs
-            g.setColor(Color.white);
-            g.setFont(new Font("Calibri", Font.PLAIN, AffichageInfo.sizeTitre));
-            g.drawString("Choisis le nombre de joueur", AffichageInfo.screenWidth/5, AffichageInfo.screenHeight/6);
-
-            g.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
-            g.drawString("Nombre de joueurs :", (AffichageInfo.screenWidth / 4) + (AffichageInfo.screenWidth / 30), (AffichageInfo.screenHeight / 4) + (AffichageInfo.screenHeight / 13));
-            g.drawString("(entre 2 et 12)", (AffichageInfo.screenWidth / 4) + (AffichageInfo.screenWidth / 20), (AffichageInfo.screenHeight / 3) + (AffichageInfo.screenHeight / 46));
-
-            AffichageInfo.nb_joueur_Spinner.setBorder(null);
-            AffichageInfo.nb_joueur_Spinner.setOpaque(false);
-
-            AffichageInfo.nb_joueur_Spinner.setBounds((AffichageInfo.screenWidth / 3) + (AffichageInfo.screenWidth / 10), (AffichageInfo.screenHeight / 4) + (AffichageInfo.screenHeight / 18), AffichageInfo.largeurReponse, AffichageInfo.hauteurReponse);
-            JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) AffichageInfo.nb_joueur_Spinner.getEditor();
-            editor.getTextField().setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
-            AffichageInfo.nb_joueur_Spinner.setEnabled(true);
-
-            AffichageInfo.boutonValiderNbJoueur.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
-            AffichageInfo.boutonValiderNbJoueur.setBackground(Color.darkGray);
-            AffichageInfo.boutonValiderNbJoueur.setForeground(Color.white);
-            AffichageInfo.boutonValiderNbJoueur.setBounds((AffichageInfo.screenWidth / 4) + (AffichageInfo.screenWidth / 4), (AffichageInfo.screenHeight / 4) + (AffichageInfo.screenHeight / 20), AffichageInfo.largeurBouton / 2, AffichageInfo.hauteurBouton / 2);
-        }
-        else if(AffichageInfo.menu==2){ //Recuperer les pseudos de tous les joueurs
-            g.setColor(Color.white);
-            g.setFont(new Font("Calibri", Font.PLAIN, AffichageInfo.sizeTitre));
-            g.drawString("Choix des pseudos", AffichageInfo.screenWidth/4, AffichageInfo.screenHeight/6);
-
-            int x0 = (AffichageInfo.screenWidth/10);
-            int y0 = (AffichageInfo.screenHeight/4) + (AffichageInfo.screenHeight/25);
-            int valDecY = AffichageInfo.screenHeight/9;
-            int valDecX = AffichageInfo.screenWidth/5 + AffichageInfo.screenWidth/23;
-
-            /*Affichage de texte pseudo :*/
-            g.setFont(new Font("Calibri", Font.PLAIN, AffichageInfo.sizeTexte));
-            for (int i = 0, decx = 0, decy = 0; i < AffichageInfo.nbJoueur; i++, decy+= valDecY) {
-                if(i<=5){
-                    g.drawString("Pseudo " + (i + 1) + " : ", x0, y0 + decy);
-                }
-                else{
-                    if(i==6){
-                        decx += AffichageInfo.largeurReponse + valDecX;
-                        decy = 0;
-                    }
-                    g.drawString("Pseudo "+ (i+1) + " : ", x0 + decx, y0 + decy);
-                }
-            }
-
-            AffichageInfo.boutonValiderPseudo.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
-            AffichageInfo.boutonValiderPseudo.setBackground(Color.darkGray);
-            AffichageInfo.boutonValiderPseudo.setForeground(Color.white);
-            AffichageInfo.boutonValiderPseudo.setBounds((AffichageInfo.screenWidth / 3) + (AffichageInfo.screenWidth / 2)  + (AffichageInfo.screenWidth / 30), (AffichageInfo.screenHeight / 3) + (AffichageInfo.screenHeight / 2), AffichageInfo.largeurBouton / 2, AffichageInfo.hauteurBouton / 2);
-        }
-    }
-}
-
-/*
- accueilPanel.setLayout(new BoxLayout(accueilPanel, BoxLayout.Y_AXIS));
+    public static void pageAccueil(JPanel panel){
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         // Titre
         AffichageInfo.labelTitreAccueil.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
         AffichageInfo.labelTitreAccueil.setForeground(Color.WHITE);
         AffichageInfo.labelTitreAccueil.setAlignmentX(Component.CENTER_ALIGNMENT);
-        accueilPanel.add(AffichageInfo.labelTitreAccueil);
+        panel.add(AffichageInfo.labelTitreAccueil);
 
         // Ajouter un espace vertical
-        accueilPanel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5)); // Ajustez la taille de l'espace selon vos besoins
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
 
         // Bouton
         AffichageInfo.boutonNouvellePartie.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
         AffichageInfo.boutonNouvellePartie.setBackground(Color.darkGray);
         AffichageInfo.boutonNouvellePartie.setForeground(Color.WHITE);
         AffichageInfo.boutonNouvellePartie.setAlignmentX(Component.CENTER_ALIGNMENT);
-        accueilPanel.add(AffichageInfo.boutonNouvellePartie);
+        panel.add(AffichageInfo.boutonNouvellePartie);
 
-        accueilPanel.setBackground(new Color(0, 0, 50));
-        accueilPanel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
-        add(accueilPanel, BorderLayout.WEST);
+        panel.setBackground(AffichageInfo.couleurFond);
+        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+    }
 
- */
+    public static void pageNbPerso(JPanel panel){
+        /* -----------------------Panel principal------------------------ */
+        panel.setLayout(new BorderLayout());
+
+        AffichageInfo.labelTitreNbJoueur.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+        AffichageInfo.labelTitreNbJoueur.setForeground(Color.white);
+        AffichageInfo.labelTitreNbJoueur.setHorizontalAlignment(JLabel.CENTER);
+        // Ajouter un label à la première ligne
+        panel.add(AffichageInfo.labelTitreNbJoueur, BorderLayout.NORTH);
+
+        /* -----------------------Panel secondaire------------------------ */
+        // composants center et espacés de pixels en horizontal et pixels vertical
+        JPanel sousPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, AffichageInfo.screenWidth/51, AffichageInfo.screenHeight/28));
+
+        // Ajouter trois labels au sous-panneau (deuxième ligne)
+        AffichageInfo.labelNbJoueur.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+        AffichageInfo.labelNbJoueur.setForeground(Color.white);
+        sousPanel.add(AffichageInfo.labelNbJoueur);
+
+        JSpinner.DefaultEditor editor = (JSpinner.DefaultEditor) AffichageInfo.spinnerNbJoueur.getEditor();
+        editor.getTextField().setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+        AffichageInfo.spinnerNbJoueur.setEnabled(true);
+        sousPanel.add(AffichageInfo.spinnerNbJoueur);
+
+        AffichageInfo.boutonValiderNbJoueur.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonValiderNbJoueur.setBackground(Color.darkGray);
+        AffichageInfo.boutonValiderNbJoueur.setForeground(Color.WHITE);
+        sousPanel.add(AffichageInfo.boutonValiderNbJoueur);
+
+        // Ajouter du vide autour du sous-panneau pour créer de l'espace
+        sousPanel.setBorder(BorderFactory.createEmptyBorder(AffichageInfo.screenHeight/5, 0, AffichageInfo.screenHeight/8, 0));
+        sousPanel.setBackground(AffichageInfo.couleurFond);
+
+        // Ajouter le conteneur extérieur au panneau principal
+        panel.add(sousPanel, BorderLayout.CENTER);
+
+        panel.setBackground(AffichageInfo.couleurFond);
+        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+    }
+
+    public static void pagePseudoPerso(JPanel panel) {
+        /* -----------------------Panel principal------------------------ */
+        panel.setLayout(new BorderLayout());
+
+        AffichageInfo.labelTitrePseudoJoueur.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+        AffichageInfo.labelTitrePseudoJoueur.setForeground(Color.WHITE);
+        AffichageInfo.labelTitrePseudoJoueur.setHorizontalAlignment(JLabel.CENTER);
+
+        // Ajoutez le titre centré en haut du BorderLayout
+        panel.add(AffichageInfo.labelTitrePseudoJoueur, BorderLayout.NORTH);
+
+        /* -----------------------Panel textArea des pseudos------------------------ */
+        JPanel textAreaPanel = new JPanel();
+        initialiserComposants(textAreaPanel);
+
+        textAreaPanel.setBackground(AffichageInfo.couleurFond);
+        textAreaPanel.setLayout(new FlowLayout(FlowLayout.LEFT, AffichageInfo.screenWidth/31, AffichageInfo.screenHeight/12));
+
+        textAreaPanel.setBorder(BorderFactory.createEmptyBorder(AffichageInfo.screenHeight/17, AffichageInfo.screenHeight/76, AffichageInfo.screenHeight/28, AffichageInfo.screenHeight/76));
+
+        // Ajoutez le panneau de JTextArea au centre du BorderLayout
+        panel.add(textAreaPanel);
+
+        /* -----------------------Panel bouton valider pseudo------------------------ */
+        JPanel boutonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, AffichageInfo.screenWidth/76, AffichageInfo.screenHeight/4)); // Utilisez FlowLayout pour le bouton
+        AffichageInfo.boutonValiderPseudo.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonValiderPseudo.setBackground(Color.darkGray);
+        AffichageInfo.boutonValiderPseudo.setForeground(Color.WHITE);
+
+        boutonPanel.setBackground(AffichageInfo.couleurFond);
+        boutonPanel.add(AffichageInfo.boutonValiderPseudo);
+
+        // Ajoutez le panneau de bouton à droite du BorderLayout
+        panel.add(boutonPanel, BorderLayout.EAST);
+
+        panel.setBackground(AffichageInfo.couleurFond);
+        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+    }
+
+    public static void initialiserComposants(JPanel panel) {
+        AffichageInfo.areaTabPseudo = new JTextArea[AffichageInfo.nbJoueur];
+
+        for (int i = 0; i < AffichageInfo.nbJoueur; i++) {
+            JTextArea areaPseudo = new JTextArea(1, AffichageInfo.screenWidth/76);
+            areaPseudo.setFont(new Font("Arial", Font.BOLD, AffichageInfo.sizeTexte));
+
+            String nom = "Joueur " + (i+1) + " : ";
+            JLabel labelPseudo = new JLabel(nom);
+            labelPseudo.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+            labelPseudo.setForeground(Color.WHITE);
+
+            // Ajoutez le label puis le JTextArea au panneau
+            panel.add(labelPseudo);
+            panel.add(areaPseudo);
+
+            AffichageInfo.areaTabPseudo[i] = areaPseudo;
+        }
+    }
+
+    public static void pageChoixMode(JPanel panel){
+        /* -----------------------Panel principal------------------------ */
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        // Titre
+        AffichageInfo.labelTitreMode.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+        AffichageInfo.labelTitreMode.setForeground(Color.WHITE);
+        AffichageInfo.labelTitreMode.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(AffichageInfo.labelTitreMode);
+
+        // Ajouter un espace vertical
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
+
+        // Checkbox
+        AffichageInfo.checkUnanimate.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.checkUnanimate.setBackground(AffichageInfo.couleurFond);
+        AffichageInfo.checkUnanimate.setForeground(Color.WHITE);
+
+        AffichageInfo.checkMoyenne.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.checkMoyenne.setBackground(AffichageInfo.couleurFond);
+        AffichageInfo.checkMoyenne.setForeground(Color.WHITE);
+        panel.add(AffichageInfo.checkUnanimate);
+        panel.add(AffichageInfo.checkMoyenne);
+
+        // Ajouter un espace vertical
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
+
+        // Bouton
+        AffichageInfo.boutonValiderMode.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonValiderMode.setBackground(Color.darkGray);
+        AffichageInfo.boutonValiderMode.setForeground(Color.WHITE);
+        AffichageInfo.boutonValiderMode.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(AffichageInfo.boutonValiderMode);
+
+        panel.setBackground(AffichageInfo.couleurFond);
+        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+    }
+}
