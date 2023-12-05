@@ -14,7 +14,7 @@ public class Affichage {
         panel.add(AffichageInfo.labelTitreAccueil);
 
         // Ajouter un espace vertical
-        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 5));
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 4));
 
         // Bouton
         AffichageInfo.boutonNouvellePartie.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
@@ -22,6 +22,15 @@ public class Affichage {
         AffichageInfo.boutonNouvellePartie.setForeground(Color.WHITE);
         AffichageInfo.boutonNouvellePartie.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(AffichageInfo.boutonNouvellePartie);
+
+        // Ajouter un espace vertical
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 10));
+
+        AffichageInfo.boutonReprendrePartie.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonReprendrePartie.setBackground(Color.darkGray);
+        AffichageInfo.boutonReprendrePartie.setForeground(Color.WHITE);
+        AffichageInfo.boutonReprendrePartie.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(AffichageInfo.boutonReprendrePartie);
 
         panel.setBackground(AffichageInfo.couleurFond);
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
@@ -129,7 +138,7 @@ public class Affichage {
     public static void pageChoixMode(JPanel panel){
         /* -----------------------Panel principal------------------------ */
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        // Titre
+
         AffichageInfo.labelTitreMode.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
         AffichageInfo.labelTitreMode.setForeground(Color.WHITE);
         AffichageInfo.labelTitreMode.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -142,11 +151,15 @@ public class Affichage {
         AffichageInfo.checkUnanimate.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
         AffichageInfo.checkUnanimate.setBackground(AffichageInfo.couleurFond);
         AffichageInfo.checkUnanimate.setForeground(Color.WHITE);
+        AffichageInfo.checkUnanimate.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(AffichageInfo.checkUnanimate);
+
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 76));
 
         AffichageInfo.checkMoyenne.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
         AffichageInfo.checkMoyenne.setBackground(AffichageInfo.couleurFond);
         AffichageInfo.checkMoyenne.setForeground(Color.WHITE);
-        panel.add(AffichageInfo.checkUnanimate);
+        AffichageInfo.checkMoyenne.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(AffichageInfo.checkMoyenne);
 
         // Ajouter un espace vertical
@@ -158,6 +171,19 @@ public class Affichage {
         AffichageInfo.boutonValiderMode.setForeground(Color.WHITE);
         AffichageInfo.boutonValiderMode.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(AffichageInfo.boutonValiderMode);
+
+        panel.setBackground(AffichageInfo.couleurFond);
+        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+    }
+
+    public static void pagePlateau(JPanel panel){
+        /* -----------------------Panel principal------------------------ */
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        AffichageInfo.labelTitrePlateau.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+        AffichageInfo.labelTitrePlateau.setForeground(Color.WHITE);
+        AffichageInfo.labelTitrePlateau.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(AffichageInfo.labelTitrePlateau);
 
         panel.setBackground(AffichageInfo.couleurFond);
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));

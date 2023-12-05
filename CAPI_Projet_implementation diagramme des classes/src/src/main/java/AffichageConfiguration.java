@@ -9,18 +9,27 @@ public class AffichageConfiguration extends JPanel {
     private final JPanel nbJoueurPanel = new JPanel();
     private final JPanel pseudoPanel = new JPanel();
     private final JPanel modePanel = new JPanel();
+    private final JPanel plateauPanel = new JPanel();
 
     public AffichageConfiguration(){
         Affichage.pageAccueil(accueilPanel);
         add(accueilPanel);
 
-        /* -------------------Bouton pour parametrer le nombre de joueur ainsi que les pseudos---------------------- */
+        /* -------------------Bouton pour configurer une nouvelle partie---------------------- */
         AffichageInfo.boutonNouvellePartie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Affichage.pageNbPerso(nbJoueurPanel);
                 add(nbJoueurPanel);
                 setMenu(1);
+            }
+        });
+
+        /* -------------------Bouton pour reprendre une partie si possible---------------------- */
+        AffichageInfo.boutonReprendrePartie.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -40,12 +49,11 @@ public class AffichageConfiguration extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (verifierPseudosNonNuls() && verifierPseudosUniques()) {
-                    System.out.println("Tous les pseudos sont valides.");
                     Affichage.pageChoixMode(modePanel);
                     add(modePanel);
                     setMenu(3);
                 } else {
-                    System.out.println("Certains pseudos sont manquants ou identiques.");
+                    JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -56,15 +64,19 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 boolean unanimiteSelected = AffichageInfo.checkUnanimate.isSelected();
                 boolean moyenneSelected = AffichageInfo.checkMoyenne.isSelected();
+
                 if (moyenneSelected && !unanimiteSelected) {
+                    Affichage.pagePlateau(plateauPanel);
+                    add(plateauPanel);
                     setMenu(4);
-                    System.out.println("CHECK MOYENNE VALIDER");
-                } else if(unanimiteSelected && !moyenneSelected) {
+                    System.out.println("CHECK MOYENNE VALIDÉ");
+                } else if (unanimiteSelected && !moyenneSelected) {
+                    Affichage.pagePlateau(plateauPanel);
+                    add(plateauPanel);
                     setMenu(4);
-                    System.out.println("CHECK UNANIMITE VALIDER");
-                }
-                else{
-                    System.out.println("RIEN VALIDER");
+                    System.out.println("CHECK UNANIMITÉ VALIDÉ");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -79,6 +91,7 @@ public class AffichageConfiguration extends JPanel {
                 nbJoueurPanel.setVisible(false);
                 pseudoPanel.setVisible(false);
                 modePanel.setVisible(false);
+                plateauPanel.setVisible(false);
                 break;
             case 1:
                 // Affichage du menu pour choisir le nombre de joueurs
@@ -86,6 +99,7 @@ public class AffichageConfiguration extends JPanel {
                 nbJoueurPanel.setVisible(true);
                 pseudoPanel.setVisible(false);
                 modePanel.setVisible(false);
+                plateauPanel.setVisible(false);
                 break;
             case 2:
                 // Affichage du menu pour choisir les pseudos
@@ -93,6 +107,7 @@ public class AffichageConfiguration extends JPanel {
                 nbJoueurPanel.setVisible(false);
                 pseudoPanel.setVisible(true);
                 modePanel.setVisible(false);
+                plateauPanel.setVisible(false);
                 break;
             case 3:
                 // Affichage du menu pour choisir le mode de jeu
@@ -100,6 +115,15 @@ public class AffichageConfiguration extends JPanel {
                 nbJoueurPanel.setVisible(false);
                 pseudoPanel.setVisible(false);
                 modePanel.setVisible(true);
+                plateauPanel.setVisible(false);
+                break;
+            case 4:
+                // Affichage du plateau de jeu
+                accueilPanel.setVisible(false);
+                nbJoueurPanel.setVisible(false);
+                pseudoPanel.setVisible(false);
+                modePanel.setVisible(false);
+                plateauPanel.setVisible(true);
                 break;
         }
     }
