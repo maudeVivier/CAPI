@@ -41,7 +41,6 @@ public class AffichageInfo {
     public static JSpinner spinnerNbJoueur = new JSpinner(spinnerModel);
 
     /* --------------------TextArea--------------------- */
-    public static JTextArea[] areaTabPseudo = null;
     public static JLabel labelTitreAccueil = new JLabel("Planning Poker");
     public static JLabel labelTitreNbJoueur = new JLabel("Configuration de la partie");
     public static JLabel labelNbJoueur = new JLabel("Nombre de joueur :\n(entre 2 et 12)");

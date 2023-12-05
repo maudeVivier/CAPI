@@ -2,8 +2,8 @@ package src.main.java;
 
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+//import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.File;
 import java.io.IOException;
 public class Backlog {
@@ -23,7 +23,7 @@ public class Backlog {
      * Si une IOException se produit lors de l'écriture du fichier,
      * elle sera interceptée et traitée dans le bloc catch.
      * */
-    public void sauvegarderEnJSON(String chemin) {
+    /*public void sauvegarderEnJSON(String chemin) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
@@ -35,7 +35,7 @@ public class Backlog {
             e.printStackTrace();
         }
 
-    }
+    }*/
     /*
      * La méthode chargerDepuisJSON utilise un bloc try-catch
      * pour intercepter différentes exceptions qui pourraient survenir
@@ -43,7 +43,7 @@ public class Backlog {
      * Les exceptions spécifiques liées à Jackson
      * sont ajoutées dans les blocs catch correspondants.
      * */
-    public static Backlog chargerDepuisJSON(String chemin) {
+    /*public static Backlog chargerDepuisJSON(String chemin) {
         ObjectMapper objectMapper = new ObjectMapper();
         Backlog backlog = null;
 
@@ -56,5 +56,5 @@ public class Backlog {
         }
 
         return backlog;
-    }
+    }*/
 }
