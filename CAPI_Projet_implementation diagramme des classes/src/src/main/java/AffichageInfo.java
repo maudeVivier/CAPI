@@ -29,9 +29,12 @@ public class AffichageInfo {
 
     /* --------------------Differents boutons--------------------- */
     public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
+
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
+
+    public static JTextArea[] areaTabPseudo ;
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
