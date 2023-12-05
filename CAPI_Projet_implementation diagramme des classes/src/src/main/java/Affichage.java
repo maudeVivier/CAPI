@@ -3,8 +3,18 @@ package src.main.java;
 import java.awt.*;
 import javax.swing.*;
 
-//Classe qui va permettre de creer les differentes fonction d'affichage des panels
+/**
+ * La classe Affichage fournit des méthodes statiques pour gérer l'affichage et l'interface graphique du jeu.
+ * Elle inclut des fonctionnalités telles que l'affichage de pages, la configuration de composants,
+ * et la gestion des éléments d'interface utilisateur.
+ */
 public class Affichage {
+    /**
+     * Affiche la page d'accueil avec un panneau spécifié.
+     * Cette méthode configure le panneau avec un titre, des boutons et des espaces verticaux.
+     *
+     * @param panel Le panneau sur lequel afficher la page d'accueil.
+     */
     public static void pageAccueil(JPanel panel){
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         // Titre
@@ -36,6 +46,12 @@ public class Affichage {
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
 
+    /**
+     * Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié.
+     * Cette méthode configure le panneau avec différents éléments.
+     *
+     * @param panel Le panneau sur lequel afficher la page pour spécifier le nombre de joueurs.
+     */
     public static void pageNbPerso(JPanel panel){
         /* -----------------------Panel principal------------------------ */
         panel.setLayout(new BorderLayout());
@@ -76,6 +92,12 @@ public class Affichage {
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
 
+    /**
+     * Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié.
+     * Cette méthode configure le panneau avec différents éléments.
+     *
+     * @param panel Le panneau sur lequel afficher la page de saisie des pseudos.
+     */
     public static void pagePseudoPerso(JPanel panel) {
         /* -----------------------Panel principal------------------------ */
         panel.setLayout(new BorderLayout());
@@ -115,6 +137,12 @@ public class Affichage {
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
 
+    /**
+     * Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié.
+     * Pour chaque joueur, un label indiquant le numéro du joueur et un JTextArea pour saisir le pseudo sont créés.
+     *
+     * @param panel Le panneau sur lequel initialiser les composants pour la saisie des pseudos.
+     */
     public static void initialiserComposants(JPanel panel) {
         AffichageInfo.areaTabPseudo = new JTextArea[AffichageInfo.nbJoueur];
 
@@ -135,6 +163,12 @@ public class Affichage {
         }
     }
 
+    /**
+     * Affiche la page de choix du mode de jeu avec un panneau spécifié.
+     * Cette méthode configure le panneau avec différents éléments.
+     *
+     * @param panel Le panneau sur lequel afficher la page de choix du mode de jeu.
+     */
     public static void pageChoixMode(JPanel panel){
         /* -----------------------Panel principal------------------------ */
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -176,6 +210,12 @@ public class Affichage {
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
 
+    /**
+     * Affiche la page du plateau de jeu avec un panneau spécifié.
+     * Cette méthode configure le panneau avec différents éléments.
+     *
+     * @param panel Le panneau sur lequel afficher la page du plateau de jeu.
+     */
     public static void pagePlateau(JPanel panel){
         /* -----------------------Panel principal------------------------ */
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
