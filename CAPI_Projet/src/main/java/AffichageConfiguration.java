@@ -27,7 +27,10 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonReprendrePartie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
+                Affichage.pagePlateau(plateauPanel);
+                add(plateauPanel);
+                setMenu(4);
+                //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -76,6 +79,14 @@ public class AffichageConfiguration extends JPanel {
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
+            }
+        });
+
+        /* -------------------Bouton pour sauvegarder la partie---------------------- */
+        AffichageInfo.boutonSauvegarderPartie.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Bouton sauvegarder une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
 

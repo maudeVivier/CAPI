@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Fenetre extends JFrame{
     public static void main(String[] args) {
@@ -19,3 +20,4 @@ public class Fenetre extends JFrame{
         });
     }
 }
+

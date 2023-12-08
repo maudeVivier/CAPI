@@ -1,6 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @file AffichageInfo.java
+ * @brief Contient les informations d'affichage pour l'interface graphique.
+ */
+
+/**
+ * @class AffichageInfo
+ * @brief Classe statique contenant les informations d'affichage pour l'interface graphique.
+ *
+ * Cette classe stocke des paramètres tels que la dimension de l'écran, les tailles de police,
+ * les tailles des boutons, des variables, des couleurs, des boutons, des spinners, des textareas,
+ * des labels, et des checkboxes utilisés dans l'interface graphique du jeu "Planning Poker".
+ */
 public class AffichageInfo {
     /* --------------------Dimension de l'écran--------------------- */
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -14,8 +27,6 @@ public class AffichageInfo {
     /* --------------------Differentes tailles pour les boutons--------------------- */
     public static int largeurBouton = screenWidth / 5;
     public static int hauteurBouton = (screenHeight / 10) - (screenHeight / 138);
-    public static int largeurReponse = screenWidth / 5;
-    public static int hauteurReponse = screenHeight / 18;
 
     /* --------------------Différentes variables--------------------- */
     public static int nbJoueur = 2;
@@ -29,6 +40,7 @@ public class AffichageInfo {
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
+    public static JButton boutonSauvegarderPartie = new JButton("Sauvegarder");
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
@@ -40,11 +52,10 @@ public class AffichageInfo {
     /* --------------------Label--------------------- */
     public static JLabel labelTitreAccueil = new JLabel("Planning Poker");
     public static JLabel labelTitreNbJoueur = new JLabel("Configuration de la partie");
-    public static JLabel labelNbJoueur = new JLabel("Nombre de joueur : (entre 2 et 12)");
+    public static JLabel labelNbJoueur = new JLabel("<html>Nombre de joueur :<br>(entre 2 et 12)</html>");
     public static JLabel labelTitrePseudoJoueur = new JLabel("Choix des pseudos");
     public static JLabel labelTitreMode = new JLabel("Choix du mode de jeu");
     public static JLabel labelTitrePlateau = new JLabel("Jeu");
-
 
     /* --------------------Checkbox--------------------- */
     public static JCheckBox checkUnanimate = new JCheckBox("Unanimité");

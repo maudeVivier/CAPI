@@ -2,10 +2,17 @@ import java.awt.*;
 import javax.swing.*;
 
 /**
- * La classe Affichage fournit des méthodes statiques pour gérer l'affichage et l'interface graphique du jeu.
- * Elle inclut des fonctionnalités telles que l'affichage de pages, la configuration de composants,
- * et la gestion des éléments d'interface utilisateur.
+ * @file Affichage.java
+ * @brief Contient les méthodes pour afficher différentes pages de l'interface graphique du jeu "Planning Poker".
  */
+
+/**
+ * @class Affichage
+ * @brief Classe statique contenant les méthodes pour afficher différentes pages de l'interface graphique.
+ *
+ * Cette classe offre des méthodes pour afficher les différents affichages et la gestion des éléments d'interface utilisateur.
+ */
+
 public class Affichage {
     /**
      * Affiche la page d'accueil avec un panneau spécifié.
@@ -204,6 +211,19 @@ public class Affichage {
         AffichageInfo.boutonValiderMode.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(AffichageInfo.boutonValiderMode);
 
+        // Ajouter un espace vertical
+        panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 10));
+
+        // Règles
+        JLabel labelExplicatif = new JLabel("<html>Règles :"
+                + "<br>Mode Unanimité : Les joueurs votent jusqu'à l'unanimité."
+                + "<br>Mode Moyenne : Utilisation de la moyenne à partir du deuxième tour."
+                + "</html>");
+        labelExplicatif.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+        labelExplicatif.setForeground(Color.WHITE);
+        labelExplicatif.setAlignmentX(Component.LEFT_ALIGNMENT);
+        panel.add(labelExplicatif);
+
         panel.setBackground(AffichageInfo.couleurFond);
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
@@ -222,6 +242,7 @@ public class Affichage {
         AffichageInfo.labelTitrePlateau.setForeground(Color.WHITE);
         AffichageInfo.labelTitrePlateau.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(AffichageInfo.labelTitrePlateau);
+
 
         panel.setBackground(AffichageInfo.couleurFond);
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
