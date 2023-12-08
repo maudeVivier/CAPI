@@ -1,0 +1,91 @@
+\doxysection{Référence de la classe Affichage\+Info}
+\hypertarget{class_affichage_info}{}\label{class_affichage_info}\index{AffichageInfo@{AffichageInfo}}
+\doxysubsubsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_affichage_info_a928fa55fe149f55d798c87a4f21ac633}\label{class_affichage_info_a928fa55fe149f55d798c87a4f21ac633} 
+static Dimension {\bfseries screen\+Size} = Toolkit.\+get\+Default\+Toolkit().get\+Screen\+Size()
+\item 
+\Hypertarget{class_affichage_info_aa320afa64eefc347af8886a492bc6b48}\label{class_affichage_info_aa320afa64eefc347af8886a492bc6b48} 
+static final int {\bfseries screen\+Width} = (int) screen\+Size.\+get\+Width()
+\item 
+\Hypertarget{class_affichage_info_a0eae5f2c94cd1cde2c0f2981fed696e4}\label{class_affichage_info_a0eae5f2c94cd1cde2c0f2981fed696e4} 
+static final int {\bfseries screen\+Height} = (int) screen\+Size.\+get\+Height()
+\item 
+\Hypertarget{class_affichage_info_a1e11d1b1eaeb9509389638e39eac2c77}\label{class_affichage_info_a1e11d1b1eaeb9509389638e39eac2c77} 
+static int {\bfseries size\+Titre} = (int) (screen\+Width \texorpdfstring{$\ast$}{*} 0.\+059)
+\item 
+\Hypertarget{class_affichage_info_a170b9185dd015025bb83f9d1b9f65329}\label{class_affichage_info_a170b9185dd015025bb83f9d1b9f65329} 
+static int {\bfseries size\+Texte} = (int) (screen\+Width \texorpdfstring{$\ast$}{*} 0.\+015)
+\item 
+\Hypertarget{class_affichage_info_a6b42616d2e67e2b2e22c33a122ac81ff}\label{class_affichage_info_a6b42616d2e67e2b2e22c33a122ac81ff} 
+static int {\bfseries largeur\+Bouton} = screen\+Width / 5
+\item 
+\Hypertarget{class_affichage_info_ae67e12aa5ca668db24e4ef4d0883f22f}\label{class_affichage_info_ae67e12aa5ca668db24e4ef4d0883f22f} 
+static int {\bfseries hauteur\+Bouton} = (screen\+Height / 10) -\/ (screen\+Height / 138)
+\item 
+\Hypertarget{class_affichage_info_a33b383f91f8df38e1b3fcc0a877352f0}\label{class_affichage_info_a33b383f91f8df38e1b3fcc0a877352f0} 
+static int {\bfseries largeur\+Reponse} = screen\+Width / 5
+\item 
+\Hypertarget{class_affichage_info_a102d201efc5e06432add93674f65f4a3}\label{class_affichage_info_a102d201efc5e06432add93674f65f4a3} 
+static int {\bfseries hauteur\+Reponse} = screen\+Height / 18
+\item 
+\Hypertarget{class_affichage_info_ab940c8849356d3cf90d36dbd428e4408}\label{class_affichage_info_ab940c8849356d3cf90d36dbd428e4408} 
+static int {\bfseries nb\+Joueur} = 2
+\item 
+\Hypertarget{class_affichage_info_a339d952b9b1fb025b20aaf901fb50f2b}\label{class_affichage_info_a339d952b9b1fb025b20aaf901fb50f2b} 
+static Color {\bfseries couleur\+Fond} = new Color(0, 0, 50)
+\item 
+\Hypertarget{class_affichage_info_ad39eebfcc50f3dd5c1197fde2123c95a}\label{class_affichage_info_ad39eebfcc50f3dd5c1197fde2123c95a} 
+static JButton {\bfseries bouton\+Nouvelle\+Partie} = new JButton("{}Nouvelle Partie"{})
+\item 
+\Hypertarget{class_affichage_info_a66f0db4932ad5a1318b54fe842f882c8}\label{class_affichage_info_a66f0db4932ad5a1318b54fe842f882c8} 
+static JButton {\bfseries bouton\+Reprendre\+Partie} = new JButton("{}Reprendre la partie"{})
+\item 
+\Hypertarget{class_affichage_info_ab0dd4ffe9be1efb7061f992c5517e0e1}\label{class_affichage_info_ab0dd4ffe9be1efb7061f992c5517e0e1} 
+static JButton {\bfseries bouton\+Valider\+Nb\+Joueur} = new JButton("{}Valider"{})
+\item 
+\Hypertarget{class_affichage_info_ada19470bb9782a29a366d64e1f532e50}\label{class_affichage_info_ada19470bb9782a29a366d64e1f532e50} 
+static JButton {\bfseries bouton\+Valider\+Pseudo} = new JButton("{}Valider"{})
+\item 
+\Hypertarget{class_affichage_info_a6c4628b9795dc3fa9f075f31fab98861}\label{class_affichage_info_a6c4628b9795dc3fa9f075f31fab98861} 
+static JButton {\bfseries bouton\+Valider\+Mode} = new JButton("{}Valider"{})
+\item 
+\Hypertarget{class_affichage_info_aeb3d3d210d6af187209f76f96d29b012}\label{class_affichage_info_aeb3d3d210d6af187209f76f96d29b012} 
+static Spinner\+Model {\bfseries spinner\+Model} = new Spinner\+Number\+Model(2, 2, 12, 1)
+\item 
+\Hypertarget{class_affichage_info_a3b1ba557fb15cb662101966ac87bfabb}\label{class_affichage_info_a3b1ba557fb15cb662101966ac87bfabb} 
+static JSpinner {\bfseries spinner\+Nb\+Joueur} = new JSpinner(spinner\+Model)
+\item 
+\Hypertarget{class_affichage_info_af53625fca25af599f080d0f8455d9882}\label{class_affichage_info_af53625fca25af599f080d0f8455d9882} 
+static JText\+Area\mbox{[}$\,$\mbox{]} {\bfseries area\+Tab\+Pseudo}
+\item 
+\Hypertarget{class_affichage_info_aeaa8675c330a8d2fbd5b928b13eedc6b}\label{class_affichage_info_aeaa8675c330a8d2fbd5b928b13eedc6b} 
+static JLabel {\bfseries label\+Titre\+Accueil} = new JLabel("{}Planning Poker"{})
+\item 
+\Hypertarget{class_affichage_info_a0c59835c3874b3ef21d3d7b63a2f1981}\label{class_affichage_info_a0c59835c3874b3ef21d3d7b63a2f1981} 
+static JLabel {\bfseries label\+Titre\+Nb\+Joueur} = new JLabel("{}Configuration de la partie"{})
+\item 
+\Hypertarget{class_affichage_info_ad5b9c4d4b16b272675faca5f8cd91653}\label{class_affichage_info_ad5b9c4d4b16b272675faca5f8cd91653} 
+static JLabel {\bfseries label\+Nb\+Joueur} = new JLabel("{}Nombre de joueur \+: (entre 2 et 12)"{})
+\item 
+\Hypertarget{class_affichage_info_a2ef56fcc4f45e688ee1e410c538d1c4d}\label{class_affichage_info_a2ef56fcc4f45e688ee1e410c538d1c4d} 
+static JLabel {\bfseries label\+Titre\+Pseudo\+Joueur} = new JLabel("{}Choix des pseudos"{})
+\item 
+\Hypertarget{class_affichage_info_a2f0a83bbee869866a597b42c922c4110}\label{class_affichage_info_a2f0a83bbee869866a597b42c922c4110} 
+static JLabel {\bfseries label\+Titre\+Mode} = new JLabel("{}Choix du mode de jeu"{})
+\item 
+\Hypertarget{class_affichage_info_ac29fead0c81786fe6bb83cbee2eb2322}\label{class_affichage_info_ac29fead0c81786fe6bb83cbee2eb2322} 
+static JLabel {\bfseries label\+Titre\+Plateau} = new JLabel("{}Jeu"{})
+\item 
+\Hypertarget{class_affichage_info_acbaff1d10c2da6ef9b017285c02b286b}\label{class_affichage_info_acbaff1d10c2da6ef9b017285c02b286b} 
+static JCheck\+Box {\bfseries check\+Unanimate} = new JCheck\+Box("{}Unanimité"{})
+\item 
+\Hypertarget{class_affichage_info_ac33dfcba6664c247891f5e87dd362b12}\label{class_affichage_info_ac33dfcba6664c247891f5e87dd362b12} 
+static JCheck\+Box {\bfseries check\+Moyenne} = new JCheck\+Box("{}Moyenne"{})
+\end{DoxyCompactItemize}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/Affichage\+Info.\+java\end{DoxyCompactItemize}
