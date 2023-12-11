@@ -7,9 +7,9 @@
     <list default="true" id="90f7d32e-340d-4dc3-a510-905cd2e2b519" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Affichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Affichage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backlog.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backlog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +32,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/finar/Documents/Univ lyon 2 2023-2024/Conception agile de projet/CAPI/CAPI/CAPI_Projet_implementation diagramme des classes/src/src/main/java",
+    "git-widget-placeholder": "affichage__sans__json",
+    "last_opened_file_path": "C:/Users/finar/Documents/Univ lyon 2 2023-2024/Conception agile de projet/CAPI/CAPI/CAPI_Projet_implementation diagramme des classes/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -102,6 +102,9 @@
       <workItem from="1701698728584" duration="182000" />
       <workItem from="1701698972632" duration="227000" />
       <workItem from="1701699436031" duration="361000" />
+      <workItem from="1701715721187" duration="22000" />
+      <workItem from="1702294320605" duration="711000" />
+      <workItem from="1702295623151" duration="42000" />
     </task>
     <servers />
   </component>
