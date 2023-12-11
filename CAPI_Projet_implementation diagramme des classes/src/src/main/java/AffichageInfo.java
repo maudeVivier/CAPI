@@ -26,7 +26,7 @@ public class AffichageInfo {
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
 
-    public static JTextArea[] areaTabPseudo ;
+    //public static JTextArea[] areaTabPseudo ;
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
