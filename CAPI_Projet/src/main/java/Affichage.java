@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
@@ -234,17 +237,116 @@ public class Affichage {
      *
      * @param panel Le panneau sur lequel afficher la page du plateau de jeu.
      */
-    public static void pagePlateau(JPanel panel){
-        /* -----------------------Panel principal------------------------ */
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        public static void pagePlateau(JPanel panel, Class<?> callingClass) {
+            /* -----------------------Panel principal------------------------ */
+            panel.setLayout(new BorderLayout());
 
-        AffichageInfo.labelTitrePlateau.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
-        AffichageInfo.labelTitrePlateau.setForeground(Color.WHITE);
-        AffichageInfo.labelTitrePlateau.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panel.add(AffichageInfo.labelTitrePlateau);
+            /* -----------------------Panel du titre------------------------ */
+            JPanel titrePanel = new JPanel();
+            titrePanel.setBackground(AffichageInfo.couleurFond);
+            AffichageInfo.labelTitrePlateau.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+            AffichageInfo.labelTitrePlateau.setForeground(Color.WHITE);
+            titrePanel.add(AffichageInfo.labelTitrePlateau);
+            panel.add(titrePanel, BorderLayout.NORTH);
 
+            /* -----------------------Panel central qui contient le panel qui affiche la tache a voter et celui des cartes------------------------ */
+            JPanel centrePanel = new JPanel();
+            centrePanel.setLayout(new BoxLayout(centrePanel, BoxLayout.Y_AXIS));
+            centrePanel.setBackground(AffichageInfo.couleurFond);
 
-        panel.setBackground(AffichageInfo.couleurFond);
-        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
-    }
+            // Ajoutez un espace vertical
+            centrePanel.add(Box.createRigidArea(new Dimension(0, AffichageInfo.screenHeight/20))); // Ajustez la hauteur de l'espace selon vos besoins
+
+            /* -----------------------Panel pour ecrire la tache a juger------------------------ */
+            JPanel phrasePanel = new JPanel();
+            phrasePanel.setBackground(AffichageInfo.couleurFond);
+            JLabel phraseTextLabel = new JLabel("Votre phrase ici sur plusieurs lignes.");
+            phraseTextLabel.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+            phraseTextLabel.setForeground(Color.WHITE);
+            phrasePanel.add(phraseTextLabel);
+            centrePanel.add(phrasePanel);
+
+            System.out.println(AffichageInfo.screenHeight);
+            // Ajoutez un espace vertical
+           // centrePanel.add(Box.createRigidArea(new Dimension(0, AffichageInfo.screenHeight/20))); // Ajustez la hauteur de l'espace selon vos besoins
+
+            /* -----------------------Panel des cartes------------------------ */
+            JPanel cartesPanel = new JPanel();
+            cartesPanel.setBackground(AffichageInfo.couleurFond);
+
+            // Ajoute les cartes
+            try {
+                AffichageInfo.carte_0 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_0.jpg")));
+                AffichageInfo.carte_1 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_1.jpg")));
+                AffichageInfo.carte_2 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_2.jpg")));
+                AffichageInfo.carte_3 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_3.jpg")));
+                AffichageInfo.carte_5 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_5.jpg")));
+                AffichageInfo.carte_8 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_8.jpg")));
+                AffichageInfo.carte_13 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_13.jpg")));
+                AffichageInfo.carte_20 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_20.jpg")));
+                AffichageInfo.carte_40 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_40.jpg")));
+                AffichageInfo.carte_100 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_100.jpg")));
+                AffichageInfo.carte_cafe = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_cafe.jpg")));
+                AffichageInfo.carte_interro = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_interro.jpg")));
+
+                // Redimensionnez l'image à la largeur souhaitée
+                int largeurRedimensionnee = AffichageInfo.screenWidth/13;
+                int hauteurRedimensionnee = -1;
+                Image carteRedimensionnee0 = AffichageInfo.carte_0.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee1 = AffichageInfo.carte_1.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee2 = AffichageInfo.carte_2.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee3 = AffichageInfo.carte_3.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee5 = AffichageInfo.carte_5.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee8 = AffichageInfo.carte_8.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee13 = AffichageInfo.carte_13.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee20 = AffichageInfo.carte_20.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee40 = AffichageInfo.carte_40.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionnee100 = AffichageInfo.carte_100.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionneecafe = AffichageInfo.carte_cafe.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                Image carteRedimensionneeinterro = AffichageInfo.carte_interro.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+
+                JLabel carteLabel0 = new JLabel(new ImageIcon(carteRedimensionnee0));
+                JLabel carteLabel1 = new JLabel(new ImageIcon(carteRedimensionnee1));
+                JLabel carteLabel2 = new JLabel(new ImageIcon(carteRedimensionnee2));
+                JLabel carteLabel3 = new JLabel(new ImageIcon(carteRedimensionnee3));
+                JLabel carteLabel5 = new JLabel(new ImageIcon(carteRedimensionnee5));
+                JLabel carteLabel8 = new JLabel(new ImageIcon(carteRedimensionnee8));
+                JLabel carteLabel13 = new JLabel(new ImageIcon(carteRedimensionnee13));
+                JLabel carteLabel20 = new JLabel(new ImageIcon(carteRedimensionnee20));
+                JLabel carteLabel40 = new JLabel(new ImageIcon(carteRedimensionnee40));
+                JLabel carteLabel100 = new JLabel(new ImageIcon(carteRedimensionnee100));
+                JLabel carteLabelcafe = new JLabel(new ImageIcon(carteRedimensionneecafe));
+                JLabel carteLabelinterro = new JLabel(new ImageIcon(carteRedimensionneeinterro));
+
+                cartesPanel.add(carteLabel0);
+                cartesPanel.add(carteLabel1);
+                cartesPanel.add(carteLabel2);
+                cartesPanel.add(carteLabel3);
+                cartesPanel.add(carteLabel5);
+                cartesPanel.add(carteLabel8);
+                cartesPanel.add(carteLabel13);
+                cartesPanel.add(carteLabel20);
+                cartesPanel.add(carteLabel40);
+                cartesPanel.add(carteLabel100);
+                cartesPanel.add(carteLabelcafe);
+                cartesPanel.add(carteLabelinterro);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            centrePanel.add(cartesPanel);
+            panel.add(centrePanel, BorderLayout.CENTER);
+
+            /* -----------------------Panel principal------------------------ */
+            JPanel boutonPanel = new JPanel();
+            boutonPanel.setBackground(AffichageInfo.couleurFond);
+            AffichageInfo.boutonChoixCarte.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+            AffichageInfo.boutonChoixCarte.setBackground(Color.darkGray);
+            AffichageInfo.boutonChoixCarte.setForeground(Color.WHITE);
+            boutonPanel.add(AffichageInfo.boutonChoixCarte);
+            panel.add(boutonPanel, BorderLayout.PAGE_END);
+
+            panel.setBackground(AffichageInfo.couleurFond);
+            //panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+        }
 }

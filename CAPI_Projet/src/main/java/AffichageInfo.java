@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * @file AffichageInfo.java
@@ -41,6 +42,7 @@ public class AffichageInfo {
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
     public static JButton boutonSauvegarderPartie = new JButton("Sauvegarder");
+    public static JButton boutonChoixCarte = new JButton("Valider");
 
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
@@ -60,4 +62,19 @@ public class AffichageInfo {
     /* --------------------Checkbox--------------------- */
     public static JCheckBox checkUnanimate = new JCheckBox("Unanimité");
     public static JCheckBox checkMoyenne = new JCheckBox("Moyenne");
+
+    /* --------------------Images--------------------- */
+    public static BufferedImage carte_0;
+    public static BufferedImage carte_1;
+    public static BufferedImage carte_2;
+    public static BufferedImage carte_3;
+    public static BufferedImage carte_5;
+    public static BufferedImage carte_8;
+    public static BufferedImage carte_13;
+    public static BufferedImage carte_20;
+    public static BufferedImage carte_40;
+    public static BufferedImage carte_100;
+    public static BufferedImage carte_cafe;
+    public static BufferedImage carte_interro;
+
 }

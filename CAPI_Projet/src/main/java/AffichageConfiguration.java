@@ -1,5 +1,7 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.*;
 
 public class AffichageConfiguration extends JPanel {
@@ -27,7 +29,7 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonReprendrePartie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Affichage.pagePlateau(plateauPanel);
+                Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                 add(plateauPanel);
                 setMenu(4);
                 //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -67,12 +69,12 @@ public class AffichageConfiguration extends JPanel {
                 boolean moyenneSelected = AffichageInfo.checkMoyenne.isSelected();
 
                 if (moyenneSelected && !unanimiteSelected) {
-                    Affichage.pagePlateau(plateauPanel);
+                    Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
                     setMenu(4);
                     System.out.println("CHECK MOYENNE VALIDÉ");
                 } else if (unanimiteSelected && !moyenneSelected) {
-                    Affichage.pagePlateau(plateauPanel);
+                    Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
                     setMenu(4);
                     System.out.println("CHECK UNANIMITÉ VALIDÉ");
