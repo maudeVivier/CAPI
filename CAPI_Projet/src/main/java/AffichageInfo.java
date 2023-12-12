@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @file AffichageInfo.java
@@ -30,8 +32,17 @@ public class AffichageInfo {
     public static int hauteurBouton = (screenHeight / 10) - (screenHeight / 138);
 
     /* --------------------Différentes variables--------------------- */
-    public static int nbJoueur = 2;
+    public static int nbJoueur;
 
+    public static int tour = 0;
+
+    public static List<String> cartesVotees = new ArrayList<>();
+
+    public static final int MENU_ACCUEIL = 0;
+    public static final int MENU_NB_JOUEUR = 1;
+    public static final int MENU_PSEUDO = 2;
+    public static final int MENU_MODE = 3;
+    public static final int MENU_PLATEAU = 4;
     /* --------------------Couleurs--------------------- */
     public static Color couleurFond = new Color(0, 0, 50);
 

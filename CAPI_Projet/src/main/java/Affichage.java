@@ -305,31 +305,42 @@ public class Affichage {
                 Image carteRedimensionneecafe = AffichageInfo.carte_cafe.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
                 Image carteRedimensionneeinterro = AffichageInfo.carte_interro.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
 
-
                 AffichageInfo.labelCarte0 = new JLabel(new ImageIcon(carteRedimensionnee0));
                 AffichageInfo.labelCarte0.putClientProperty("valeur", "0");
+                AffichageInfo.labelCarte0.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte1 = new JLabel(new ImageIcon(carteRedimensionnee1));
                 AffichageInfo.labelCarte1.putClientProperty("valeur", "1");
+                AffichageInfo.labelCarte1.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte2 = new JLabel(new ImageIcon(carteRedimensionnee2));
                 AffichageInfo.labelCarte2.putClientProperty("valeur", "2");
+                AffichageInfo.labelCarte2.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte3 = new JLabel(new ImageIcon(carteRedimensionnee3));
                 AffichageInfo.labelCarte3.putClientProperty("valeur", "3");
+                AffichageInfo.labelCarte3.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte5 = new JLabel(new ImageIcon(carteRedimensionnee5));
                 AffichageInfo.labelCarte5.putClientProperty("valeur", "5");
+                AffichageInfo.labelCarte5.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte8 = new JLabel(new ImageIcon(carteRedimensionnee8));
                 AffichageInfo.labelCarte8.putClientProperty("valeur", "8");
+                AffichageInfo.labelCarte8.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte13 = new JLabel(new ImageIcon(carteRedimensionnee13));
                 AffichageInfo.labelCarte13.putClientProperty("valeur", "13");
+                AffichageInfo.labelCarte13.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte20 = new JLabel(new ImageIcon(carteRedimensionnee20));
                 AffichageInfo.labelCarte20.putClientProperty("valeur", "20");
+                AffichageInfo.labelCarte20.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte40 = new JLabel(new ImageIcon(carteRedimensionnee40));
                 AffichageInfo.labelCarte40.putClientProperty("valeur", "40");
+                AffichageInfo.labelCarte40.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarte100 = new JLabel(new ImageIcon(carteRedimensionnee100));
                 AffichageInfo.labelCarte100.putClientProperty("valeur", "100");
+                AffichageInfo.labelCarte100.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarteCafe = new JLabel(new ImageIcon(carteRedimensionneecafe));
                 AffichageInfo.labelCarteCafe.putClientProperty("valeur", "cafe");
+                AffichageInfo.labelCarteCafe.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
                 AffichageInfo.labelCarteInterro = new JLabel(new ImageIcon(carteRedimensionneeinterro));
                 AffichageInfo.labelCarteInterro.putClientProperty("valeur", "interro");
+                AffichageInfo.labelCarteInterro.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
 
                 cartesPanel.add(AffichageInfo.labelCarte0);
                 cartesPanel.add(AffichageInfo.labelCarte1);
@@ -343,8 +354,9 @@ public class Affichage {
                 cartesPanel.add(AffichageInfo.labelCarte100);
                 cartesPanel.add(AffichageInfo.labelCarteCafe);
                 cartesPanel.add(AffichageInfo.labelCarteInterro);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+
+            } catch (IOException e1) {
+                throw new RuntimeException(e1);
             }
 
             centrePanel.add(cartesPanel);

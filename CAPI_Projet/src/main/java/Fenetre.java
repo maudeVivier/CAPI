@@ -12,7 +12,7 @@ public class Fenetre extends JFrame{
             AffichageConfiguration affichageConfig = new AffichageConfiguration();
             frame.getContentPane().add(affichageConfig);
 
-            affichageConfig.setMenu(0, false);
+            affichageConfig.setMenu(AffichageInfo.MENU_ACCUEIL, false);
 
             frame.setSize(AffichageInfo.screenWidth, AffichageInfo.screenHeight);
             frame.setVisible(true);

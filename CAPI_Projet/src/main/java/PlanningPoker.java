@@ -1,16 +1,16 @@
 import java.util.*;
 public class PlanningPoker {
-    private ArrayList<Joueur> monJoueurs;
-    private ReglesPlanningPoker moRegles;
+    private List<Joueur> monJoueurs;
+    private ModeDeJeu moRegle;
     private Backlog monBacklog;
 
-    public PlanningPoker(ArrayList<Joueur> unListeJoueur, ReglesPlanningPoker unRegles, Backlog unBacklog)
+    public PlanningPoker(List<Joueur> unListeJoueur, ModeDeJeu unRegle) //, Backlog unBacklog)
     {
         monJoueurs = unListeJoueur;
-        moRegles = unRegles;
-        monBacklog = unBacklog;
+        moRegle = unRegle;
+        //monBacklog = unBacklog;
     }
-    public void initialiserPartie() {
+    public void initialiserPartie() { //Maude : a supprimer
         // Logique d'initialisation
     }
 

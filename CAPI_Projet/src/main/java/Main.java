@@ -15,7 +15,7 @@ public class Main {
             unTabJoueurs.add(un_joueur);
         }
         //__On récupèrera le mode de jeu__
-        ReglesPlanningPoker unRegle = new ReglesPlanningPoker(ModeDeJeu.MOYENNE);
+        //ReglesPlanningPoker unRegle = new ReglesPlanningPoker(ModeDeJeu.MOYENNE);
 
 
 

@@ -1,8 +1,10 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class AffichageConfiguration extends JPanel {
     private final JPanel accueilPanel = new JPanel();
@@ -10,6 +12,11 @@ public class AffichageConfiguration extends JPanel {
     private final JPanel pseudoPanel = new JPanel();
     private final JPanel modePanel = new JPanel();
     private final JPanel plateauPanel = new JPanel();
+
+    private String numeroCarte;
+
+    private PlanningPoker planningPoker;
+
 
     public AffichageConfiguration(){
         Affichage.pageAccueil(accueilPanel);
@@ -21,7 +28,7 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 Affichage.pageNbPerso(nbJoueurPanel);
                 add(nbJoueurPanel);
-                setMenu(1, false);
+                setMenu(AffichageInfo.MENU_NB_JOUEUR, false);
             }
         });
 
@@ -31,7 +38,7 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                 add(plateauPanel);
-                setMenu(4, true);
+                setMenu(AffichageInfo.MENU_PLATEAU, true);
                 //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
@@ -43,7 +50,7 @@ public class AffichageConfiguration extends JPanel {
                 AffichageInfo.nbJoueur = (int) AffichageInfo.spinnerNbJoueur.getValue();
                 Affichage.pagePseudoPerso(pseudoPanel);
                 add(pseudoPanel);
-                setMenu(2, false);
+                setMenu(AffichageInfo.MENU_PSEUDO, false);
             }
         });
 
@@ -54,7 +61,9 @@ public class AffichageConfiguration extends JPanel {
                 if (verifierPseudosNonNuls() && verifierPseudosUniques()) {
                     Affichage.pageChoixMode(modePanel);
                     add(modePanel);
-                    setMenu(3, false);
+                    setMenu(AffichageInfo.MENU_MODE, false);
+                    Joueur.listeJoueurs = Joueur.creerListeDeJoueurs();
+                    Joueur.afficheListeJoueur(Joueur.listeJoueurs);
                 } else {
                     JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -69,15 +78,19 @@ public class AffichageConfiguration extends JPanel {
                 boolean moyenneSelected = AffichageInfo.checkMoyenne.isSelected();
 
                 if (moyenneSelected && !unanimiteSelected) {
+                    ReglesPlanningPoker.monModeDeJeu = ModeDeJeu.MOYENNE;
                     Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
-                    setMenu(4, true);
+                    setMenu(AffichageInfo.MENU_PLATEAU, true);
                     System.out.println("CHECK MOYENNE VALIDÉ");
+                    planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
                 } else if (unanimiteSelected && !moyenneSelected) {
+                    ReglesPlanningPoker.monModeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
-                    setMenu(4, true);
+                    setMenu(AffichageInfo.MENU_PLATEAU, true);
                     System.out.println("CHECK UNANIMITÉ VALIDÉ");
+                    planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -92,18 +105,83 @@ public class AffichageConfiguration extends JPanel {
             }
         });
 
+        AffichageInfo.boutonChoixCarte.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ajouterVoteAuJoueur(numeroCarte);
+                if(AffichageInfo.nbJoueur == AffichageInfo.tour) {
+                    ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.monModeDeJeu);
+                }
+            }
+        });
+
     }
 
     /* -------------------Ecouteur pour savoir quand on a cliqué sur une carte---------------------- */
     private final MouseListener carteClickListener = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            // Réagissez au clic sur la carte ici
-            JLabel carteCliquee = (JLabel) e.getComponent();
-            String numeroCarte = (String) carteCliquee.getClientProperty("valeur");
-            System.out.println("Carte cliquée : " + numeroCarte);
+            Component source = e.getComponent();
+
+            if (source instanceof JLabel) {
+                JLabel carteCliquee = (JLabel) source;
+                numeroCarte = (String) carteCliquee.getClientProperty("valeur");
+                System.out.println("Carte cliquée : " + numeroCarte);
+
+
+                // Retirez le contour des autres cartes
+                //clearBorders();
+
+                // Ajoutez un contour à la carte cliquée
+                carteCliquee.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
+
+            }
+        }
+
+        private void clearBorders() {
+            // Parcourez tous les composants sur votre plateau pour retirer les contours
+            for (Component component : plateauPanel.getComponents()) {
+                if (component instanceof JPanel) {
+                    for (Component internalComponent : ((JPanel) component).getComponents()) {
+                        if (internalComponent instanceof JLabel) {
+                            JLabel carteLabel = (JLabel) internalComponent;
+                            numeroCarte = (String) carteLabel.getClientProperty("valeur");
+                            System.out.println("Carte dans supprimer contour: " + numeroCarte);
+                            if (numeroCarte != null && !numeroCarte.isEmpty()) {
+                                carteLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                            }
+                        }
+                    }
+                } else if (component instanceof JLabel) {
+                    JLabel carteLabel = (JLabel) component;
+                    numeroCarte = (String) carteLabel.getClientProperty("valeur");
+                    System.out.println("Carte choix 2 : " + numeroCarte);
+                    if (numeroCarte != null && !numeroCarte.isEmpty()) {
+                        carteLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    }
+                }
+            }
         }
     };
+
+
+
+
+    private void ajouterVoteAuJoueur(String carte) {
+        if (AffichageInfo.tour == 0) {
+            AffichageInfo.cartesVotees.clear();
+            AffichageInfo.tour = 0;
+        }
+        for (Joueur joueur : Joueur.listeJoueurs) {
+            if (joueur.getMonId() == (AffichageInfo.tour + 1)) {
+                System.out.println("Joueur " + (AffichageInfo.tour + 1) + " ajoute la carte " + carte);
+                joueur.setVoteEnCours(carte);
+                AffichageInfo.tour += 1;
+                AffichageInfo.cartesVotees.add(carte);
+                break;
+            }
+        }
+    }
     public void setMenu(int menu, boolean ajouterEcouteursCartes) {
         switch (menu) {
             case 0:
@@ -145,37 +223,38 @@ public class AffichageConfiguration extends JPanel {
                 pseudoPanel.setVisible(false);
                 modePanel.setVisible(false);
                 plateauPanel.setVisible(true);
-
                 // Ajout ou retrait des écouteurs de clic sur les cartes
                 if (ajouterEcouteursCartes) {
-                    AffichageInfo.labelCarte0.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte1.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte2.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte3.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte5.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte8.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte13.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte20.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte40.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte100.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarteCafe.addMouseListener(carteClickListener);
-                    AffichageInfo.labelCarteInterro.addMouseListener(carteClickListener);
+                    ajouterEcouteursCartes();
                 } else {
-                    // Retirez les écouteurs de clic sur les cartes
-                    AffichageInfo.labelCarte0.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte1.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte2.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte3.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte5.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte8.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte13.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte20.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte40.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarte100.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarteCafe.removeMouseListener(carteClickListener);
-                    AffichageInfo.labelCarteInterro.removeMouseListener(carteClickListener);
-                }
-                break;
+                    retirerEcouteursCartes();
+                }break;
+        }
+    }
+
+    private void ajouterEcouteursCartes() {
+        for (Component component : Arrays.asList(
+                AffichageInfo.labelCarte0, AffichageInfo.labelCarte1, AffichageInfo.labelCarte2,
+                AffichageInfo.labelCarte3, AffichageInfo.labelCarte5, AffichageInfo.labelCarte8,
+                AffichageInfo.labelCarte13, AffichageInfo.labelCarte20, AffichageInfo.labelCarte40,
+                AffichageInfo.labelCarte100, AffichageInfo.labelCarteCafe, AffichageInfo.labelCarteInterro)) {
+            if (component instanceof JLabel) {
+                JLabel carteLabel = (JLabel) component;
+                carteLabel.addMouseListener(carteClickListener);
+            }
+        }
+    }
+
+    private void retirerEcouteursCartes() {
+        for (Component component : Arrays.asList(
+                AffichageInfo.labelCarte0, AffichageInfo.labelCarte1, AffichageInfo.labelCarte2,
+                AffichageInfo.labelCarte3, AffichageInfo.labelCarte5, AffichageInfo.labelCarte8,
+                AffichageInfo.labelCarte13, AffichageInfo.labelCarte20, AffichageInfo.labelCarte40,
+                AffichageInfo.labelCarte100, AffichageInfo.labelCarteCafe, AffichageInfo.labelCarteInterro)) {
+            if (component instanceof JLabel) {
+                JLabel carteLabel = (JLabel) component;
+                carteLabel.removeMouseListener(carteClickListener);
+            }
         }
     }
 
