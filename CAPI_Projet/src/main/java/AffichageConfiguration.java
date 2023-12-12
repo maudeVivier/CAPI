@@ -21,7 +21,7 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 Affichage.pageNbPerso(nbJoueurPanel);
                 add(nbJoueurPanel);
-                setMenu(1);
+                setMenu(1, false);
             }
         });
 
@@ -31,7 +31,7 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                 add(plateauPanel);
-                setMenu(4);
+                setMenu(4, true);
                 //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
@@ -43,7 +43,7 @@ public class AffichageConfiguration extends JPanel {
                 AffichageInfo.nbJoueur = (int) AffichageInfo.spinnerNbJoueur.getValue();
                 Affichage.pagePseudoPerso(pseudoPanel);
                 add(pseudoPanel);
-                setMenu(2);
+                setMenu(2, false);
             }
         });
 
@@ -54,7 +54,7 @@ public class AffichageConfiguration extends JPanel {
                 if (verifierPseudosNonNuls() && verifierPseudosUniques()) {
                     Affichage.pageChoixMode(modePanel);
                     add(modePanel);
-                    setMenu(3);
+                    setMenu(3, false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -71,12 +71,12 @@ public class AffichageConfiguration extends JPanel {
                 if (moyenneSelected && !unanimiteSelected) {
                     Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
-                    setMenu(4);
+                    setMenu(4, true);
                     System.out.println("CHECK MOYENNE VALIDÉ");
                 } else if (unanimiteSelected && !moyenneSelected) {
                     Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
-                    setMenu(4);
+                    setMenu(4, true);
                     System.out.println("CHECK UNANIMITÉ VALIDÉ");
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -94,7 +94,17 @@ public class AffichageConfiguration extends JPanel {
 
     }
 
-    public void setMenu(int menu) {
+    /* -------------------Ecouteur pour savoir quand on a cliqué sur une carte---------------------- */
+    private final MouseListener carteClickListener = new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // Réagissez au clic sur la carte ici
+            JLabel carteCliquee = (JLabel) e.getComponent();
+            String numeroCarte = (String) carteCliquee.getClientProperty("valeur");
+            System.out.println("Carte cliquée : " + numeroCarte);
+        }
+    };
+    public void setMenu(int menu, boolean ajouterEcouteursCartes) {
         switch (menu) {
             case 0:
                 // Affichage de l'accueil
@@ -135,6 +145,36 @@ public class AffichageConfiguration extends JPanel {
                 pseudoPanel.setVisible(false);
                 modePanel.setVisible(false);
                 plateauPanel.setVisible(true);
+
+                // Ajout ou retrait des écouteurs de clic sur les cartes
+                if (ajouterEcouteursCartes) {
+                    AffichageInfo.labelCarte0.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte1.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte2.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte3.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte5.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte8.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte13.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte20.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte40.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte100.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarteCafe.addMouseListener(carteClickListener);
+                    AffichageInfo.labelCarteInterro.addMouseListener(carteClickListener);
+                } else {
+                    // Retirez les écouteurs de clic sur les cartes
+                    AffichageInfo.labelCarte0.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte1.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte2.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte3.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte5.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte8.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte13.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte20.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte40.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarte100.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarteCafe.removeMouseListener(carteClickListener);
+                    AffichageInfo.labelCarteInterro.removeMouseListener(carteClickListener);
+                }
                 break;
         }
     }

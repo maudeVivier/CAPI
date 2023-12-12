@@ -77,4 +77,16 @@ public class AffichageInfo {
     public static BufferedImage carte_cafe;
     public static BufferedImage carte_interro;
 
+    public static JLabel labelCarte0;
+    public static JLabel labelCarte1;
+    public static JLabel labelCarte2;
+    public static JLabel labelCarte3;
+    public static JLabel labelCarte5;
+    public static JLabel labelCarte8;
+    public static JLabel labelCarte13;
+    public static JLabel labelCarte20;
+    public static JLabel labelCarte40;
+    public static JLabel labelCarte100;
+    public static JLabel labelCarteCafe;
+    public static JLabel labelCarteInterro;
 }

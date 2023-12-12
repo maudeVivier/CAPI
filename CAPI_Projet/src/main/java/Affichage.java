@@ -249,7 +249,7 @@ public class Affichage {
             titrePanel.add(AffichageInfo.labelTitrePlateau);
             panel.add(titrePanel, BorderLayout.NORTH);
 
-            /* -----------------------Panel central qui contient le panel qui affiche la tache a voter et celui des cartes------------------------ */
+            /* -----------------------Panel secondaire qui contient le panel qui affiche la tache a voter et celui des cartes et le bouton------------------------ */
             JPanel centrePanel = new JPanel();
             centrePanel.setLayout(new BoxLayout(centrePanel, BoxLayout.Y_AXIS));
             centrePanel.setBackground(AffichageInfo.couleurFond);
@@ -305,48 +305,62 @@ public class Affichage {
                 Image carteRedimensionneecafe = AffichageInfo.carte_cafe.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
                 Image carteRedimensionneeinterro = AffichageInfo.carte_interro.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
 
-                JLabel carteLabel0 = new JLabel(new ImageIcon(carteRedimensionnee0));
-                JLabel carteLabel1 = new JLabel(new ImageIcon(carteRedimensionnee1));
-                JLabel carteLabel2 = new JLabel(new ImageIcon(carteRedimensionnee2));
-                JLabel carteLabel3 = new JLabel(new ImageIcon(carteRedimensionnee3));
-                JLabel carteLabel5 = new JLabel(new ImageIcon(carteRedimensionnee5));
-                JLabel carteLabel8 = new JLabel(new ImageIcon(carteRedimensionnee8));
-                JLabel carteLabel13 = new JLabel(new ImageIcon(carteRedimensionnee13));
-                JLabel carteLabel20 = new JLabel(new ImageIcon(carteRedimensionnee20));
-                JLabel carteLabel40 = new JLabel(new ImageIcon(carteRedimensionnee40));
-                JLabel carteLabel100 = new JLabel(new ImageIcon(carteRedimensionnee100));
-                JLabel carteLabelcafe = new JLabel(new ImageIcon(carteRedimensionneecafe));
-                JLabel carteLabelinterro = new JLabel(new ImageIcon(carteRedimensionneeinterro));
 
-                cartesPanel.add(carteLabel0);
-                cartesPanel.add(carteLabel1);
-                cartesPanel.add(carteLabel2);
-                cartesPanel.add(carteLabel3);
-                cartesPanel.add(carteLabel5);
-                cartesPanel.add(carteLabel8);
-                cartesPanel.add(carteLabel13);
-                cartesPanel.add(carteLabel20);
-                cartesPanel.add(carteLabel40);
-                cartesPanel.add(carteLabel100);
-                cartesPanel.add(carteLabelcafe);
-                cartesPanel.add(carteLabelinterro);
+                AffichageInfo.labelCarte0 = new JLabel(new ImageIcon(carteRedimensionnee0));
+                AffichageInfo.labelCarte0.putClientProperty("valeur", "0");
+                AffichageInfo.labelCarte1 = new JLabel(new ImageIcon(carteRedimensionnee1));
+                AffichageInfo.labelCarte1.putClientProperty("valeur", "1");
+                AffichageInfo.labelCarte2 = new JLabel(new ImageIcon(carteRedimensionnee2));
+                AffichageInfo.labelCarte2.putClientProperty("valeur", "2");
+                AffichageInfo.labelCarte3 = new JLabel(new ImageIcon(carteRedimensionnee3));
+                AffichageInfo.labelCarte3.putClientProperty("valeur", "3");
+                AffichageInfo.labelCarte5 = new JLabel(new ImageIcon(carteRedimensionnee5));
+                AffichageInfo.labelCarte5.putClientProperty("valeur", "5");
+                AffichageInfo.labelCarte8 = new JLabel(new ImageIcon(carteRedimensionnee8));
+                AffichageInfo.labelCarte8.putClientProperty("valeur", "8");
+                AffichageInfo.labelCarte13 = new JLabel(new ImageIcon(carteRedimensionnee13));
+                AffichageInfo.labelCarte13.putClientProperty("valeur", "13");
+                AffichageInfo.labelCarte20 = new JLabel(new ImageIcon(carteRedimensionnee20));
+                AffichageInfo.labelCarte20.putClientProperty("valeur", "20");
+                AffichageInfo.labelCarte40 = new JLabel(new ImageIcon(carteRedimensionnee40));
+                AffichageInfo.labelCarte40.putClientProperty("valeur", "40");
+                AffichageInfo.labelCarte100 = new JLabel(new ImageIcon(carteRedimensionnee100));
+                AffichageInfo.labelCarte100.putClientProperty("valeur", "100");
+                AffichageInfo.labelCarteCafe = new JLabel(new ImageIcon(carteRedimensionneecafe));
+                AffichageInfo.labelCarteCafe.putClientProperty("valeur", "cafe");
+                AffichageInfo.labelCarteInterro = new JLabel(new ImageIcon(carteRedimensionneeinterro));
+                AffichageInfo.labelCarteInterro.putClientProperty("valeur", "interro");
+
+                cartesPanel.add(AffichageInfo.labelCarte0);
+                cartesPanel.add(AffichageInfo.labelCarte1);
+                cartesPanel.add(AffichageInfo.labelCarte2);
+                cartesPanel.add(AffichageInfo.labelCarte3);
+                cartesPanel.add(AffichageInfo.labelCarte5);
+                cartesPanel.add(AffichageInfo.labelCarte8);
+                cartesPanel.add(AffichageInfo.labelCarte13);
+                cartesPanel.add(AffichageInfo.labelCarte20);
+                cartesPanel.add(AffichageInfo.labelCarte40);
+                cartesPanel.add(AffichageInfo.labelCarte100);
+                cartesPanel.add(AffichageInfo.labelCarteCafe);
+                cartesPanel.add(AffichageInfo.labelCarteInterro);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
             centrePanel.add(cartesPanel);
-            panel.add(centrePanel, BorderLayout.CENTER);
 
-            /* -----------------------Panel principal------------------------ */
+            /* -----------------------Panel du bouton------------------------ */
             JPanel boutonPanel = new JPanel();
             boutonPanel.setBackground(AffichageInfo.couleurFond);
             AffichageInfo.boutonChoixCarte.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
             AffichageInfo.boutonChoixCarte.setBackground(Color.darkGray);
             AffichageInfo.boutonChoixCarte.setForeground(Color.WHITE);
             boutonPanel.add(AffichageInfo.boutonChoixCarte);
-            panel.add(boutonPanel, BorderLayout.PAGE_END);
+
+            centrePanel.add(boutonPanel);
+            panel.add(centrePanel, BorderLayout.CENTER);
 
             panel.setBackground(AffichageInfo.couleurFond);
-            //panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+            panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
         }
 }
