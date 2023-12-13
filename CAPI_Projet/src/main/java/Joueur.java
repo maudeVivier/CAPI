@@ -5,7 +5,7 @@ public class Joueur {
     public static List<Joueur> listeJoueurs;
     private final int monId;
     private final String monPseudo;
-    private ArrayList<Carte> maListeCarte;
+    private ArrayList<String> maListeCarte;
     public String monVoteCourant;
 
     public Joueur(int unId, String unPseudo) {
@@ -47,7 +47,7 @@ public class Joueur {
             System.out.println("ID: " + joueur.getMonId() + ", Pseudo: " + joueur.getMonPseudo());
         }
     }
-    public void voter(Carte carte) {
+    public void voter(String carte) {
         // Logique de vote
     }
 }

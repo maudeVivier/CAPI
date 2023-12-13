@@ -1,0 +1,113 @@
+\doxysection{Référence de la classe Affichage}
+\hypertarget{class_affichage}{}\label{class_affichage}\index{Affichage@{Affichage}}
+
+
+Classe statique contenant les méthodes pour afficher différentes pages de l\textquotesingle{}interface graphique.  
+
+
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_affichage_a339c38c4c93f1d477577c3228a27967f}{page\+Accueil}} (JPanel panel)
+\item 
+static void \mbox{\hyperlink{class_affichage_ad183ad5720d313dfb23f1ce31f96ea9f}{page\+Nb\+Perso}} (JPanel panel)
+\item 
+static void \mbox{\hyperlink{class_affichage_afd6970c331a465b95703147b5972e275}{page\+Pseudo\+Perso}} (JPanel panel)
+\item 
+static void \mbox{\hyperlink{class_affichage_ad9675d11948895b067edbe9d5ea3874d}{initialiser\+Composants}} (JPanel panel)
+\item 
+static void \mbox{\hyperlink{class_affichage_a6dd3fe2b1c9b5e6783d27e3e3d3ee32a}{page\+Choix\+Mode}} (JPanel panel)
+\item 
+static void \mbox{\hyperlink{class_affichage_ad22ef9c030a7e56674c3d25db158801b}{page\+Plateau}} (JPanel panel, Class$<$?$>$ calling\+Class)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe statique contenant les méthodes pour afficher différentes pages de l\textquotesingle{}interface graphique. 
+
+Cette classe offre des méthodes pour afficher les différents affichages et la gestion des éléments d\textquotesingle{}interface utilisateur. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_affichage_ad9675d11948895b067edbe9d5ea3874d}\label{class_affichage_ad9675d11948895b067edbe9d5ea3874d} 
+\index{Affichage@{Affichage}!initialiserComposants@{initialiserComposants}}
+\index{initialiserComposants@{initialiserComposants}!Affichage@{Affichage}}
+\doxysubsubsection{\texorpdfstring{initialiserComposants()}{initialiserComposants()}}
+{\footnotesize\ttfamily static void Affichage.\+initialiser\+Composants (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié. Pour chaque joueur, un label indiquant le numéro du joueur et un JText\+Area pour saisir le pseudo sont créés.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em panel} & Le panneau sur lequel initialiser les composants pour la saisie des pseudos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_affichage_a339c38c4c93f1d477577c3228a27967f}\label{class_affichage_a339c38c4c93f1d477577c3228a27967f} 
+\index{Affichage@{Affichage}!pageAccueil@{pageAccueil}}
+\index{pageAccueil@{pageAccueil}!Affichage@{Affichage}}
+\doxysubsubsection{\texorpdfstring{pageAccueil()}{pageAccueil()}}
+{\footnotesize\ttfamily static void Affichage.\+page\+Accueil (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Affiche la page d\textquotesingle{}accueil avec un panneau spécifié. Cette méthode configure le panneau avec un titre, des boutons et des espaces verticaux.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em panel} & Le panneau sur lequel afficher la page d\textquotesingle{}accueil. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_affichage_a6dd3fe2b1c9b5e6783d27e3e3d3ee32a}\label{class_affichage_a6dd3fe2b1c9b5e6783d27e3e3d3ee32a} 
+\index{Affichage@{Affichage}!pageChoixMode@{pageChoixMode}}
+\index{pageChoixMode@{pageChoixMode}!Affichage@{Affichage}}
+\doxysubsubsection{\texorpdfstring{pageChoixMode()}{pageChoixMode()}}
+{\footnotesize\ttfamily static void Affichage.\+page\+Choix\+Mode (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Affiche la page de choix du mode de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em panel} & Le panneau sur lequel afficher la page de choix du mode de jeu. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_affichage_ad183ad5720d313dfb23f1ce31f96ea9f}\label{class_affichage_ad183ad5720d313dfb23f1ce31f96ea9f} 
+\index{Affichage@{Affichage}!pageNbPerso@{pageNbPerso}}
+\index{pageNbPerso@{pageNbPerso}!Affichage@{Affichage}}
+\doxysubsubsection{\texorpdfstring{pageNbPerso()}{pageNbPerso()}}
+{\footnotesize\ttfamily static void Affichage.\+page\+Nb\+Perso (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em panel} & Le panneau sur lequel afficher la page pour spécifier le nombre de joueurs. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_affichage_ad22ef9c030a7e56674c3d25db158801b}\label{class_affichage_ad22ef9c030a7e56674c3d25db158801b} 
+\index{Affichage@{Affichage}!pagePlateau@{pagePlateau}}
+\index{pagePlateau@{pagePlateau}!Affichage@{Affichage}}
+\doxysubsubsection{\texorpdfstring{pagePlateau()}{pagePlateau()}}
+{\footnotesize\ttfamily static void Affichage.\+page\+Plateau (\begin{DoxyParamCaption}\item[{JPanel}]{panel,  }\item[{Class$<$?$>$}]{calling\+Class }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Affiche la page du plateau de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em panel} & Le panneau sur lequel afficher la page du plateau de jeu. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_affichage_afd6970c331a465b95703147b5972e275}\label{class_affichage_afd6970c331a465b95703147b5972e275} 
+\index{Affichage@{Affichage}!pagePseudoPerso@{pagePseudoPerso}}
+\index{pagePseudoPerso@{pagePseudoPerso}!Affichage@{Affichage}}
+\doxysubsubsection{\texorpdfstring{pagePseudoPerso()}{pagePseudoPerso()}}
+{\footnotesize\ttfamily static void Affichage.\+page\+Pseudo\+Perso (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em panel} & Le panneau sur lequel afficher la page de saisie des pseudos. \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+Documents/\+Univ lyon 2 2023-\/2024/\+Conception agile de projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/\mbox{\hyperlink{_affichage_8java}{Affichage.\+java}}\end{DoxyCompactItemize}
