@@ -49,7 +49,8 @@ public class AffichageInfo {
     public static final int MENU_NB_JOUEUR = 1;
     public static final int MENU_PSEUDO = 2;
     public static final int MENU_MODE = 3;
-    public static final int MENU_PLATEAU = 4;
+    public static final int MENU_FONCTIONNALITE = 4;
+    public static final int MENU_PLATEAU = 5;
     /* --------------------Couleurs--------------------- */
     public static Color couleurFond = new Color(0, 0, 50);
 
@@ -59,6 +60,8 @@ public class AffichageInfo {
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
+    public static JButton boutonValiderTache = new JButton("Valider");
+    public static JButton boutonPasserPlateau = new JButton("Commencer a voter");
     public static JButton boutonSauvegarderPartie = new JButton("Sauvegarder");
     public static JButton boutonChoixCarte = new JButton("Valider");
 
@@ -69,15 +72,20 @@ public class AffichageInfo {
     /* --------------------TextArea--------------------- */
     public static JTextArea[] areaTabPseudo;
 
+    /* --------------------Fonctionnalites/Taches--------------------- */
+    public static JTextField fieldTache = new JTextField(screenHeight/30);
+    public static DefaultListModel<String> listeTache = new DefaultListModel<>();
+    public static JList<String> tachesList = new JList<>(listeTache);
+
     /* --------------------Label--------------------- */
     public static JLabel labelTitreAccueil = new JLabel("Planning Poker");
     public static JLabel labelTitreNbJoueur = new JLabel("Configuration de la partie");
     public static JLabel labelNbJoueur = new JLabel("<html>Nombre de joueur :<br>(entre 2 et 12)</html>");
     public static JLabel labelTitrePseudoJoueur = new JLabel("Choix des pseudos");
     public static JLabel labelTitreMode = new JLabel("Choix du mode de jeu");
+    public static JLabel labelTitreFonctionnalite = new JLabel("Entrez vos fonctionnalites à voter");
     public static JLabel labelTitrePlateau = new JLabel("Jeu");
     public static JLabel labelPseudo;
-
     public static JLabel labelRegle;
 
     /* --------------------Checkbox--------------------- */
@@ -99,6 +107,7 @@ public class AffichageInfo {
             "carte_cafe.jpg",
             "carte_interro.jpg"
     };
+
     public static BufferedImage[] carte = new BufferedImage[12];
 
     public static JLabel[] labelsCartes;

@@ -1,21 +1,18 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Backlog {
-    // Liste de fonctionnalité
-    private ArrayList<Fonctionnalite> monListeFonctionnalites;
-    public Backlog() {
+
+    /*public Backlog() {
 
         this.monListeFonctionnalites = new ArrayList<>();
-    }
-    public void ajouterFonctionnalite(Fonctionnalite fonctionnalite) {
+    }*/
 
-        monListeFonctionnalites.add(fonctionnalite);
-    }
     /*
      * La méthode sauvegarderEnJSON utilise un bloc try-catch
      * pour intercepter toute exception liée à l'écriture du fichier.

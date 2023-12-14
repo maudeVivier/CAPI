@@ -3,32 +3,32 @@ import java.util.*;
 
 public class Joueur {
     public static List<Joueur> listeJoueurs;
-    private final int monId;
-    private final String monPseudo;
-    private ArrayList<String> maListeCarte;
-    public String monVoteCourant;
+    private final int id;
+    private final String pseudo;
+    private ArrayList<String> listeCarte;
+    public String voteCourant;
 
-    public Joueur(int unId, String unPseudo) {
-        monPseudo = unPseudo;
-        monId = unId;
-        maListeCarte = null;
-        monVoteCourant = null;
+    public Joueur(int identifiant, String p) {
+        pseudo = p;
+        id = identifiant;
+        listeCarte = null;
+        voteCourant = null;
     }
 
-    public int getMonId() {
-        return monId;
+    public int getId() {
+        return id;
     }
 
-    public String getMonPseudo() {
-        return monPseudo;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public String getMonVoteCourant() {
-        return monVoteCourant;
+    public String getVoteCourant() {
+        return voteCourant;
     }
 
     public void setVoteEnCours(String nouveauVote) {
-        monVoteCourant = nouveauVote;
+        voteCourant = nouveauVote;
     }
 
     public static List<Joueur> creerListeDeJoueurs() {
@@ -44,7 +44,7 @@ public class Joueur {
     public static void afficheListeJoueur(List<Joueur> listeJoueurs){
         // Parcourir et afficher la liste des joueurs
         for (Joueur joueur : listeJoueurs) {
-            System.out.println("ID: " + joueur.getMonId() + ", Pseudo: " + joueur.getMonPseudo());
+            System.out.println("ID: " + joueur.getId() + ", Pseudo: " + joueur.getPseudo());
         }
     }
     public void voter(String carte) {

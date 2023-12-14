@@ -233,6 +233,63 @@ public class Affichage {
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
 
+    public static void pageFonctionnalite(JPanel panel){
+        /* -----------------------Panel principal------------------------ */
+        panel.setLayout(new BorderLayout());
+
+        /* -----------------------Panel titre------------------------ */
+        JPanel panelTitre = new JPanel();
+        panelTitre.setBackground(AffichageInfo.couleurFond);
+        AffichageInfo.labelTitreFonctionnalite.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTitre));
+        AffichageInfo.labelTitreFonctionnalite.setForeground(Color.WHITE);
+        panelTitre.add(AffichageInfo.labelTitreFonctionnalite);
+        panel.add(panelTitre, BorderLayout.NORTH);
+
+        /* -----------------------Panel secondaire avec espace pour ecrire et validees les fonctionnalites------------------------ */
+        JPanel fieldPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        fieldPanel.setBackground(AffichageInfo.couleurFond);
+
+        //Espace pour ecrire la tache
+        fieldPanel.add(AffichageInfo.fieldTache);
+
+        // Bouton enregistrer la tache ecrite
+        AffichageInfo.boutonValiderTache.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonValiderTache.setBackground(Color.darkGray);
+        AffichageInfo.boutonValiderTache.setForeground(Color.WHITE);
+        fieldPanel.add(AffichageInfo.boutonValiderTache);
+
+        /* -----------------------Panel secondaire avec pour voir les fonctionnalites------------------------ */
+        JPanel scrollPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        scrollPanel.setBackground(AffichageInfo.couleurFond);
+
+        // Espace pour voir les fonctionnalites deja validées
+        JScrollPane scrollPane = new JScrollPane(AffichageInfo.tachesList);
+
+        // Réduit la largeur de la barre de défilement
+        scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(10, Integer.MAX_VALUE));
+
+        scrollPanel.add(scrollPane);
+        fieldPanel.add(scrollPanel);
+
+        /* -----------------------Panel bouton pour aller sur le plateau------------------------ */
+        JPanel panelBouton = new JPanel();
+        panelBouton.setBackground(AffichageInfo.couleurFond);
+
+// Bouton quand on a fini d'ajouter les taches, pour passer au plateau
+        AffichageInfo.boutonPasserPlateau.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonPasserPlateau.setBackground(Color.darkGray);
+        AffichageInfo.boutonPasserPlateau.setForeground(Color.WHITE);
+        panelBouton.add(AffichageInfo.boutonPasserPlateau);
+        fieldPanel.add(panelBouton);
+
+        panel.add(fieldPanel);
+
+        panel.setBackground(AffichageInfo.couleurFond);
+        panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
+
+    }
+
+
     /**
      * Affiche la page du plateau de jeu avec un panneau spécifié.
      * Cette méthode configure le panneau avec différents éléments.
@@ -257,12 +314,12 @@ public class Affichage {
             centrePanel.setBackground(AffichageInfo.couleurFond);
 
             // Ajoutez un espace vertical
-            centrePanel.add(Box.createRigidArea(new Dimension(0, AffichageInfo.screenHeight/20))); // Ajustez la hauteur de l'espace selon vos besoins
+            centrePanel.add(Box.createRigidArea(new Dimension(0, AffichageInfo.screenHeight/20)));
 
             /* -----------------------Panel pour ecrire la tache a juger------------------------ */
             JPanel phrasePanel = new JPanel();
             phrasePanel.setBackground(AffichageInfo.couleurFond);
-            AffichageInfo.labelRegle = new JLabel("Votre phrase ici sur plusieurs lignes.");
+            AffichageInfo.labelRegle = new JLabel(Fonctionnalite.listeFonctionnalites.get(0).getDescription());
             AffichageInfo.labelRegle.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
             AffichageInfo.labelRegle.setForeground(Color.WHITE);
             phrasePanel.add(AffichageInfo.labelRegle);
@@ -271,7 +328,7 @@ public class Affichage {
             /* -----------------------Panel pour ecrire le joueur qui vote------------------------ */
             JPanel pseudoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
             pseudoPanel.setBackground(AffichageInfo.couleurFond);
-            AffichageInfo.labelPseudo = new JLabel("Joueur : " + Joueur.listeJoueurs.get(0).getMonPseudo());
+            AffichageInfo.labelPseudo = new JLabel("Joueur : " + Joueur.listeJoueurs.get(0).getPseudo());
             AffichageInfo.labelPseudo.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
             AffichageInfo.labelPseudo.setForeground(Color.WHITE);
             pseudoPanel.add(AffichageInfo.labelPseudo);
