@@ -1,5 +1,7 @@
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -276,84 +278,71 @@ public class Affichage {
 
             // Ajoute les cartes
             try {
-                AffichageInfo.carte_0 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_0.jpg")));
-                AffichageInfo.carte_1 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_1.jpg")));
-                AffichageInfo.carte_2 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_2.jpg")));
-                AffichageInfo.carte_3 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_3.jpg")));
-                AffichageInfo.carte_5 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_5.jpg")));
-                AffichageInfo.carte_8 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_8.jpg")));
-                AffichageInfo.carte_13 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_13.jpg")));
-                AffichageInfo.carte_20 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_20.jpg")));
-                AffichageInfo.carte_40 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_40.jpg")));
-                AffichageInfo.carte_100 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_100.jpg")));
-                AffichageInfo.carte_cafe = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_cafe.jpg")));
-                AffichageInfo.carte_interro = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_interro.jpg")));
+
+                // Obtenez le répertoire de travail actuel
+                String workingDirectory = System.getProperty("user.dir");
+                
+                // Chargez les images à partir du tableau de noms de fichiers
+                for (int i = 0; i < AffichageInfo.nomFichiers.length; i++) {
+                    // Chemin relatif de la ressource par rapport au répertoire de travail
+                    String relativePath = "\\src\\images\\" + AffichageInfo.nomFichiers[i];
+
+                    // Concaténez les deux chemins pour obtenir le chemin absolu
+                    String absolutePath = workingDirectory + relativePath;
+                    System.out.println("chemin " + absolutePath);
+
+                    // Chargez l'image
+                    AffichageInfo.carte[i] = ImageIO.read(new File(absolutePath));
+                }
+
+
+                // Créez un tableau pour stocker les images redimensionnées
+                Image[] cartesRedimensionnees = new Image[AffichageInfo.carte.length];
+
+                // Définissez la largeur de redimensionnement
+                int largeurRedimensionnee = AffichageInfo.screenWidth / 13;
+                int hauteurRedimensionnee = -1;
+
+                // Parcourez le tableau d'images et redimensionnez-les
+                for (int i = 0; i < AffichageInfo.carte.length; i++) {
+                    if (AffichageInfo.carte[i] != null) {
+                        Image carteRedimensionnee = AffichageInfo.carte[i].getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
+                        cartesRedimensionnees[i] = carteRedimensionnee;
+                    } else {
+                        System.err.println("La carte à l'indice " + i + " n'a pas été correctement initialisée.");
+                    }
+                }
+
+                // Créez un tableau pour stocker les JLabels
+                JLabel[] labelsCartes = new JLabel[AffichageInfo.valeursCartes.length];
+
+                // Utilisez une boucle pour créer et configurer chaque JLabel
+                for (int i = 0; i < AffichageInfo.valeursCartes.length; i++) {
+                    Image carteRedimensionnee = cartesRedimensionnees[i];
+
+                    // Créez un JLabel avec une ImageIcon
+                    labelsCartes[i] = new JLabel(new ImageIcon(carteRedimensionnee));
+
+                    // Configurez les propriétés spécifiques à chaque carte
+                    labelsCartes[i].putClientProperty("valeur", AffichageInfo.valeursCartes[i]);
+                    labelsCartes[i].setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+
+                    cartesPanel.add(labelsCartes[i]);
+                }
+
+                /*AffichageInfo.carte_0 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_0.jpg")));
 
                 // Redimensionnez l'image à la largeur souhaitée
                 int largeurRedimensionnee = AffichageInfo.screenWidth/13;
                 int hauteurRedimensionnee = -1;
                 Image carteRedimensionnee0 = AffichageInfo.carte_0.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee1 = AffichageInfo.carte_1.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee2 = AffichageInfo.carte_2.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee3 = AffichageInfo.carte_3.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee5 = AffichageInfo.carte_5.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee8 = AffichageInfo.carte_8.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee13 = AffichageInfo.carte_13.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee20 = AffichageInfo.carte_20.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee40 = AffichageInfo.carte_40.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionnee100 = AffichageInfo.carte_100.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionneecafe = AffichageInfo.carte_cafe.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-                Image carteRedimensionneeinterro = AffichageInfo.carte_interro.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
 
                 AffichageInfo.labelCarte0 = new JLabel(new ImageIcon(carteRedimensionnee0));
                 AffichageInfo.labelCarte0.putClientProperty("valeur", "0");
                 AffichageInfo.labelCarte0.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte1 = new JLabel(new ImageIcon(carteRedimensionnee1));
-                AffichageInfo.labelCarte1.putClientProperty("valeur", "1");
-                AffichageInfo.labelCarte1.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte2 = new JLabel(new ImageIcon(carteRedimensionnee2));
-                AffichageInfo.labelCarte2.putClientProperty("valeur", "2");
-                AffichageInfo.labelCarte2.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte3 = new JLabel(new ImageIcon(carteRedimensionnee3));
-                AffichageInfo.labelCarte3.putClientProperty("valeur", "3");
-                AffichageInfo.labelCarte3.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte5 = new JLabel(new ImageIcon(carteRedimensionnee5));
-                AffichageInfo.labelCarte5.putClientProperty("valeur", "5");
-                AffichageInfo.labelCarte5.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte8 = new JLabel(new ImageIcon(carteRedimensionnee8));
-                AffichageInfo.labelCarte8.putClientProperty("valeur", "8");
-                AffichageInfo.labelCarte8.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte13 = new JLabel(new ImageIcon(carteRedimensionnee13));
-                AffichageInfo.labelCarte13.putClientProperty("valeur", "13");
-                AffichageInfo.labelCarte13.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte20 = new JLabel(new ImageIcon(carteRedimensionnee20));
-                AffichageInfo.labelCarte20.putClientProperty("valeur", "20");
-                AffichageInfo.labelCarte20.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte40 = new JLabel(new ImageIcon(carteRedimensionnee40));
-                AffichageInfo.labelCarte40.putClientProperty("valeur", "40");
-                AffichageInfo.labelCarte40.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarte100 = new JLabel(new ImageIcon(carteRedimensionnee100));
-                AffichageInfo.labelCarte100.putClientProperty("valeur", "100");
-                AffichageInfo.labelCarte100.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarteCafe = new JLabel(new ImageIcon(carteRedimensionneecafe));
-                AffichageInfo.labelCarteCafe.putClientProperty("valeur", "cafe");
-                AffichageInfo.labelCarteCafe.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                AffichageInfo.labelCarteInterro = new JLabel(new ImageIcon(carteRedimensionneeinterro));
-                AffichageInfo.labelCarteInterro.putClientProperty("valeur", "interro");
-                AffichageInfo.labelCarteInterro.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
 
                 cartesPanel.add(AffichageInfo.labelCarte0);
-                cartesPanel.add(AffichageInfo.labelCarte1);
-                cartesPanel.add(AffichageInfo.labelCarte2);
-                cartesPanel.add(AffichageInfo.labelCarte3);
-                cartesPanel.add(AffichageInfo.labelCarte5);
-                cartesPanel.add(AffichageInfo.labelCarte8);
-                cartesPanel.add(AffichageInfo.labelCarte13);
-                cartesPanel.add(AffichageInfo.labelCarte20);
-                cartesPanel.add(AffichageInfo.labelCarte40);
-                cartesPanel.add(AffichageInfo.labelCarte100);
-                cartesPanel.add(AffichageInfo.labelCarteCafe);
-                cartesPanel.add(AffichageInfo.labelCarteInterro);
+;*/
 
             } catch (IOException e1) {
                 throw new RuntimeException(e1);

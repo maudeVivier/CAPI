@@ -75,19 +75,23 @@ public class AffichageInfo {
     public static JCheckBox checkMoyenne = new JCheckBox("Moyenne");
 
     /* --------------------Images--------------------- */
-    public static BufferedImage carte_0;
-    public static BufferedImage carte_1;
-    public static BufferedImage carte_2;
-    public static BufferedImage carte_3;
-    public static BufferedImage carte_5;
-    public static BufferedImage carte_8;
-    public static BufferedImage carte_13;
-    public static BufferedImage carte_20;
-    public static BufferedImage carte_40;
-    public static BufferedImage carte_100;
-    public static BufferedImage carte_cafe;
-    public static BufferedImage carte_interro;
+    public static String[] valeursCartes = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "interro"};
 
+    // Tableau contenant les noms de fichiers des images
+    public static String[] nomFichiers = {"carte_0.jpg",
+            "carte_1.jpg",
+            "carte_2.jpg",
+            "carte_3.jpg",
+            "carte_5.jpg",
+            "carte_8.jpg",
+            "carte_13.jpg",
+            "carte_20.jpg",
+            "carte_40.jpg",
+            "carte_100.jpg",
+            "carte_cafe.jpg",
+            "carte_interro.jpg"
+    };
+    public static BufferedImage[] carte = new BufferedImage[12];
     public static JLabel labelCarte0;
     public static JLabel labelCarte1;
     public static JLabel labelCarte2;
