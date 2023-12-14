@@ -10,22 +10,23 @@ public class ReglesPlanningPoker {
         this.monModeDeJeu = unModeDeJeu;
     }*/
 
-    public static void appliquerRegles(ModeDeJeu modeDeJeu) {
-        if(modeDeJeu == ModeDeJeu.UNANIMITE){
+    public static boolean appliquerRegles(ModeDeJeu modeDeJeu) {
+        boolean res = false;
+        if(modeDeJeu == ModeDeJeu.UNANIMITE || (modeDeJeu == ModeDeJeu.MOYENNE && AffichageInfo.tour==1)){
 
             System.out.println("Regle d'unanimité");
-
-            System.out.println(resultatUnanimite());
-
+            res = resultatUnanimite();
+            System.out.println(res);
 
         } else if (modeDeJeu == ModeDeJeu.MOYENNE) {
 
             moyenne = AffichageInfo.nbJoueur % 2;
 
             System.out.println("moyenne : " + moyenne);
-
-            System.out.println(resultatMoyenne());
+            res = resultatMoyenne();
+            System.out.println(res);
         }
+        return res;
     }
 
     private static Map<String, Integer> compterNombreOccurence(List<String> listeCarte){

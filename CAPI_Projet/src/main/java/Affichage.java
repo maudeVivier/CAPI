@@ -262,15 +262,21 @@ public class Affichage {
             /* -----------------------Panel pour ecrire la tache a juger------------------------ */
             JPanel phrasePanel = new JPanel();
             phrasePanel.setBackground(AffichageInfo.couleurFond);
-            JLabel phraseTextLabel = new JLabel("Votre phrase ici sur plusieurs lignes.");
-            phraseTextLabel.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
-            phraseTextLabel.setForeground(Color.WHITE);
-            phrasePanel.add(phraseTextLabel);
+            AffichageInfo.labelRegle = new JLabel("Votre phrase ici sur plusieurs lignes.");
+            AffichageInfo.labelRegle.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+            AffichageInfo.labelRegle.setForeground(Color.WHITE);
+            phrasePanel.add(AffichageInfo.labelRegle);
             centrePanel.add(phrasePanel);
 
-            System.out.println(AffichageInfo.screenHeight);
-            // Ajoutez un espace vertical
-           // centrePanel.add(Box.createRigidArea(new Dimension(0, AffichageInfo.screenHeight/20))); // Ajustez la hauteur de l'espace selon vos besoins
+            /* -----------------------Panel pour ecrire le joueur qui vote------------------------ */
+            JPanel pseudoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            pseudoPanel.setBackground(AffichageInfo.couleurFond);
+            AffichageInfo.labelPseudo = new JLabel("Joueur : " + Joueur.listeJoueurs.get(0).getMonPseudo());
+            AffichageInfo.labelPseudo.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+            AffichageInfo.labelPseudo.setForeground(Color.WHITE);
+            pseudoPanel.add(AffichageInfo.labelPseudo);
+            centrePanel.add(pseudoPanel);
+
 
             /* -----------------------Panel des cartes------------------------ */
             JPanel cartesPanel = new JPanel();
@@ -281,7 +287,7 @@ public class Affichage {
 
                 // Obtenez le répertoire de travail actuel
                 String workingDirectory = System.getProperty("user.dir");
-                
+
                 // Chargez les images à partir du tableau de noms de fichiers
                 for (int i = 0; i < AffichageInfo.nomFichiers.length; i++) {
                     // Chemin relatif de la ressource par rapport au répertoire de travail
@@ -289,7 +295,7 @@ public class Affichage {
 
                     // Concaténez les deux chemins pour obtenir le chemin absolu
                     String absolutePath = workingDirectory + relativePath;
-                    System.out.println("chemin " + absolutePath);
+                    //System.out.println("chemin " + absolutePath);
 
                     // Chargez l'image
                     AffichageInfo.carte[i] = ImageIO.read(new File(absolutePath));
@@ -314,20 +320,20 @@ public class Affichage {
                 }
 
                 // Créez un tableau pour stocker les JLabels
-                JLabel[] labelsCartes = new JLabel[AffichageInfo.valeursCartes.length];
+                AffichageInfo.labelsCartes = new JLabel[AffichageInfo.valeursCartes.length];
 
                 // Utilisez une boucle pour créer et configurer chaque JLabel
                 for (int i = 0; i < AffichageInfo.valeursCartes.length; i++) {
                     Image carteRedimensionnee = cartesRedimensionnees[i];
 
                     // Créez un JLabel avec une ImageIcon
-                    labelsCartes[i] = new JLabel(new ImageIcon(carteRedimensionnee));
+                    AffichageInfo.labelsCartes[i] = new JLabel(new ImageIcon(carteRedimensionnee));
 
                     // Configurez les propriétés spécifiques à chaque carte
-                    labelsCartes[i].putClientProperty("valeur", AffichageInfo.valeursCartes[i]);
-                    labelsCartes[i].setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    AffichageInfo.labelsCartes[i].putClientProperty("valeur", AffichageInfo.valeursCartes[i]);
+                    AffichageInfo.labelsCartes[i].setBorder(BorderFactory.createLineBorder(Color.RED, 2));
 
-                    cartesPanel.add(labelsCartes[i]);
+                    cartesPanel.add(AffichageInfo.labelsCartes[i]);
                 }
 
                 /*AffichageInfo.carte_0 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_0.jpg")));
@@ -343,7 +349,6 @@ public class Affichage {
 
                 cartesPanel.add(AffichageInfo.labelCarte0);
 ;*/
-
             } catch (IOException e1) {
                 throw new RuntimeException(e1);
             }

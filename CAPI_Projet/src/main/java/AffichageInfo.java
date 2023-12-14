@@ -32,12 +32,19 @@ public class AffichageInfo {
     public static int hauteurBouton = (screenHeight / 10) - (screenHeight / 138);
 
     /* --------------------Différentes variables--------------------- */
+    //nombre de joueur qui joue la partie
     public static int nbJoueur;
 
-    public static int tour = 0;
+    //nombre de tour réalisé pour voter une regle
+    public static int tour = 1;
 
+    //pour savoir quel joueur est en train de voter
+    public static int joueurVote = 0;
+
+    // Liste des cartes votées pendant un tour
     public static List<String> cartesVotees = new ArrayList<>();
 
+    /* --------------------Diiférentes variables pour savoir dans quel menu on est--------------------- */
     public static final int MENU_ACCUEIL = 0;
     public static final int MENU_NB_JOUEUR = 1;
     public static final int MENU_PSEUDO = 2;
@@ -69,6 +76,9 @@ public class AffichageInfo {
     public static JLabel labelTitrePseudoJoueur = new JLabel("Choix des pseudos");
     public static JLabel labelTitreMode = new JLabel("Choix du mode de jeu");
     public static JLabel labelTitrePlateau = new JLabel("Jeu");
+    public static JLabel labelPseudo;
+
+    public static JLabel labelRegle;
 
     /* --------------------Checkbox--------------------- */
     public static JCheckBox checkUnanimate = new JCheckBox("Unanimité");
@@ -76,8 +86,6 @@ public class AffichageInfo {
 
     /* --------------------Images--------------------- */
     public static String[] valeursCartes = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "interro"};
-
-    // Tableau contenant les noms de fichiers des images
     public static String[] nomFichiers = {"carte_0.jpg",
             "carte_1.jpg",
             "carte_2.jpg",
@@ -92,16 +100,6 @@ public class AffichageInfo {
             "carte_interro.jpg"
     };
     public static BufferedImage[] carte = new BufferedImage[12];
-    public static JLabel labelCarte0;
-    public static JLabel labelCarte1;
-    public static JLabel labelCarte2;
-    public static JLabel labelCarte3;
-    public static JLabel labelCarte5;
-    public static JLabel labelCarte8;
-    public static JLabel labelCarte13;
-    public static JLabel labelCarte20;
-    public static JLabel labelCarte40;
-    public static JLabel labelCarte100;
-    public static JLabel labelCarteCafe;
-    public static JLabel labelCarteInterro;
+
+    public static JLabel[] labelsCartes;
 }

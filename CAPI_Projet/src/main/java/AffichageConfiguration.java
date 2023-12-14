@@ -109,8 +109,20 @@ public class AffichageConfiguration extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ajouterVoteAuJoueur(numeroCarte);
-                if(AffichageInfo.nbJoueur == AffichageInfo.tour) {
-                    ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.monModeDeJeu);
+                changerPseudo();
+                if(AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
+                    boolean res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.monModeDeJeu);
+                    System.out.println("RESULTAT dans config : "+res);
+                    if(res){
+                        JOptionPane.showMessageDialog(null, "VALIDE", "Erreur", JOptionPane.ERROR_MESSAGE);
+                        AffichageInfo.joueurVote = 0;
+                        AffichageInfo.tour = 1;
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Refuser", "Erreur", JOptionPane.ERROR_MESSAGE);
+                        AffichageInfo.joueurVote = 0;
+                        AffichageInfo.tour += 1;
+                    }
                 }
             }
         });
@@ -164,19 +176,15 @@ public class AffichageConfiguration extends JPanel {
         }
     };
 
-
-
-
     private void ajouterVoteAuJoueur(String carte) {
-        if (AffichageInfo.tour == 0) {
+        if (AffichageInfo.joueurVote == 0) {
             AffichageInfo.cartesVotees.clear();
-            AffichageInfo.tour = 0;
         }
         for (Joueur joueur : Joueur.listeJoueurs) {
-            if (joueur.getMonId() == (AffichageInfo.tour + 1)) {
-                System.out.println("Joueur " + (AffichageInfo.tour + 1) + " ajoute la carte " + carte);
+            if (joueur.getMonId() == (AffichageInfo.joueurVote + 1)) {
+                System.out.println("Joueur " + (AffichageInfo.joueurVote + 1) + " ajoute la carte " + carte);
                 joueur.setVoteEnCours(carte);
-                AffichageInfo.tour += 1;
+                AffichageInfo.joueurVote += 1;
                 AffichageInfo.cartesVotees.add(carte);
                 break;
             }
@@ -232,7 +240,7 @@ public class AffichageConfiguration extends JPanel {
         }
     }
 
-    private void ajouterEcouteursCartes() {
+    /*private void ajouterEcouteursCartes() {
         for (Component component : Arrays.asList(
                 AffichageInfo.labelCarte0, AffichageInfo.labelCarte1, AffichageInfo.labelCarte2,
                 AffichageInfo.labelCarte3, AffichageInfo.labelCarte5, AffichageInfo.labelCarte8,
@@ -243,9 +251,30 @@ public class AffichageConfiguration extends JPanel {
                 carteLabel.addMouseListener(carteClickListener);
             }
         }
+    }*/
+    private void ajouterEcouteursCartes() {
+        for (JLabel carteLabel : AffichageInfo.labelsCartes) {
+            carteLabel.addMouseListener(carteClickListener);
+        }
     }
 
     private void retirerEcouteursCartes() {
+        for (JLabel carteLabel : AffichageInfo.labelsCartes) {
+            carteLabel.removeMouseListener(carteClickListener);
+        }
+    }
+
+    private void changerRegle(){
+
+    }
+    private void changerPseudo() {
+        // Change le pseudo en fonction de l'index actuel
+        int indexPseudoCourant = (AffichageInfo.joueurVote) % Joueur.listeJoueurs.size();
+        AffichageInfo.labelPseudo.setText("Joueur : " + Joueur.listeJoueurs.get(indexPseudoCourant).getMonPseudo());
+    }
+
+
+    /*private void retirerEcouteursCartes() {
         for (Component component : Arrays.asList(
                 AffichageInfo.labelCarte0, AffichageInfo.labelCarte1, AffichageInfo.labelCarte2,
                 AffichageInfo.labelCarte3, AffichageInfo.labelCarte5, AffichageInfo.labelCarte8,
@@ -256,7 +285,7 @@ public class AffichageConfiguration extends JPanel {
                 carteLabel.removeMouseListener(carteClickListener);
             }
         }
-    }
+    }*/
 
     /*Fonction pour verifier si tous les pseudos sont differents*/
     private boolean verifierPseudosUniques() {
