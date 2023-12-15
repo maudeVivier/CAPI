@@ -3,42 +3,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Fonctionnalite {
-    private static String description;
-    private static int difficulte;
-    private static boolean validee;
+    private String description;
+    private int difficulte;
+    private boolean validee;
 
-    // Liste de fonctionnalité
     public static List<Fonctionnalite> listeFonctionnalites;
 
-    public Fonctionnalite(String des){
-        description = des;
-        difficulte = -1;
-        validee = false;
+    public Fonctionnalite(String des) {
+        this.description = des;
+        this.difficulte = -1;
+        this.validee = false;
     }
 
-    public static String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public static void setDescription(String description) {
-        Fonctionnalite.description = description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public static int getDifficulte() {
+    public int getDifficulte() {
         return difficulte;
     }
 
-    public static void setDifficulte(int difficulte) {
-        Fonctionnalite.difficulte = difficulte;
+    public void setDifficulte(int difficulte) {
+        this.difficulte = difficulte;
     }
 
-    public static boolean isValidee() {
+    public boolean isValidee() {
         return validee;
     }
 
-    public static void setValidee(boolean validee) {
-        Fonctionnalite.validee = validee;
+    public void setValidee(boolean validee) {
+        this.validee = validee;
     }
+
     public static List<Fonctionnalite> ajouterFonctionnalites() {
         List<Fonctionnalite> listeFonc = new ArrayList<>();
         ListModel<String> tache = AffichageInfo.listeTache;
@@ -46,15 +46,14 @@ public class Fonctionnalite {
         for (int i = 0; i < tache.getSize(); i++) {
             String description = tache.getElementAt(i);
             System.out.println(description);
-            listeFonc.add(new Fonctionnalite(description));
+            listeFonc.add(new Fonctionnalite(String.valueOf(description)));
         }
         return listeFonc;
     }
 
-    public static void afficheListeFonctionnalite(List<Fonctionnalite> listeFonctionnalites){
-        // Parcourir et afficher la liste des joueurs
-        for (Fonctionnalite fonctionnalite : listeFonctionnalites) {
-            System.out.println("Description: " + getDescription());
+    public static void afficheListeFonctionnalite(List<Fonctionnalite> listeFonctionnalites) {
+        for (int i = 0; i < listeFonctionnalites.size(); i++) {
+            System.out.println("Description: " + listeFonctionnalites.get(i).getDescription());
         }
     }
 }

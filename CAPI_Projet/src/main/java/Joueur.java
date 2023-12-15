@@ -9,10 +9,10 @@ public class Joueur {
     public String voteCourant;
 
     public Joueur(int identifiant, String p) {
-        pseudo = p;
-        id = identifiant;
-        listeCarte = null;
-        voteCourant = null;
+        this.pseudo = p;
+        this.id = identifiant;
+        this.listeCarte = null;
+        this.voteCourant = null;
     }
 
     public int getId() {
@@ -28,7 +28,7 @@ public class Joueur {
     }
 
     public void setVoteEnCours(String nouveauVote) {
-        voteCourant = nouveauVote;
+        this.voteCourant = nouveauVote;
     }
 
     public static List<Joueur> creerListeDeJoueurs() {
