@@ -5,18 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @file AffichageInfo.java
- * @brief Contient les informations d'affichage pour l'interface graphique.
- */
-
-/**
  * @class AffichageInfo
  * @brief Classe statique contenant les informations d'affichage pour l'interface graphique.
- *
+
  * Cette classe stocke des paramètres tels que la dimension de l'écran, les tailles de police,
- * les tailles des boutons, des variables, des couleurs, des boutons, des spinners, des textareas,
+ * les variables, des couleurs, des boutons, des spinners, des textareas,
  * des labels, et des checkboxes utilisés dans l'interface graphique du jeu "Planning Poker".
  */
+
 public class AffichageInfo {
     /* --------------------Dimension de l'écran--------------------- */
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -27,12 +23,11 @@ public class AffichageInfo {
     public static int sizeTitre = (int) (screenWidth * 0.059);
     public static int sizeTexte = (int) (screenWidth * 0.015);
 
-    /* --------------------Differentes tailles pour les boutons--------------------- */
-    public static int largeurBouton = screenWidth / 5;
-    public static int hauteurBouton = (screenHeight / 10) - (screenHeight / 138);
-
     /* --------------------Différentes variables--------------------- */
-    //nombre de joueur qui joue la partie
+    // Obtenez le répertoire de travail actuel
+    public static String workingDirectory = System.getProperty("user.dir");
+
+    //nombre de joueurs qui participent à la partie
     public static int nbJoueur;
 
     //nombre de tour réalisé pour voter une regle
@@ -40,6 +35,9 @@ public class AffichageInfo {
 
     //pour savoir quel joueur est en train de voter
     public static int joueurVote = 0;
+
+    //nombre de regles à voter
+    public static int nbRegle;
 
     //pour savoir quelle regle est en train de voter
     public static int regleVote = 0;
@@ -54,46 +52,57 @@ public class AffichageInfo {
     public static final int MENU_MODE = 3;
     public static final int MENU_FONCTIONNALITE = 4;
     public static final int MENU_PLATEAU = 5;
+
     /* --------------------Couleurs--------------------- */
     public static Color couleurFond = new Color(0, 0, 50);
 
-    /* --------------------Differents boutons--------------------- */
+
+    /* --------------------Elements differents pour le menu accueil--------------------- */
+    public static JLabel labelTitreAccueil = new JLabel("Planning Poker");
     public static JButton boutonNouvellePartie = new JButton("Nouvelle Partie");
     public static JButton boutonReprendrePartie = new JButton("Reprendre la partie");
-    public static JButton boutonValiderNbJoueur = new JButton("Valider");
-    public static JButton boutonValiderPseudo = new JButton("Valider");
-    public static JButton boutonValiderMode = new JButton("Valider");
-    public static JButton boutonValiderFonctionnalite = new JButton("Valider");
-    public static JButton boutonPasserPlateau = new JButton("Commencer a voter");
-    public static JButton boutonSauvegarderPartie = new JButton("Sauvegarder");
-    public static JButton boutonChoixCarte = new JButton("Valider");
 
+
+    /* --------------------Elements differents pour le menu choix du nombre de joueurs--------------------- */
+    public static JLabel labelTitrePseudoJoueur = new JLabel("Choix des pseudos");
+    public static JLabel labelTitreNbJoueur = new JLabel("Configuration de la partie");
+    public static JLabel labelNbJoueur = new JLabel("<html><center>Nombre de joueur :<br>(entre 2 et 12)</center></html>");
+    public static JButton boutonValiderNbJoueur = new JButton("Valider");
     /* --------------------Spinner--------------------- */
     public static SpinnerModel spinnerModel = new SpinnerNumberModel(2, 2, 12, 1);
     public static JSpinner spinnerNbJoueur = new JSpinner(spinnerModel);
 
-    /* --------------------TextArea--------------------- */
+
+    /* --------------------Elements differents pour le menu choix des pseudos des joueurs--------------------- */
+    public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JTextArea[] areaTabPseudo;
+
+
+    /* --------------------Elements differents pour le menu choix du mode--------------------- */
+    public static JLabel labelTitreMode = new JLabel("Choix du mode de jeu");
+    public static JButton boutonValiderMode = new JButton("Valider");
+
+    /* --------------------Checkbox--------------------- */
+    public static JCheckBox checkUnanimate = new JCheckBox("Unanimité");
+    public static JCheckBox checkMoyenne = new JCheckBox("Moyenne");
+
+
+    /* --------------------Elements differents pour le menu ecriture des fonctionnalités--------------------- */
+    public static JLabel labelTitreFonctionnalite = new JLabel("Entrez vos fonctionnalités à voter");
+    public static JButton boutonValiderFonctionnalite = new JButton("Valider");
+    public static JButton boutonPasserPlateau = new JButton("Commencer à voter");
 
     /* --------------------Fonctionnalites--------------------- */
     public static JTextField fieldFonctionnalite = new JTextField(screenHeight/15);
     public static DefaultListModel<String> listeFonctionnalite = new DefaultListModel<>();
     public static JList<String> fonctionnalitesList = new JList<>(listeFonctionnalite);
 
-    /* --------------------Label--------------------- */
-    public static JLabel labelTitreAccueil = new JLabel("Planning Poker");
-    public static JLabel labelTitreNbJoueur = new JLabel("Configuration de la partie");
-    public static JLabel labelNbJoueur = new JLabel("<html>Nombre de joueur :<br>(entre 2 et 12)</html>");
-    public static JLabel labelTitrePseudoJoueur = new JLabel("Choix des pseudos");
-    public static JLabel labelTitreMode = new JLabel("Choix du mode de jeu");
-    public static JLabel labelTitreFonctionnalite = new JLabel("Entrez vos fonctionnalites à voter");
+
+    /* --------------------Elements differents pour le menu plateau--------------------- */
     public static JLabel labelTitrePlateau = new JLabel("Jeu");
     public static JLabel labelPseudo;
     public static JLabel labelRegle;
-
-    /* --------------------Checkbox--------------------- */
-    public static JCheckBox checkUnanimate = new JCheckBox("Unanimité");
-    public static JCheckBox checkMoyenne = new JCheckBox("Moyenne");
+    public static JButton boutonChoixCarte = new JButton("Valider");
 
     /* --------------------Images--------------------- */
     public static String[] valeursCartes = {"0", "1", "2", "3", "5", "8", "13", "20", "40", "100", "cafe", "interro"};

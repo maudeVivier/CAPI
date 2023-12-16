@@ -7,7 +7,7 @@ public class Fonctionnalite {
     private int difficulte;
     private boolean validee;
 
-    public static List<Fonctionnalite> listeFonctionnalites;
+    public static List<Fonctionnalite> listeFonctionnalites = new ArrayList<>();
 
     public Fonctionnalite(String des) {
         this.description = des;
@@ -19,10 +19,6 @@ public class Fonctionnalite {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getDifficulte() {
         return difficulte;
     }
@@ -31,24 +27,12 @@ public class Fonctionnalite {
         this.difficulte = difficulte;
     }
 
-    public boolean isValidee() {
+    public boolean getValidee() {
         return validee;
     }
 
     public void setValidee(boolean validee) {
         this.validee = validee;
-    }
-
-    public static List<Fonctionnalite> ajouterFonctionnalites() {
-        List<Fonctionnalite> listeFonc = new ArrayList<>();
-        ListModel<String> fonctionnalite = AffichageInfo.listeFonctionnalite;
-        System.out.println("Liste des fonctionnalites dans BACKLOG: ");
-        for (int i = 0; i < fonctionnalite.getSize(); i++) {
-            String description = fonctionnalite.getElementAt(i);
-            System.out.println(description);
-            listeFonc.add(new Fonctionnalite(String.valueOf(description)));
-        }
-        return listeFonc;
     }
 
     public static void ajouterFonctionnalite(){
@@ -59,16 +43,25 @@ public class Fonctionnalite {
             AffichageInfo.fieldFonctionnalite.setText("");
         }
     }
-    public static void afficherListe() {
+
+    public static List<Fonctionnalite> creerListeFonctionnalites() {
+        List<Fonctionnalite> listeFonc = new ArrayList<>();
         ListModel<String> fonctionnalite = AffichageInfo.listeFonctionnalite;
-        System.out.println("Liste des Fonctionnalites : ");
+
+        System.out.println("Liste des fonctionnalites dans BACKLOG: ");
+
         for (int i = 0; i < fonctionnalite.getSize(); i++) {
-            System.out.println(fonctionnalite.getElementAt(i));
+            String description = fonctionnalite.getElementAt(i);
+            System.out.println(description);
+            listeFonc.add(new Fonctionnalite(String.valueOf(description)));
         }
+        return listeFonc;
     }
-    public static void afficheListeFonctionnalite(List<Fonctionnalite> listeFonctionnalites) {
-        for (int i = 0; i < listeFonctionnalites.size(); i++) {
-            System.out.println("Description: " + listeFonctionnalites.get(i).getDescription());
+
+    public static void afficheListeFonctionnalites() {
+        System.out.println("Liste des Fonctionnalites : ");
+        for (Fonctionnalite listeFonctionnalite : listeFonctionnalites) {
+            System.out.println(listeFonctionnalite.getDescription() + listeFonctionnalite.getDifficulte() + listeFonctionnalite.getValidee());
         }
     }
 }

@@ -6,12 +6,8 @@ public class ReglesPlanningPoker {
     private static int moyenne;
     private static Map<String, Integer> resultatTour;
 
-    /*public ReglesPlanningPoker(ModeDeJeu unModeDeJeu) {
-        this.monModeDeJeu = unModeDeJeu;
-    }*/
-
-    public static boolean appliquerRegles(ModeDeJeu modeDeJeu) {
-        boolean res = false;
+    public static int appliquerRegles(ModeDeJeu modeDeJeu) {
+        int res = -1;
         if(modeDeJeu == ModeDeJeu.UNANIMITE || (modeDeJeu == ModeDeJeu.MOYENNE && AffichageInfo.tour==1)){
 
             System.out.println("Regle d'unanimité");
@@ -53,7 +49,7 @@ public class ReglesPlanningPoker {
         return occurrencesTriees;
     }
 
-    private static boolean resultatUnanimite(){
+    private static int resultatUnanimite(){
         resultatTour = compterNombreOccurence(AffichageInfo.cartesVotees);
 
         // Affichage des occurrences
@@ -61,23 +57,22 @@ public class ReglesPlanningPoker {
             System.out.println("-------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
             if(entry.getValue() == AffichageInfo.nbJoueur){
                 System.out.println("------------------------------------------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
-                return true;
+                return entry.getValue();
             }
         }
-        return false;
+        return -1;
     }
 
-    private static boolean resultatMoyenne(){
+    private static int resultatMoyenne(){
         resultatTour = compterNombreOccurence(AffichageInfo.cartesVotees);
 
-        // Affichage des occurrences
         for (Map.Entry<String, Integer> entry : resultatTour.entrySet()) {
             System.out.println("-------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
             if(entry.getValue() >= moyenne){
                 System.out.println("------------------------------------------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
-                return true;
+                return entry.getValue();
             }
         }
-        return false;
+        return -1;
     }
 }

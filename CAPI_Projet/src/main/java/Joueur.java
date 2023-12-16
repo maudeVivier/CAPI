@@ -2,16 +2,14 @@ import javax.swing.*;
 import java.util.*;
 
 public class Joueur {
-    public static List<Joueur> listeJoueurs;
+    public static List<Joueur> listeJoueurs = new ArrayList<>();
     private final int id;
     private final String pseudo;
-    private ArrayList<String> listeCarte;
     public String voteCourant;
 
     public Joueur(int identifiant, String p) {
         this.pseudo = p;
         this.id = identifiant;
-        this.listeCarte = null;
         this.voteCourant = null;
     }
 
@@ -38,10 +36,10 @@ public class Joueur {
         for (JTextArea pseudoTextArea : AffichageInfo.areaTabPseudo) {
             String pseudo = pseudoTextArea.getText().trim();
             if (!pseudosSet.add(pseudo)) {
-                return false; // Pseudo déjà rencontré, n'est pas unique
+                return false;
             }
         }
-        return true; // Tous les pseudos sont uniques
+        return true;
     }
 
     public static boolean verifierPseudosNonNuls() {
@@ -52,6 +50,7 @@ public class Joueur {
         }
         return true; // Tous les JTextArea sont non nuls
     }
+
     public static List<Joueur> creerListeDeJoueurs() {
         List<Joueur> listeJoueurs = new ArrayList<>();
         int i = 1;
@@ -62,10 +61,10 @@ public class Joueur {
         return listeJoueurs;
     }
 
-    public static void afficheListeJoueur(List<Joueur> listeJoueurs){
-        // Parcourir et afficher la liste des joueurs
+    public static void afficheListeJoueur() {
+        System.out.println("Liste des Joueurs : ");
         for (Joueur joueur : listeJoueurs) {
-            System.out.println("ID: " + joueur.getId() + ", Pseudo: " + joueur.getPseudo());
+            System.out.println("ID: " + joueur.getId() + ", Pseudo: " + joueur.getPseudo() + " vote : " + joueur.getVoteCourant());
         }
     }
 
@@ -82,9 +81,5 @@ public class Joueur {
                 break;
             }
         }
-    }
-
-    public void voter(String carte) {
-        // Logique de vote
     }
 }

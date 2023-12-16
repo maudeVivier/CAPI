@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Objects;
+import java.io.IOException;
 
 public class AffichageConfiguration extends JPanel {
     private final JPanel accueilPanel = new JPanel();
@@ -31,13 +31,18 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonReprendrePartie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Affichage.pageFonctionnalite(fonctionnalitePanel);
-                add(fonctionnalitePanel);
-                setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
-                /*Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
-                add(plateauPanel);
-                setMenu(AffichageInfo.MENU_PLATEAU, true);*/
-                //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
+                try {
+                    Backlog.chargerDepuisJSON();
+                    Joueur.afficheListeJoueur();
+                    Fonctionnalite.afficheListeFonctionnalites();
+                    /*Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
+                    add(plateauPanel);
+                    setMenu(AffichageInfo.MENU_PLATEAU, true);*/
+                    //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
+
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 
@@ -61,7 +66,7 @@ public class AffichageConfiguration extends JPanel {
                     add(modePanel);
                     setMenu(AffichageInfo.MENU_MODE, false);
                     Joueur.listeJoueurs = Joueur.creerListeDeJoueurs();
-                    Joueur.afficheListeJoueur(Joueur.listeJoueurs);
+                    Joueur.afficheListeJoueur();
                 } else {
                     JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -107,25 +112,17 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonPasserPlateau.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Fonctionnalite.afficherListe();
                 if(!AffichageInfo.listeFonctionnalite.isEmpty()) {
-                    Fonctionnalite.listeFonctionnalites = Fonctionnalite.ajouterFonctionnalites();
-                    Fonctionnalite.afficheListeFonctionnalite(Fonctionnalite.listeFonctionnalites);
-                    Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
+                    Fonctionnalite.listeFonctionnalites = Fonctionnalite.creerListeFonctionnalites();
+                    AffichageInfo.nbRegle = Fonctionnalite.listeFonctionnalites.size();
+                    Fonctionnalite.afficheListeFonctionnalites();
+                    Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
                     PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
                 }else{
                     JOptionPane.showMessageDialog(null, "Veuillez entrez au moins une fonctionnalité, avant de lancer la partie", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
-            }
-        });
-
-        /* -------------------Bouton pour sauvegarder la partie---------------------- */
-        AffichageInfo.boutonSauvegarderPartie.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Bouton sauvegarder une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -136,15 +133,18 @@ public class AffichageConfiguration extends JPanel {
                 Joueur.ajouterVoteAuJoueur(numeroCarte);
                 Affichage.changerPseudo();
                 if(AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
-                    boolean res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.monModeDeJeu);
+                    int res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.monModeDeJeu);
                     System.out.println("RESULTAT dans config : "+res);
-                    if(res){
+                    if(res!=-1){
                         JOptionPane.showMessageDialog(null, "VALIDE", "Erreur", JOptionPane.ERROR_MESSAGE);
                         clearBorders("-1");
+                        Fonctionnalite.listeFonctionnalites.get(AffichageInfo.regleVote).setDifficulte(res);
+                        Fonctionnalite.listeFonctionnalites.get(AffichageInfo.regleVote).setValidee(true);
                         AffichageInfo.joueurVote = 0;
                         AffichageInfo.tour = 1;
                         AffichageInfo.regleVote += 1;
                         Affichage.changerRegle();
+                        Backlog.sauvegarderEnJSON();
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Refuser", "Erreur", JOptionPane.ERROR_MESSAGE);

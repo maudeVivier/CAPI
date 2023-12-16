@@ -1,15 +1,9 @@
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-/**
- * @file Affichage.java
- * @brief Contient les méthodes pour afficher différentes pages de l'interface graphique du jeu "Planning Poker".
- */
 
 /**
  * @class Affichage
@@ -220,10 +214,10 @@ public class Affichage {
         panel.add(Box.createVerticalStrut(AffichageInfo.screenHeight / 10));
 
         // Règles
-        JLabel labelExplicatif = new JLabel("<html>Règles :"
+        JLabel labelExplicatif = new JLabel("<html><center>Règles :"
                 + "<br>Mode Unanimité : Les joueurs votent jusqu'à l'unanimité."
                 + "<br>Mode Moyenne : Utilisation de la moyenne à partir du deuxième tour."
-                + "</html>");
+                + "</center></html>");
         labelExplicatif.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
         labelExplicatif.setForeground(Color.WHITE);
         labelExplicatif.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -295,7 +289,7 @@ public class Affichage {
      *
      * @param panel Le panneau sur lequel afficher la page du plateau de jeu.
      */
-    public static void pagePlateau(JPanel panel, Class<?> callingClass) {
+    public static void pagePlateau(JPanel panel) {
             /* -----------------------Panel principal------------------------ */
             panel.setLayout(new BorderLayout());
 
@@ -318,10 +312,10 @@ public class Affichage {
             /* -----------------------Panel pour ecrire la fonctionnalite a juger------------------------ */
             JPanel phrasePanel = new JPanel();
             phrasePanel.setBackground(AffichageInfo.couleurFond);
-            AffichageInfo.labelRegle = new JLabel("<html> Fonctionnalité : "
+            AffichageInfo.labelRegle = new JLabel("<html><center>Fonctionnalité : "
                     + "<br>"
                     + Fonctionnalite.listeFonctionnalites.get(0).getDescription()
-                    + "</html>");
+                    + "</center></html>");
             AffichageInfo.labelRegle.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
             AffichageInfo.labelRegle.setForeground(Color.WHITE);
             phrasePanel.add(AffichageInfo.labelRegle);
@@ -330,7 +324,7 @@ public class Affichage {
             /* -----------------------Panel pour ecrire le joueur qui vote------------------------ */
             JPanel pseudoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
             pseudoPanel.setBackground(AffichageInfo.couleurFond);
-            AffichageInfo.labelPseudo = new JLabel("Joueur : " + Joueur.listeJoueurs.get(0).getPseudo());
+            AffichageInfo.labelPseudo = new JLabel("Joueur 1/ " + AffichageInfo.nbJoueur + " : "+ Joueur.listeJoueurs.get(0).getPseudo());
             AffichageInfo.labelPseudo.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
             AffichageInfo.labelPseudo.setForeground(Color.WHITE);
             pseudoPanel.add(AffichageInfo.labelPseudo);
@@ -344,17 +338,11 @@ public class Affichage {
             // Ajoute les cartes
             try {
 
-                // Obtenez le répertoire de travail actuel
-                String workingDirectory = System.getProperty("user.dir");
-
                 // Chargez les images à partir du tableau de noms de fichiers
                 for (int i = 0; i < AffichageInfo.nomFichiers.length; i++) {
-                    // Chemin relatif de la ressource par rapport au répertoire de travail
                     String relativePath = "\\src\\images\\" + AffichageInfo.nomFichiers[i];
 
-                    // Concaténez les deux chemins pour obtenir le chemin absolu
-                    String absolutePath = workingDirectory + relativePath;
-                    //System.out.println("chemin " + absolutePath);
+                    String absolutePath = AffichageInfo.workingDirectory + relativePath;
 
                     // Chargez l'image
                     AffichageInfo.carte[i] = ImageIO.read(new File(absolutePath));
@@ -394,20 +382,6 @@ public class Affichage {
 
                     cartesPanel.add(AffichageInfo.labelsCartes[i]);
                 }
-
-                /*AffichageInfo.carte_0 = ImageIO.read(Objects.requireNonNull(callingClass.getResource("/images/carte_0.jpg")));
-
-                // Redimensionnez l'image à la largeur souhaitée
-                int largeurRedimensionnee = AffichageInfo.screenWidth/13;
-                int hauteurRedimensionnee = -1;
-                Image carteRedimensionnee0 = AffichageInfo.carte_0.getScaledInstance(largeurRedimensionnee, hauteurRedimensionnee, Image.SCALE_SMOOTH);
-
-                AffichageInfo.labelCarte0 = new JLabel(new ImageIcon(carteRedimensionnee0));
-                AffichageInfo.labelCarte0.putClientProperty("valeur", "0");
-                AffichageInfo.labelCarte0.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-
-                cartesPanel.add(AffichageInfo.labelCarte0);
-;*/
             } catch (IOException e1) {
                 throw new RuntimeException(e1);
             }
@@ -430,18 +404,15 @@ public class Affichage {
         }
 
     public static void changerRegle(){
-        int indexRegleCourante = (AffichageInfo.regleVote) % Fonctionnalite.listeFonctionnalites.size();
+        int indexRegleCourante = (AffichageInfo.regleVote) % AffichageInfo.nbRegle;
+        AffichageInfo.labelRegle.setText("<html><center> Fonctionnalité : " + (indexRegleCourante + 1) + "/" + AffichageInfo.nbRegle
 
-        System.out.println(
-                "CHANGEMENT DE REGLE    " + indexRegleCourante
-        );
-        AffichageInfo.labelRegle.setText("<html> Fonctionnalité : "
                 + "<br>"
                 + Fonctionnalite.listeFonctionnalites.get(indexRegleCourante).getDescription()
-                + "</html>");
+                + "</center></html>");
     }
     public static void changerPseudo() {
         int indexPseudoCourant = (AffichageInfo.joueurVote) % Joueur.listeJoueurs.size();
-        AffichageInfo.labelPseudo.setText("Joueur : " + Joueur.listeJoueurs.get(indexPseudoCourant).getPseudo());
+        AffichageInfo.labelPseudo.setText("Joueur " + (indexPseudoCourant+1) + "/" + AffichageInfo.nbJoueur + " : " + Joueur.listeJoueurs.get(indexPseudoCourant).getPseudo());
     }
 }
