@@ -51,6 +51,21 @@ public class Fonctionnalite {
         return listeFonc;
     }
 
+    public static void ajouterFonctionnalite(){
+        String tache = AffichageInfo.fieldTache.getText();
+        System.out.println("Tache : " + tache);
+        if(!tache.isEmpty()){
+            AffichageInfo.listeTache.addElement(tache);
+            AffichageInfo.fieldTache.setText("");
+        }
+    }
+    public static void afficherListe() {
+        ListModel<String> tache = AffichageInfo.listeTache;
+        System.out.println("Liste des taches : ");
+        for (int i = 0; i < tache.getSize(); i++) {
+            System.out.println(tache.getElementAt(i));
+        }
+    }
     public static void afficheListeFonctionnalite(List<Fonctionnalite> listeFonctionnalites) {
         for (int i = 0; i < listeFonctionnalites.size(); i++) {
             System.out.println("Description: " + listeFonctionnalites.get(i).getDescription());

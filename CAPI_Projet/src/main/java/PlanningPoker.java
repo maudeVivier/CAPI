@@ -1,5 +1,6 @@
 import java.util.*;
 public class PlanningPoker {
+    public static PlanningPoker planningPoker;
     private List<Joueur> joueurs;
     private ModeDeJeu regle;
     private Backlog backlog;

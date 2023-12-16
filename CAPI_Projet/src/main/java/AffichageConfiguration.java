@@ -1,10 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Objects;
 
 public class AffichageConfiguration extends JPanel {
     private final JPanel accueilPanel = new JPanel();
@@ -13,10 +10,7 @@ public class AffichageConfiguration extends JPanel {
     private final JPanel modePanel = new JPanel();
     private final JPanel fonctionnalitePanel = new JPanel();
     private final JPanel plateauPanel = new JPanel();
-
     private String numeroCarte;
-
-    private PlanningPoker planningPoker;
 
 
     public AffichageConfiguration(){
@@ -62,7 +56,7 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonValiderPseudo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (verifierPseudosNonNuls() && verifierPseudosUniques()) {
+                if (Joueur.verifierPseudosNonNuls() && Joueur.verifierPseudosUniques()) {
                     Affichage.pageChoixMode(modePanel);
                     add(modePanel);
                     setMenu(AffichageInfo.MENU_MODE, false);
@@ -87,14 +81,14 @@ public class AffichageConfiguration extends JPanel {
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
                     System.out.println("CHECK MOYENNE VALIDÉ");
-                    planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
+                    PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
                 } else if (unanimiteSelected && !moyenneSelected) {
                     ReglesPlanningPoker.monModeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
                     System.out.println("CHECK UNANIMITÉ VALIDÉ");
-                    planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
+                    PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -105,7 +99,7 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonValiderTache.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ajouterTache();
+                Fonctionnalite.ajouterFonctionnalite();
             }
         });
 
@@ -113,14 +107,14 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonPasserPlateau.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                afficherListe();
+                Fonctionnalite.afficherListe();
                 if(!AffichageInfo.listeTache.isEmpty()) {
                     Fonctionnalite.listeFonctionnalites = Fonctionnalite.ajouterFonctionnalites();
                     Fonctionnalite.afficheListeFonctionnalite(Fonctionnalite.listeFonctionnalites);
                     Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
-                    planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
+                    PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.monModeDeJeu);
                 }else{
                     JOptionPane.showMessageDialog(null, "Veuillez entrez au moins une fonctionnalité, avant de lancer la partie", "Erreur", JOptionPane.ERROR_MESSAGE);
                 }
@@ -135,21 +129,26 @@ public class AffichageConfiguration extends JPanel {
             }
         });
 
+        /* -------------------Bouton pour sauvegarder la carte cliqué par le joueur---------------------- */
         AffichageInfo.boutonChoixCarte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ajouterVoteAuJoueur(numeroCarte);
-                changerPseudo();
+                Joueur.ajouterVoteAuJoueur(numeroCarte);
+                Affichage.changerPseudo();
                 if(AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
                     boolean res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.monModeDeJeu);
                     System.out.println("RESULTAT dans config : "+res);
                     if(res){
                         JOptionPane.showMessageDialog(null, "VALIDE", "Erreur", JOptionPane.ERROR_MESSAGE);
+                        clearBorders("-1");
                         AffichageInfo.joueurVote = 0;
                         AffichageInfo.tour = 1;
+                        AffichageInfo.regleVote += 1;
+                        Affichage.changerRegle();
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Refuser", "Erreur", JOptionPane.ERROR_MESSAGE);
+                        clearBorders("-1");
                         AffichageInfo.joueurVote = 0;
                         AffichageInfo.tour += 1;
                     }
@@ -171,51 +170,21 @@ public class AffichageConfiguration extends JPanel {
 
 
                 // Retirez le contour des autres cartes
-                //clearBorders();
+                clearBorders(numeroCarte);
 
                 // Ajoutez un contour à la carte cliquée
                 carteCliquee.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
-
-            }
-        }
-
-        private void clearBorders() {
-            // Parcourez tous les composants sur votre plateau pour retirer les contours
-            for (Component component : plateauPanel.getComponents()) {
-                if (component instanceof JPanel) {
-                    for (Component internalComponent : ((JPanel) component).getComponents()) {
-                        if (internalComponent instanceof JLabel) {
-                            JLabel carteLabel = (JLabel) internalComponent;
-                            numeroCarte = (String) carteLabel.getClientProperty("valeur");
-                            System.out.println("Carte dans supprimer contour: " + numeroCarte);
-                            if (numeroCarte != null && !numeroCarte.isEmpty()) {
-                                carteLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                            }
-                        }
-                    }
-                } else if (component instanceof JLabel) {
-                    JLabel carteLabel = (JLabel) component;
-                    numeroCarte = (String) carteLabel.getClientProperty("valeur");
-                    System.out.println("Carte choix 2 : " + numeroCarte);
-                    if (numeroCarte != null && !numeroCarte.isEmpty()) {
-                        carteLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
-                    }
-                }
             }
         }
     };
 
-    private void ajouterVoteAuJoueur(String carte) {
-        if (AffichageInfo.joueurVote == 0) {
-            AffichageInfo.cartesVotees.clear();
-        }
-        for (Joueur joueur : Joueur.listeJoueurs) {
-            if (joueur.getId() == (AffichageInfo.joueurVote + 1)) {
-                System.out.println("Joueur " + (AffichageInfo.joueurVote + 1) + " ajoute la carte " + carte);
-                joueur.setVoteEnCours(carte);
-                AffichageInfo.joueurVote += 1;
-                AffichageInfo.cartesVotees.add(carte);
-                break;
+    private void clearBorders(String numeroCarte) {
+        String numCarte;
+        System.out.println("DANS CLEARBORDERS Carte cliquée : " + numeroCarte);
+        for (int i = 0; i < AffichageInfo.valeursCartes.length; i++) {
+            numCarte =  AffichageInfo.valeursCartes[i];
+            if (!numCarte.equals(numeroCarte)) {
+                AffichageInfo.labelsCartes[i].setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             }
         }
     }
@@ -289,56 +258,9 @@ public class AffichageConfiguration extends JPanel {
             carteLabel.addMouseListener(carteClickListener);
         }
     }
-
     private void retirerEcouteursCartes() {
         for (JLabel carteLabel : AffichageInfo.labelsCartes) {
             carteLabel.removeMouseListener(carteClickListener);
         }
-    }
-
-    private void ajouterTache(){
-        String tache = AffichageInfo.fieldTache.getText();
-        System.out.println("Tache : " + tache);
-        if(!tache.isEmpty()){
-            AffichageInfo.listeTache.addElement(tache);
-            AffichageInfo.fieldTache.setText("");
-        }
-    }
-    private void afficherListe() {
-        ListModel<String> tache = AffichageInfo.listeTache;
-        System.out.println("Liste des taches : ");
-        for (int i = 0; i < tache.getSize(); i++) {
-            System.out.println(tache.getElementAt(i));
-        }
-    }
-    private void changerRegle(){
-
-    }
-    private void changerPseudo() {
-        // Change le pseudo en fonction de l'index actuel
-        int indexPseudoCourant = (AffichageInfo.joueurVote) % Joueur.listeJoueurs.size();
-        AffichageInfo.labelPseudo.setText("Joueur : " + Joueur.listeJoueurs.get(indexPseudoCourant).getPseudo());
-    }
-
-    /*Fonction pour verifier si tous les pseudos sont differents*/
-    private boolean verifierPseudosUniques() {
-        Set<String> pseudosSet = new HashSet<>();
-
-        for (JTextArea pseudoTextArea : AffichageInfo.areaTabPseudo) {
-            String pseudo = pseudoTextArea.getText().trim();
-            if (!pseudosSet.add(pseudo)) {
-                return false; // Pseudo déjà rencontré, n'est pas unique
-            }
-        }
-        return true; // Tous les pseudos sont uniques
-    }
-
-    private boolean verifierPseudosNonNuls() {
-        for (JTextArea pseudoTextArea : AffichageInfo.areaTabPseudo) {
-            if (pseudoTextArea.getText().trim().isEmpty()) {
-                return false; // Au moins un JTextArea est nul
-            }
-        }
-        return true; // Tous les JTextArea sont non nuls
     }
 }

@@ -41,6 +41,9 @@ public class AffichageInfo {
     //pour savoir quel joueur est en train de voter
     public static int joueurVote = 0;
 
+    //pour savoir quelle regle est en train de voter
+    public static int regleVote = 0;
+
     // Liste des cartes votées pendant un tour
     public static List<String> cartesVotees = new ArrayList<>();
 
@@ -73,7 +76,7 @@ public class AffichageInfo {
     public static JTextArea[] areaTabPseudo;
 
     /* --------------------Fonctionnalites/Taches--------------------- */
-    public static JTextField fieldTache = new JTextField(screenHeight/30);
+    public static JTextField fieldTache = new JTextField(screenHeight/15);
     public static DefaultListModel<String> listeTache = new DefaultListModel<>();
     public static JList<String> tachesList = new JList<>(listeTache);
 
