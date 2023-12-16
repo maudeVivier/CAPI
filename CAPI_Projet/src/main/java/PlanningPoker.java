@@ -1,18 +1,15 @@
 import java.util.*;
 public class PlanningPoker {
     public static PlanningPoker planningPoker;
-    private List<Joueur> joueurs;
-    private ModeDeJeu regle;
+    public List<Joueur> listeJoueurs;
+    private ModeDeJeu modeDeJeu;
     private Backlog backlog;
 
     public PlanningPoker(List<Joueur> listeJoueur, ModeDeJeu regle) //, Backlog backlog)
     {
-        this.joueurs = listeJoueur;
-        this.regle = regle;
+        this.listeJoueurs = listeJoueur;
+        this.modeDeJeu = regle;
         //this.backlog = backlog;
-    }
-    public void initialiserPartie() { //Maude : a supprimer
-        // Logique d'initialisation
     }
 
     public void validerBacklog() {

@@ -74,7 +74,6 @@ public class Joueur {
         }
         for (Joueur joueur : Joueur.listeJoueurs) {
             if (joueur.getId() == (AffichageInfo.joueurVote + 1)) {
-                System.out.println("Joueur " + (AffichageInfo.joueurVote + 1) + " ajoute la carte " + carte);
                 joueur.setVoteEnCours(carte);
                 AffichageInfo.joueurVote += 1;
                 AffichageInfo.cartesVotees.add(carte);

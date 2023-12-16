@@ -26,6 +26,8 @@ public class Backlog {
         Map<String, Object> donnees = new HashMap<>();
         donnees.put("fonctionnalites", Fonctionnalite.listeFonctionnalites);
         donnees.put("joueurs", Joueur.listeJoueurs);
+        donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote);
+        donnees.put("modeDeJeu", ReglesPlanningPoker.modeDeJeu);
 
         try {
             objectMapper.writeValue(new File(chemin), donnees);
@@ -35,13 +37,8 @@ public class Backlog {
             e.printStackTrace();
         }
     }
-    /*
-     * La méthode chargerDepuisJSON utilise un bloc try-catch
-     * pour intercepter différentes exceptions qui pourraient survenir
-     * lors de la lecture et de la désérialisation du fichier JSON.
-     * Les exceptions spécifiques liées à Jackson
-     * sont ajoutées dans les blocs catch correspondants.
-     * */
+
+
     public static void chargerDepuisJSON() throws IOException {
         String chemin = AffichageInfo.workingDirectory + "\\src\\json\\fichier.json";
 
@@ -57,6 +54,13 @@ public class Backlog {
             //Chargement des joueurs
             Joueur.listeJoueurs = creerListeJoueursDepuisJSON(donnees);
             Joueur.afficheListeJoueur();
+
+            //Chargement du nombre de fonctionnalites deja traitees
+            AffichageInfo.fonctionnaliteVote = (int) donnees.get("fonctionnalitesValidees");
+
+            //Chargement du mode de jeu
+            ReglesPlanningPoker.modeDeJeu = ModeDeJeu.valueOf((String) donnees.get("modeDeJeu"));
+
 
             System.out.println("Données chargées depuis le fichier JSON avec succès.");
         } else {

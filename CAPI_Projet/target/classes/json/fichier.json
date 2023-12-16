@@ -1,0 +1,22 @@
+{
+  "fonctionnalitesValidees" : 1,
+  "fonctionnalites" : [ {
+    "description" : "R1",
+    "difficulte" : 2,
+    "validee" : true
+  }, {
+    "description" : "R2",
+    "difficulte" : -1,
+    "validee" : false
+  } ],
+  "modeDeJeu" : "MOYENNE",
+  "joueurs" : [ {
+    "id" : 1,
+    "pseudo" : "AAA",
+    "voteCourant" : "8"
+  }, {
+    "id" : 2,
+    "pseudo" : "BBB",
+    "voteCourant" : "8"
+  } ]
+}

@@ -312,7 +312,7 @@ public class Affichage {
             /* -----------------------Panel pour ecrire la fonctionnalite a juger------------------------ */
             JPanel phrasePanel = new JPanel();
             phrasePanel.setBackground(AffichageInfo.couleurFond);
-            AffichageInfo.labelRegle = new JLabel("<html><center>Fonctionnalité : "
+            AffichageInfo.labelRegle = new JLabel("<html><center>Fonctionnalité " + (AffichageInfo.fonctionnaliteVote+1) + "/" + AffichageInfo.nbFonctionnalite + " : "
                     + "<br>"
                     + Fonctionnalite.listeFonctionnalites.get(0).getDescription()
                     + "</center></html>");
@@ -404,9 +404,8 @@ public class Affichage {
         }
 
     public static void changerRegle(){
-        int indexRegleCourante = (AffichageInfo.regleVote) % AffichageInfo.nbRegle;
-        AffichageInfo.labelRegle.setText("<html><center> Fonctionnalité : " + (indexRegleCourante + 1) + "/" + AffichageInfo.nbRegle
-
+        int indexRegleCourante = (AffichageInfo.fonctionnaliteVote) % AffichageInfo.nbFonctionnalite;
+        AffichageInfo.labelRegle.setText("<html><center> Fonctionnalité : " + (indexRegleCourante + 1) + "/" + AffichageInfo.nbFonctionnalite + " : "
                 + "<br>"
                 + Fonctionnalite.listeFonctionnalites.get(indexRegleCourante).getDescription()
                 + "</center></html>");

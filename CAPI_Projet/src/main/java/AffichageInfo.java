@@ -36,11 +36,11 @@ public class AffichageInfo {
     //pour savoir quel joueur est en train de voter
     public static int joueurVote = 0;
 
-    //nombre de regles à voter
-    public static int nbRegle;
+    //nombre de fonctionnalites à voter
+    public static int nbFonctionnalite;
 
-    //pour savoir quelle regle est en train de voter
-    public static int regleVote = 0;
+    //pour savoir quelle fonctionnalite est en train de voter
+    public static int fonctionnaliteVote = 0;
 
     // Liste des cartes votées pendant un tour
     public static List<String> cartesVotees = new ArrayList<>();

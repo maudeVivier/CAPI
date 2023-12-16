@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class ReglesPlanningPoker {
-    public static ModeDeJeu monModeDeJeu;
+    public static ModeDeJeu modeDeJeu;
     private static int moyenne;
     private static Map<String, Integer> resultatTour;
 
