@@ -38,8 +38,6 @@ public class AffichageConfiguration extends JPanel {
                     /*Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);*/
-                    //JOptionPane.showMessageDialog(null, "Bouton reprendre une partie appuyer", "Erreur", JOptionPane.ERROR_MESSAGE);
-
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }

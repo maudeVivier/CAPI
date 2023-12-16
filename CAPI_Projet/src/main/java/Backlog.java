@@ -45,18 +45,24 @@ public class Backlog {
     public static void chargerDepuisJSON() throws IOException {
         String chemin = AffichageInfo.workingDirectory + "\\src\\json\\fichier.json";
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> donnees = objectMapper.readValue(new File(chemin), Map.class);
-        //Chargement des fonctionnalites
-        Fonctionnalite.listeFonctionnalites = creerListeFonctionnalitesDepuisJSON(donnees);
-        Fonctionnalite.afficheListeFonctionnalites();
+        if (verifierSiFichierExiste(chemin)) {
+            System.out.println("Le fichier existe.");
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<String, Object> donnees = objectMapper.readValue(new File(chemin), Map.class);
 
-        //Chargement des joueurs
-        Joueur.listeJoueurs = creerListeJoueursDepuisJSON(donnees);
-        Joueur.afficheListeJoueur();
+            //Chargement des fonctionnalites
+            Fonctionnalite.listeFonctionnalites = creerListeFonctionnalitesDepuisJSON(donnees);
+            Fonctionnalite.afficheListeFonctionnalites();
 
-        System.out.println("Données chargées depuis le fichier JSON avec succès.");
+            //Chargement des joueurs
+            Joueur.listeJoueurs = creerListeJoueursDepuisJSON(donnees);
+            Joueur.afficheListeJoueur();
 
+            System.out.println("Données chargées depuis le fichier JSON avec succès.");
+        } else {
+            System.out.println("Le fichier n'existe pas.");
+            JOptionPane.showMessageDialog(null, "Aucune partie enregister", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public static List<Fonctionnalite> creerListeFonctionnalitesDepuisJSON(Map<String, Object> donnees) {
@@ -87,5 +93,10 @@ public class Backlog {
                 listeJou.add(joueur);
         }
         return listeJou;
+    }
+
+    private static boolean verifierSiFichierExiste(String cheminFichier) {
+        File fichier = new File(cheminFichier);
+        return fichier.exists() && fichier.isFile();
     }
 }
