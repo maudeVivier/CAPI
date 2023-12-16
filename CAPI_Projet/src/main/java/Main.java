@@ -7,7 +7,7 @@ public class Main {
         int un_nombre_joueur = AffichageInfo.nbJoueur;
 
         //Création d'un tableau de Joueur, des joueurs
-        ArrayList<Joueur> unTabJoueurs = new ArrayList();;
+        ArrayList<Joueur> unTabJoueurs = new ArrayList();
         for (int i =0 ; i<un_nombre_joueur ; i++)
         {
             //__On récupèrera les pseudos___

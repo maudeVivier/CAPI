@@ -249,14 +249,14 @@ public class Affichage {
         JPanel fieldPanel = new JPanel(new FlowLayout());
         fieldPanel.setBackground(AffichageInfo.couleurFond);
 
-        //Espace pour ecrire la tache
-        fieldPanel.add(AffichageInfo.fieldTache);
+        //Espace pour ecrire la fonctionnalite
+        fieldPanel.add(AffichageInfo.fieldFonctionnalite);
 
-        // Bouton enregistrer la tache ecrite
-        AffichageInfo.boutonValiderTache.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
-        AffichageInfo.boutonValiderTache.setBackground(Color.darkGray);
-        AffichageInfo.boutonValiderTache.setForeground(Color.WHITE);
-        fieldPanel.add(AffichageInfo.boutonValiderTache);
+        // Bouton enregistrer la fonctionnalite ecrite
+        AffichageInfo.boutonValiderFonctionnalite.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
+        AffichageInfo.boutonValiderFonctionnalite.setBackground(Color.darkGray);
+        AffichageInfo.boutonValiderFonctionnalite.setForeground(Color.WHITE);
+        fieldPanel.add(AffichageInfo.boutonValiderFonctionnalite);
         panel.add(fieldPanel);
 
         /* -----------------------Panel pour voir les fonctionnalites deja validees------------------------ */
@@ -264,7 +264,7 @@ public class Affichage {
         scrollPanel.setBackground(AffichageInfo.couleurFond);
 
         // Espace pour voir les fonctionnalites deja validées
-        JScrollPane scrollPane = new JScrollPane(AffichageInfo.tachesList);
+        JScrollPane scrollPane = new JScrollPane(AffichageInfo.fonctionnalitesList);
 
         // Réduit la largeur de la barre de défilement
         scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(AffichageInfo.screenHeight/15, Integer.MAX_VALUE));
@@ -276,7 +276,7 @@ public class Affichage {
         JPanel panelBouton = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         panelBouton.setBackground(AffichageInfo.couleurFond);
 
-        // Bouton quand on a fini d'ajouter les taches, pour passer au plateau
+        // Bouton quand on a fini d'ajouter les fonctionnalites, pour passer au plateau
         AffichageInfo.boutonPasserPlateau.setFont(new Font("Calibri", Font.BOLD, AffichageInfo.sizeTexte));
         AffichageInfo.boutonPasserPlateau.setBackground(Color.darkGray);
         AffichageInfo.boutonPasserPlateau.setForeground(Color.WHITE);
@@ -307,7 +307,7 @@ public class Affichage {
             titrePanel.add(AffichageInfo.labelTitrePlateau);
             panel.add(titrePanel, BorderLayout.NORTH);
 
-            /* -----------------------Panel secondaire qui contient le panel qui affiche la tache a voter et celui des cartes et le bouton------------------------ */
+            /* -----------------------Panel secondaire qui contient le panel qui affiche la fonctionnalite a voter et celui des cartes et le bouton------------------------ */
             JPanel centrePanel = new JPanel();
             centrePanel.setLayout(new BoxLayout(centrePanel, BoxLayout.Y_AXIS));
             centrePanel.setBackground(AffichageInfo.couleurFond);
@@ -315,10 +315,10 @@ public class Affichage {
             // Ajoutez un espace vertical
             centrePanel.add(Box.createRigidArea(new Dimension(0, AffichageInfo.screenHeight/20)));
 
-            /* -----------------------Panel pour ecrire la tache a juger------------------------ */
+            /* -----------------------Panel pour ecrire la fonctionnalite a juger------------------------ */
             JPanel phrasePanel = new JPanel();
             phrasePanel.setBackground(AffichageInfo.couleurFond);
-            AffichageInfo.labelRegle = new JLabel("<html> Tache : "
+            AffichageInfo.labelRegle = new JLabel("<html> Fonctionnalité : "
                     + "<br>"
                     + Fonctionnalite.listeFonctionnalites.get(0).getDescription()
                     + "</html>");
@@ -435,7 +435,7 @@ public class Affichage {
         System.out.println(
                 "CHANGEMENT DE REGLE    " + indexRegleCourante
         );
-        AffichageInfo.labelRegle.setText("<html> Tache : "
+        AffichageInfo.labelRegle.setText("<html> Fonctionnalité : "
                 + "<br>"
                 + Fonctionnalite.listeFonctionnalites.get(indexRegleCourante).getDescription()
                 + "</html>");

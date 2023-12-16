@@ -63,7 +63,7 @@ public class AffichageInfo {
     public static JButton boutonValiderNbJoueur = new JButton("Valider");
     public static JButton boutonValiderPseudo = new JButton("Valider");
     public static JButton boutonValiderMode = new JButton("Valider");
-    public static JButton boutonValiderTache = new JButton("Valider");
+    public static JButton boutonValiderFonctionnalite = new JButton("Valider");
     public static JButton boutonPasserPlateau = new JButton("Commencer a voter");
     public static JButton boutonSauvegarderPartie = new JButton("Sauvegarder");
     public static JButton boutonChoixCarte = new JButton("Valider");
@@ -75,10 +75,10 @@ public class AffichageInfo {
     /* --------------------TextArea--------------------- */
     public static JTextArea[] areaTabPseudo;
 
-    /* --------------------Fonctionnalites/Taches--------------------- */
-    public static JTextField fieldTache = new JTextField(screenHeight/15);
-    public static DefaultListModel<String> listeTache = new DefaultListModel<>();
-    public static JList<String> tachesList = new JList<>(listeTache);
+    /* --------------------Fonctionnalites--------------------- */
+    public static JTextField fieldFonctionnalite = new JTextField(screenHeight/15);
+    public static DefaultListModel<String> listeFonctionnalite = new DefaultListModel<>();
+    public static JList<String> fonctionnalitesList = new JList<>(listeFonctionnalite);
 
     /* --------------------Label--------------------- */
     public static JLabel labelTitreAccueil = new JLabel("Planning Poker");

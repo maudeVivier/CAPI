@@ -41,10 +41,10 @@ public class Fonctionnalite {
 
     public static List<Fonctionnalite> ajouterFonctionnalites() {
         List<Fonctionnalite> listeFonc = new ArrayList<>();
-        ListModel<String> tache = AffichageInfo.listeTache;
-        System.out.println("Liste des taches dans BACKLOG: ");
-        for (int i = 0; i < tache.getSize(); i++) {
-            String description = tache.getElementAt(i);
+        ListModel<String> fonctionnalite = AffichageInfo.listeFonctionnalite;
+        System.out.println("Liste des fonctionnalites dans BACKLOG: ");
+        for (int i = 0; i < fonctionnalite.getSize(); i++) {
+            String description = fonctionnalite.getElementAt(i);
             System.out.println(description);
             listeFonc.add(new Fonctionnalite(String.valueOf(description)));
         }
@@ -52,18 +52,18 @@ public class Fonctionnalite {
     }
 
     public static void ajouterFonctionnalite(){
-        String tache = AffichageInfo.fieldTache.getText();
-        System.out.println("Tache : " + tache);
-        if(!tache.isEmpty()){
-            AffichageInfo.listeTache.addElement(tache);
-            AffichageInfo.fieldTache.setText("");
+        String fonctionnalite = AffichageInfo.fieldFonctionnalite.getText();
+        System.out.println("Fonctionnalite : " + fonctionnalite);
+        if(!fonctionnalite.isEmpty()){
+            AffichageInfo.listeFonctionnalite.addElement(fonctionnalite);
+            AffichageInfo.fieldFonctionnalite.setText("");
         }
     }
     public static void afficherListe() {
-        ListModel<String> tache = AffichageInfo.listeTache;
-        System.out.println("Liste des taches : ");
-        for (int i = 0; i < tache.getSize(); i++) {
-            System.out.println(tache.getElementAt(i));
+        ListModel<String> fonctionnalite = AffichageInfo.listeFonctionnalite;
+        System.out.println("Liste des Fonctionnalites : ");
+        for (int i = 0; i < fonctionnalite.getSize(); i++) {
+            System.out.println(fonctionnalite.getElementAt(i));
         }
     }
     public static void afficheListeFonctionnalite(List<Fonctionnalite> listeFonctionnalites) {

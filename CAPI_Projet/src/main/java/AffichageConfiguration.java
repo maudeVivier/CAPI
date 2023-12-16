@@ -95,8 +95,8 @@ public class AffichageConfiguration extends JPanel {
             }
         });
 
-        /* -------------------Bouton pour enregistrer la tache---------------------- */
-        AffichageInfo.boutonValiderTache.addActionListener(new ActionListener() {
+        /* -------------------Bouton pour enregistrer la fonctionnalite---------------------- */
+        AffichageInfo.boutonValiderFonctionnalite.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Fonctionnalite.ajouterFonctionnalite();
@@ -108,7 +108,7 @@ public class AffichageConfiguration extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Fonctionnalite.afficherListe();
-                if(!AffichageInfo.listeTache.isEmpty()) {
+                if(!AffichageInfo.listeFonctionnalite.isEmpty()) {
                     Fonctionnalite.listeFonctionnalites = Fonctionnalite.ajouterFonctionnalites();
                     Fonctionnalite.afficheListeFonctionnalite(Fonctionnalite.listeFonctionnalites);
                     Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
