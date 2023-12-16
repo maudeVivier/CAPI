@@ -32,16 +32,15 @@ public class AffichageConfiguration extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Backlog.chargerDepuisJSON();
+                    PlanningPoker.chargerPartie();
                     Joueur.afficheListeJoueur();
                     Fonctionnalite.afficheListeFonctionnalites();
                     System.out.println("nombre de fonctionnalites deja ok : " + AffichageInfo.fonctionnaliteVote);
                     System.out.println("MODE DE JEU : "+ ReglesPlanningPoker.modeDeJeu);
-                    PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
 
-                    /*Affichage.pagePlateau(plateauPanel, AffichageConfiguration.class);
+                    Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
-                    setMenu(AffichageInfo.MENU_PLATEAU, true);*/
+                    setMenu(AffichageInfo.MENU_PLATEAU, true);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -70,7 +69,7 @@ public class AffichageConfiguration extends JPanel {
                     Joueur.listeJoueurs = Joueur.creerListeDeJoueurs();
                     Joueur.afficheListeJoueur();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Erreur", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -84,20 +83,19 @@ public class AffichageConfiguration extends JPanel {
 
                 if (moyenneSelected && !unanimiteSelected) {
                     ReglesPlanningPoker.modeDeJeu = ModeDeJeu.MOYENNE;
+                    ReglesPlanningPoker.moyenne = AffichageInfo.nbJoueur % 2;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
-                    System.out.println("CHECK MOYENNE VALIDÉ");
                     PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
                 } else if (unanimiteSelected && !moyenneSelected) {
                     ReglesPlanningPoker.modeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
-                    System.out.println("CHECK UNANIMITÉ VALIDÉ");
                     PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Erreur", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -123,7 +121,7 @@ public class AffichageConfiguration extends JPanel {
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
                     PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
                 }else{
-                    JOptionPane.showMessageDialog(null, "Veuillez entrez au moins une fonctionnalité, avant de lancer la partie", "Erreur", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Veuillez entrez au moins une fonctionnalité, avant de lancer la partie", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -132,28 +130,30 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonChoixCarte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Joueur.ajouterVoteAuJoueur(numeroCarte);
-                Affichage.changerPseudo();
-                if(AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
-                    int res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
-                    System.out.println("RESULTAT dans config : "+res);
-                    if(res!=-1){
-                        JOptionPane.showMessageDialog(null, "VALIDE", "Erreur", JOptionPane.ERROR_MESSAGE);
-                        clearBorders("-1");
-                        Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setDifficulte(res);
-                        Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setValidee(true);
-                        AffichageInfo.joueurVote = 0;
-                        AffichageInfo.tour = 1;
-                        AffichageInfo.fonctionnaliteVote += 1;
-                        Affichage.changerRegle();
-                        Backlog.sauvegarderEnJSON();
+                if(AffichageInfo.fonctionnaliteVote - 1 <= AffichageInfo.nbFonctionnalite) {
+                    Joueur.ajouterVoteAuJoueur(numeroCarte);
+                    Affichage.changerPseudo();
+                    if (AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
+                        String res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
+                        if (res != null) { //Fonctionnalite Validee
+                            clearBorders("-1");
+                            Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setDifficulte(res);
+                            Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setValidee(true);
+                            AffichageInfo.joueurVote = 0;
+                            AffichageInfo.tour = 1;
+                            AffichageInfo.fonctionnaliteVote += 1;
+                            Affichage.changerRegle();
+                            Backlog.sauvegarderEnJSON();
+                        } else {//Fonctionnalité refusée
+                            JOptionPane.showMessageDialog(null, "Refuser", "Information", JOptionPane.INFORMATION_MESSAGE);
+                            clearBorders("-1");
+                            AffichageInfo.joueurVote = 0;
+                            AffichageInfo.tour += 1;
+                            Affichage.changerTour();
+                        }
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Refuser", "Erreur", JOptionPane.ERROR_MESSAGE);
-                        clearBorders("-1");
-                        AffichageInfo.joueurVote = 0;
-                        AffichageInfo.tour += 1;
-                    }
+                }else{
+                    PlanningPoker.partieFinie();
                 }
             }
         });
@@ -168,8 +168,6 @@ public class AffichageConfiguration extends JPanel {
             if (source instanceof JLabel) {
                 JLabel carteCliquee = (JLabel) source;
                 numeroCarte = (String) carteCliquee.getClientProperty("valeur");
-                System.out.println("Carte cliquée : " + numeroCarte);
-
 
                 // Retirez le contour des autres cartes
                 clearBorders(numeroCarte);
@@ -182,7 +180,7 @@ public class AffichageConfiguration extends JPanel {
 
     private void clearBorders(String numeroCarte) {
         String numCarte;
-        System.out.println("DANS CLEARBORDERS Carte cliquée : " + numeroCarte);
+
         for (int i = 0; i < AffichageInfo.valeursCartes.length; i++) {
             numCarte =  AffichageInfo.valeursCartes[i];
             if (!numCarte.equals(numeroCarte)) {

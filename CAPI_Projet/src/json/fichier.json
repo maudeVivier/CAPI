@@ -1,22 +1,26 @@
 {
-  "fonctionnalitesValidees" : 1,
+  "fonctionnalitesValidees" : 2,
   "fonctionnalites" : [ {
     "description" : "R1",
-    "difficulte" : 2,
+    "difficulte" : "13",
     "validee" : true
   }, {
-    "description" : "R2",
-    "difficulte" : -1,
+    "description" : "regle 2",
+    "difficulte" : "cafe",
+    "validee" : true
+  }, {
+    "description" : "regle 3",
+    "difficulte" : null,
     "validee" : false
   } ],
   "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {
     "id" : 1,
-    "pseudo" : "AAA",
-    "voteCourant" : "8"
+    "pseudo" : "A1",
+    "voteCourant" : "cafe"
   }, {
     "id" : 2,
-    "pseudo" : "BBB",
-    "voteCourant" : "8"
+    "pseudo" : "A2",
+    "voteCourant" : "cafe"
   } ]
 }

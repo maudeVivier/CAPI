@@ -314,12 +314,22 @@ public class Affichage {
             phrasePanel.setBackground(AffichageInfo.couleurFond);
             AffichageInfo.labelRegle = new JLabel("<html><center>Fonctionnalité " + (AffichageInfo.fonctionnaliteVote+1) + "/" + AffichageInfo.nbFonctionnalite + " : "
                     + "<br>"
-                    + Fonctionnalite.listeFonctionnalites.get(0).getDescription()
+                    + Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).getDescription()
                     + "</center></html>");
             AffichageInfo.labelRegle.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
             AffichageInfo.labelRegle.setForeground(Color.WHITE);
             phrasePanel.add(AffichageInfo.labelRegle);
             centrePanel.add(phrasePanel);
+
+            /* -----------------------Panel pour ecrire le mode de jeu choisi et le nombre de tour------------------------ */
+            JPanel modeEtTourPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            modeEtTourPanel.setBackground(AffichageInfo.couleurFond);
+            AffichageInfo.labelModeEtTour = new JLabel("Mode de jeu : " + ReglesPlanningPoker.modeDeJeu + "         Tour : " + AffichageInfo.tour);
+            AffichageInfo.labelModeEtTour.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
+            AffichageInfo.labelModeEtTour.setForeground(Color.WHITE);
+            modeEtTourPanel.add(AffichageInfo.labelModeEtTour);
+            centrePanel.add(modeEtTourPanel);
+
 
             /* -----------------------Panel pour ecrire le joueur qui vote------------------------ */
             JPanel pseudoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -413,5 +423,9 @@ public class Affichage {
     public static void changerPseudo() {
         int indexPseudoCourant = (AffichageInfo.joueurVote) % Joueur.listeJoueurs.size();
         AffichageInfo.labelPseudo.setText("Joueur " + (indexPseudoCourant+1) + "/" + AffichageInfo.nbJoueur + " : " + Joueur.listeJoueurs.get(indexPseudoCourant).getPseudo());
+    }
+
+    public static void changerTour() {
+        AffichageInfo.labelModeEtTour.setText("Mode de jeu : " + ReglesPlanningPoker.modeDeJeu + "         Tour : " + AffichageInfo.tour);
     }
 }

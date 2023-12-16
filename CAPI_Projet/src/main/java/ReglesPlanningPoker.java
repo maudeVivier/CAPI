@@ -1,16 +1,15 @@
+import javax.swing.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class ReglesPlanningPoker {
     public static ModeDeJeu modeDeJeu;
-    private static int moyenne;
+    public static int moyenne;
     private static Map<String, Integer> resultatTour;
 
-    public static int appliquerRegles(ModeDeJeu modeDeJeu) {
-        int res = -1;
+    public static String appliquerRegles(ModeDeJeu modeDeJeu) {
+        String res = null;
         if(modeDeJeu == ModeDeJeu.UNANIMITE || (modeDeJeu == ModeDeJeu.MOYENNE && AffichageInfo.tour==1)){
-
-            System.out.println("Regle d'unanimité");
             res = resultatUnanimite();
             System.out.println(res);
 
@@ -18,7 +17,6 @@ public class ReglesPlanningPoker {
 
             moyenne = AffichageInfo.nbJoueur % 2;
 
-            System.out.println("moyenne : " + moyenne);
             res = resultatMoyenne();
             System.out.println(res);
         }
@@ -49,30 +47,38 @@ public class ReglesPlanningPoker {
         return occurrencesTriees;
     }
 
-    private static int resultatUnanimite(){
+    private static String resultatUnanimite(){
         resultatTour = compterNombreOccurence(AffichageInfo.cartesVotees);
 
         // Affichage des occurrences
         for (Map.Entry<String, Integer> entry : resultatTour.entrySet()) {
-            System.out.println("-------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
             if(entry.getValue() == AffichageInfo.nbJoueur){
-                System.out.println("------------------------------------------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
-                return entry.getValue();
+                if(partieEnPause(entry)){
+                    return entry.getKey();
+                }
             }
         }
-        return -1;
+        return null;
     }
 
-    private static int resultatMoyenne(){
+    private static String resultatMoyenne(){
         resultatTour = compterNombreOccurence(AffichageInfo.cartesVotees);
 
         for (Map.Entry<String, Integer> entry : resultatTour.entrySet()) {
-            System.out.println("-------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
             if(entry.getValue() >= moyenne){
-                System.out.println("------------------------------------------------- Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
-                return entry.getValue();
+                if(partieEnPause(entry)) {
+                    return entry.getKey();
+                }
             }
         }
-        return -1;
+        return null;
+    }
+
+    private static boolean partieEnPause(Map.Entry<String, Integer> entry){
+        if(entry.getKey().equals("cafe")){
+            Backlog.sauvegarderEnJSON();
+            JOptionPane.showMessageDialog(null, "Partie sauvegarder dans un fichier JSON", "Information", JOptionPane.INFORMATION_MESSAGE);
+        }
+        return true;
     }
 }

@@ -50,10 +50,13 @@ public class Backlog {
             //Chargement des fonctionnalites
             Fonctionnalite.listeFonctionnalites = creerListeFonctionnalitesDepuisJSON(donnees);
             Fonctionnalite.afficheListeFonctionnalites();
+            AffichageInfo.nbFonctionnalite = Fonctionnalite.listeFonctionnalites.size();
 
             //Chargement des joueurs
             Joueur.listeJoueurs = creerListeJoueursDepuisJSON(donnees);
             Joueur.afficheListeJoueur();
+            AffichageInfo.nbJoueur = Joueur.listeJoueurs.size();
+
 
             //Chargement du nombre de fonctionnalites deja traitees
             AffichageInfo.fonctionnaliteVote = (int) donnees.get("fonctionnalitesValidees");
@@ -76,7 +79,7 @@ public class Backlog {
 
         for (Map<String, Object> donnee : donneesFonctionnalite) {
             Fonctionnalite fonctionnalite = new Fonctionnalite( (String) donnee.get("description"));
-            fonctionnalite.setDifficulte((int) donnee.get("difficulte"));
+            fonctionnalite.setDifficulte((String) donnee.get("difficulte"));
             fonctionnalite.setValidee((Boolean) donnee.get("validee"));
             listeFonc.add(fonctionnalite);
         }

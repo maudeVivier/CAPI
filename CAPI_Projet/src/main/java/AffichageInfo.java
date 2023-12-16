@@ -102,6 +102,7 @@ public class AffichageInfo {
     public static JLabel labelTitrePlateau = new JLabel("Jeu");
     public static JLabel labelPseudo;
     public static JLabel labelRegle;
+    public static JLabel labelModeEtTour;
     public static JButton boutonChoixCarte = new JButton("Valider");
 
     /* --------------------Images--------------------- */

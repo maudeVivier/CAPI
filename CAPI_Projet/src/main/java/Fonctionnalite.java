@@ -4,14 +4,14 @@ import java.util.List;
 
 public class Fonctionnalite {
     private final String description;
-    private int difficulte;
+    private String difficulte;
     private boolean validee;
 
     public static List<Fonctionnalite> listeFonctionnalites = new ArrayList<>();
 
     public Fonctionnalite(String des) {
         this.description = des;
-        this.difficulte = -1;
+        this.difficulte = null;
         this.validee = false;
     }
 
@@ -19,11 +19,11 @@ public class Fonctionnalite {
         return description;
     }
 
-    public int getDifficulte() {
+    public String getDifficulte() {
         return difficulte;
     }
 
-    public void setDifficulte(int difficulte) {
+    public void setDifficulte(String difficulte) {
         this.difficulte = difficulte;
     }
 
