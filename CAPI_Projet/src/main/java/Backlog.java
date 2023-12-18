@@ -17,7 +17,7 @@ public class Backlog {
      * elle sera interceptée et traitée dans le bloc catch.
      * */
     public static void sauvegarderEnJSON() {
-        String chemin = AffichageInfo.workingDirectory + "\\src\\json\\fichier.json";
+        String chemin = AffichageInfo.workingDirectory + "\\src\\json\\backlog.json";
 
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -26,7 +26,7 @@ public class Backlog {
         Map<String, Object> donnees = new HashMap<>();
         donnees.put("fonctionnalites", Fonctionnalite.listeFonctionnalites);
         donnees.put("joueurs", Joueur.listeJoueurs);
-        donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote);
+        donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote-1);
         donnees.put("modeDeJeu", ReglesPlanningPoker.modeDeJeu);
 
         try {
@@ -40,7 +40,7 @@ public class Backlog {
 
 
     public static void chargerDepuisJSON() throws IOException {
-        String chemin = AffichageInfo.workingDirectory + "\\src\\json\\fichier.json";
+        String chemin = AffichageInfo.workingDirectory + "\\src\\json\\backlog.json";
 
         if (verifierSiFichierExiste(chemin)) {
             System.out.println("Le fichier existe.");
