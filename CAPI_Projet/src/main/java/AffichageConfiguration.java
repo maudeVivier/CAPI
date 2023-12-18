@@ -87,7 +87,7 @@ public class AffichageConfiguration extends JPanel {
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
-                    PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
+                    PlanningPoker.planningPoker = new PlanningPoker(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu); //A reorganiser en singleton
                 } else if (unanimiteSelected && !moyenneSelected) {
                     ReglesPlanningPoker.modeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
