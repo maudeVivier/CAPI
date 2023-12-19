@@ -18,7 +18,7 @@ import javax.swing.*;
 
 public class Affichage {
     /**
-     * Affiche la page d'accueil avec un panneau spécifié.
+     * @brief Affiche la page d'accueil avec un panneau spécifié.
      * Cette méthode configure le panneau avec un titre, des boutons et des espaces verticaux.
      *
      * @param panel Le panneau sur lequel afficher la page d'accueil.
@@ -55,7 +55,7 @@ public class Affichage {
     }
 
     /**
-     * Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié.
+     * @brief Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié.
      * Cette méthode configure le panneau avec différents éléments.
      *
      * @param panel Le panneau sur lequel afficher la page pour spécifier le nombre de joueurs.
@@ -101,7 +101,7 @@ public class Affichage {
     }
 
     /**
-     * Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié.
+     * @brief Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié.
      * Cette méthode configure le panneau avec différents éléments.
      *
      * @param panel Le panneau sur lequel afficher la page de saisie des pseudos.
@@ -146,7 +146,7 @@ public class Affichage {
     }
 
     /**
-     * Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié.
+     * @brief Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié.
      * Pour chaque joueur, un label indiquant le numéro du joueur et un JTextArea pour saisir le pseudo sont créés.
      *
      * @param panel Le panneau sur lequel initialiser les composants pour la saisie des pseudos.
@@ -172,7 +172,7 @@ public class Affichage {
     }
 
     /**
-     * Affiche la page de choix du mode de jeu avec un panneau spécifié.
+     * @brief  Affiche la page de choix du mode de jeu avec un panneau spécifié.
      * Cette méthode configure le panneau avec différents éléments.
      *
      * @param panel Le panneau sur lequel afficher la page de choix du mode de jeu.
@@ -232,7 +232,7 @@ public class Affichage {
     }
 
     /**
-     * Affiche la page pour écrire les fonctionnalités a voter avec un panneau spécifié.
+     * @brief Affiche la page pour écrire les fonctionnalités a voter avec un panneau spécifié.
      * Cette méthode configure le panneau avec différents éléments.
      *
      * @param panel Le panneau sur lequel afficher la page pour écrire les fonctionnalités.
@@ -294,7 +294,7 @@ public class Affichage {
 
 
     /**
-     * Affiche la page du plateau de jeu avec un panneau spécifié.
+     * @brief Affiche la page du plateau de jeu avec un panneau spécifié.
      * Cette méthode configure le panneau avec différents éléments.
      *
      * @param panel Le panneau sur lequel afficher la page du plateau de jeu.
@@ -424,7 +424,7 @@ public class Affichage {
         }
 
     /**
-     * Change la règle affichée sur la page du plateau de jeu en fonction de la fonctionnalité en cours.
+     * @brief Change la règle affichée sur la page du plateau de jeu en fonction de la fonctionnalité en cours.
      */
     public static void changerRegle(){
         int indexRegleCourante = (AffichageInfo.fonctionnaliteVote) % AffichageInfo.nbFonctionnalite;
@@ -435,7 +435,7 @@ public class Affichage {
     }
 
     /**
-     * Change le pseudo affiché sur la page du plateau de jeu en fonction du joueur en cours.
+     * @brief Change le pseudo affiché sur la page du plateau de jeu en fonction du joueur en cours.
      */
     public static void changerPseudo() {
         int indexPseudoCourant = (AffichageInfo.joueurVote) % Joueur.listeJoueurs.size();
@@ -443,7 +443,7 @@ public class Affichage {
     }
 
     /**
-     * Change le tour affiché sur la page du plateau de jeu.
+     * @brief Change le tour affiché sur la page du plateau de jeu.
      */
     public static void changerTour() {
         AffichageInfo.labelModeEtTour.setText("Mode de jeu : " + ReglesPlanningPoker.modeDeJeu + "         Tour : " + AffichageInfo.tour);

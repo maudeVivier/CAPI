@@ -1,9 +1,9 @@
 {
-  "fonctionnalitesValidees" : 1,
+  "fonctionnalitesValidees" : 0,
   "fonctionnalites" : [ {
     "description" : "r1",
-    "difficulte" : "20",
-    "validee" : true
+    "difficulte" : null,
+    "validee" : false
   } ],
   "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {

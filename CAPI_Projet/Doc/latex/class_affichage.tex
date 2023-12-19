@@ -9,25 +9,28 @@ Classe statique contenant les méthodes pour afficher différentes pages de l\te
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{class_affichage_a339c38c4c93f1d477577c3228a27967f}{page\+Accueil}} (JPanel panel)
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche la page d\textquotesingle{}accueil avec un panneau spécifié. Cette méthode configure le panneau avec un titre, des boutons et des espaces verticaux. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_affichage_ad183ad5720d313dfb23f1ce31f96ea9f}{page\+Nb\+Perso}} (JPanel panel)
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_affichage_afd6970c331a465b95703147b5972e275}{page\+Pseudo\+Perso}} (JPanel panel)
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_affichage_ad9675d11948895b067edbe9d5ea3874d}{initialiser\+Composants}} (JPanel panel)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié. Pour chaque joueur, un label indiquant le numéro du joueur et un JText\+Area pour saisir le pseudo sont créés. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_affichage_a6dd3fe2b1c9b5e6783d27e3e3d3ee32a}{page\+Choix\+Mode}} (JPanel panel)
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche la page de choix du mode de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_affichage_a3050a3b60a6cd453313a8e97bcbc2af0}{page\+Fonctionnalite}} (JPanel panel)
-\item 
+\begin{DoxyCompactList}\small\item\em Affiche la page pour écrire les fonctionnalités a voter avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_affichage_aeb20fd8e3a84c3dbfde3947a9bddd817}{page\+Plateau}} (JPanel panel)
-\item 
-static void \mbox{\hyperlink{class_affichage_a056a3a85d9bcf76ba423372f6db835bc}{changer\+Regle}} ()
-\item 
-static void \mbox{\hyperlink{class_affichage_a3e2acaecea6750d53b0a61c073373bb5}{changer\+Pseudo}} ()
-\item 
-static void \mbox{\hyperlink{class_affichage_a174db2a84a6f3e38da3b286ddbfcbfff}{changer\+Tour}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Affiche la page du plateau de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. \end{DoxyCompactList}\item 
+\Hypertarget{class_affichage_a056a3a85d9bcf76ba423372f6db835bc}\label{class_affichage_a056a3a85d9bcf76ba423372f6db835bc} 
+static void {\bfseries changer\+Regle} ()
+\begin{DoxyCompactList}\small\item\em Change la règle affichée sur la page du plateau de jeu en fonction de la fonctionnalité en cours. \end{DoxyCompactList}\item 
+\Hypertarget{class_affichage_a3e2acaecea6750d53b0a61c073373bb5}\label{class_affichage_a3e2acaecea6750d53b0a61c073373bb5} 
+static void {\bfseries changer\+Pseudo} ()
+\begin{DoxyCompactList}\small\item\em Change le pseudo affiché sur la page du plateau de jeu en fonction du joueur en cours. \end{DoxyCompactList}\item 
+\Hypertarget{class_affichage_a174db2a84a6f3e38da3b286ddbfcbfff}\label{class_affichage_a174db2a84a6f3e38da3b286ddbfcbfff} 
+static void {\bfseries changer\+Tour} ()
+\begin{DoxyCompactList}\small\item\em Change le tour affiché sur la page du plateau de jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -36,31 +39,15 @@ Classe statique contenant les méthodes pour afficher différentes pages de l\te
 Cette classe offre des méthodes pour afficher les différents affichages et la gestion des éléments d\textquotesingle{}interface utilisateur. 
 
 \doxysubsection{Documentation des fonctions membres}
-\Hypertarget{class_affichage_a3e2acaecea6750d53b0a61c073373bb5}\label{class_affichage_a3e2acaecea6750d53b0a61c073373bb5} 
-\index{Affichage@{Affichage}!changerPseudo@{changerPseudo}}
-\index{changerPseudo@{changerPseudo}!Affichage@{Affichage}}
-\doxysubsubsection{\texorpdfstring{changerPseudo()}{changerPseudo()}}
-{\footnotesize\ttfamily static void Affichage.\+changer\+Pseudo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-Change le pseudo affiché sur la page du plateau de jeu en fonction du joueur en cours. \Hypertarget{class_affichage_a056a3a85d9bcf76ba423372f6db835bc}\label{class_affichage_a056a3a85d9bcf76ba423372f6db835bc} 
-\index{Affichage@{Affichage}!changerRegle@{changerRegle}}
-\index{changerRegle@{changerRegle}!Affichage@{Affichage}}
-\doxysubsubsection{\texorpdfstring{changerRegle()}{changerRegle()}}
-{\footnotesize\ttfamily static void Affichage.\+changer\+Regle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-Change la règle affichée sur la page du plateau de jeu en fonction de la fonctionnalité en cours. \Hypertarget{class_affichage_a174db2a84a6f3e38da3b286ddbfcbfff}\label{class_affichage_a174db2a84a6f3e38da3b286ddbfcbfff} 
-\index{Affichage@{Affichage}!changerTour@{changerTour}}
-\index{changerTour@{changerTour}!Affichage@{Affichage}}
-\doxysubsubsection{\texorpdfstring{changerTour()}{changerTour()}}
-{\footnotesize\ttfamily static void Affichage.\+changer\+Tour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-Change le tour affiché sur la page du plateau de jeu. \Hypertarget{class_affichage_ad9675d11948895b067edbe9d5ea3874d}\label{class_affichage_ad9675d11948895b067edbe9d5ea3874d} 
+\Hypertarget{class_affichage_ad9675d11948895b067edbe9d5ea3874d}\label{class_affichage_ad9675d11948895b067edbe9d5ea3874d} 
 \index{Affichage@{Affichage}!initialiserComposants@{initialiserComposants}}
 \index{initialiserComposants@{initialiserComposants}!Affichage@{Affichage}}
 \doxysubsubsection{\texorpdfstring{initialiserComposants()}{initialiserComposants()}}
 {\footnotesize\ttfamily static void Affichage.\+initialiser\+Composants (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié. Pour chaque joueur, un label indiquant le numéro du joueur et un JText\+Area pour saisir le pseudo sont créés.
+
+
+Initialise les composants nécessaires pour la saisie des pseudos des joueurs dans un panneau spécifié. Pour chaque joueur, un label indiquant le numéro du joueur et un JText\+Area pour saisir le pseudo sont créés. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -73,7 +60,9 @@ Initialise les composants nécessaires pour la saisie des pseudos des joueurs da
 \doxysubsubsection{\texorpdfstring{pageAccueil()}{pageAccueil()}}
 {\footnotesize\ttfamily static void Affichage.\+page\+Accueil (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Affiche la page d\textquotesingle{}accueil avec un panneau spécifié. Cette méthode configure le panneau avec un titre, des boutons et des espaces verticaux.
+
+
+Affiche la page d\textquotesingle{}accueil avec un panneau spécifié. Cette méthode configure le panneau avec un titre, des boutons et des espaces verticaux. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -86,7 +75,9 @@ Affiche la page d\textquotesingle{}accueil avec un panneau spécifié. Cette mé
 \doxysubsubsection{\texorpdfstring{pageChoixMode()}{pageChoixMode()}}
 {\footnotesize\ttfamily static void Affichage.\+page\+Choix\+Mode (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Affiche la page de choix du mode de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+Affiche la page de choix du mode de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -99,7 +90,9 @@ Affiche la page de choix du mode de jeu avec un panneau spécifié. Cette métho
 \doxysubsubsection{\texorpdfstring{pageFonctionnalite()}{pageFonctionnalite()}}
 {\footnotesize\ttfamily static void Affichage.\+page\+Fonctionnalite (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Affiche la page pour écrire les fonctionnalités a voter avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+Affiche la page pour écrire les fonctionnalités a voter avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -112,7 +105,9 @@ Affiche la page pour écrire les fonctionnalités a voter avec un panneau spéci
 \doxysubsubsection{\texorpdfstring{pageNbPerso()}{pageNbPerso()}}
 {\footnotesize\ttfamily static void Affichage.\+page\+Nb\+Perso (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -125,7 +120,9 @@ Affiche la page pour spécifier le nombre de joueurs avec un panneau spécifié.
 \doxysubsubsection{\texorpdfstring{pagePlateau()}{pagePlateau()}}
 {\footnotesize\ttfamily static void Affichage.\+page\+Plateau (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Affiche la page du plateau de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+Affiche la page du plateau de jeu avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -138,7 +135,9 @@ Affiche la page du plateau de jeu avec un panneau spécifié. Cette méthode con
 \doxysubsubsection{\texorpdfstring{pagePseudoPerso()}{pagePseudoPerso()}}
 {\footnotesize\ttfamily static void Affichage.\+page\+Pseudo\+Perso (\begin{DoxyParamCaption}\item[{JPanel}]{panel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
-Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments.
+
+
+Affiche la page pour la saisie des pseudos des joueurs avec un panneau spécifié. Cette méthode configure le panneau avec différents éléments. 
 
 
 \begin{DoxyParams}{Paramètres}
