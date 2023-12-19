@@ -1,3 +1,7 @@
+/**
+ * @file Affichage.java
+ * @brief Contient les méthodes pour afficher différentes pages de l'interface graphique.
+ */
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -227,6 +231,12 @@ public class Affichage {
         panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
     }
 
+    /**
+     * Affiche la page pour écrire les fonctionnalités a voter avec un panneau spécifié.
+     * Cette méthode configure le panneau avec différents éléments.
+     *
+     * @param panel Le panneau sur lequel afficher la page pour écrire les fonctionnalités.
+     */
     public static void pageFonctionnalite(JPanel panel){
         /* -----------------------Panel principal------------------------ */
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -413,6 +423,9 @@ public class Affichage {
             panel.setPreferredSize(new Dimension(AffichageInfo.screenWidth, AffichageInfo.screenHeight));
         }
 
+    /**
+     * Change la règle affichée sur la page du plateau de jeu en fonction de la fonctionnalité en cours.
+     */
     public static void changerRegle(){
         int indexRegleCourante = (AffichageInfo.fonctionnaliteVote) % AffichageInfo.nbFonctionnalite;
         AffichageInfo.labelRegle.setText("<html><center> Fonctionnalité " + (indexRegleCourante + 1) + "/" + AffichageInfo.nbFonctionnalite + " : "
@@ -420,11 +433,18 @@ public class Affichage {
                 + Fonctionnalite.listeFonctionnalites.get(indexRegleCourante).getDescription()
                 + "</center></html>");
     }
+
+    /**
+     * Change le pseudo affiché sur la page du plateau de jeu en fonction du joueur en cours.
+     */
     public static void changerPseudo() {
         int indexPseudoCourant = (AffichageInfo.joueurVote) % Joueur.listeJoueurs.size();
         AffichageInfo.labelPseudo.setText("Joueur " + (indexPseudoCourant+1) + "/" + AffichageInfo.nbJoueur + " : " + Joueur.listeJoueurs.get(indexPseudoCourant).getPseudo());
     }
 
+    /**
+     * Change le tour affiché sur la page du plateau de jeu.
+     */
     public static void changerTour() {
         AffichageInfo.labelModeEtTour.setText("Mode de jeu : " + ReglesPlanningPoker.modeDeJeu + "         Tour : " + AffichageInfo.tour);
     }
