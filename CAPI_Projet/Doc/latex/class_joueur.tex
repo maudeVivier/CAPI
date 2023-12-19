@@ -3,11 +3,50 @@
 \doxysubsubsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_joueur_a442c9faedad63a48a98a7406809c5182}\label{class_joueur_a442c9faedad63a48a98a7406809c5182} 
-{\bfseries Joueur} (int un\+Id, String un\+Pseudo)
+\Hypertarget{class_joueur_a12300c9c9670c9c307a97944ef32b434}\label{class_joueur_a12300c9c9670c9c307a97944ef32b434} 
+{\bfseries Joueur} (int identifiant, String p)
 \item 
-\Hypertarget{class_joueur_a34e9720afb2cd44e01eb9efe96bb76d6}\label{class_joueur_a34e9720afb2cd44e01eb9efe96bb76d6} 
-void {\bfseries voter} (\mbox{\hyperlink{class_carte}{Carte}} carte)
+\Hypertarget{class_joueur_a9077188a3679c2fcb52dccf51c59703d}\label{class_joueur_a9077188a3679c2fcb52dccf51c59703d} 
+int {\bfseries get\+Id} ()
+\item 
+\Hypertarget{class_joueur_a9c0cbc13aae6c56d4d2373bd4a5b94f6}\label{class_joueur_a9c0cbc13aae6c56d4d2373bd4a5b94f6} 
+String {\bfseries get\+Pseudo} ()
+\item 
+\Hypertarget{class_joueur_aade6030ab9e0c7469795af2d86f110af}\label{class_joueur_aade6030ab9e0c7469795af2d86f110af} 
+String {\bfseries get\+Vote\+Courant} ()
+\item 
+\Hypertarget{class_joueur_a7264144be3be1ae62f61225cbd2e0470}\label{class_joueur_a7264144be3be1ae62f61225cbd2e0470} 
+void {\bfseries set\+Vote\+En\+Cours} (String nouveau\+Vote)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_joueur_a97c31df9831de936f35c29d8d1c914ac}\label{class_joueur_a97c31df9831de936f35c29d8d1c914ac} 
+static boolean {\bfseries verifier\+Pseudos\+Uniques} ()
+\item 
+\Hypertarget{class_joueur_ab95ce4e8f82788e67200768083e30bdc}\label{class_joueur_ab95ce4e8f82788e67200768083e30bdc} 
+static boolean {\bfseries verifier\+Pseudos\+Non\+Nuls} ()
+\item 
+\Hypertarget{class_joueur_af1819dbd470d2f4be3d270cbc571d7a7}\label{class_joueur_af1819dbd470d2f4be3d270cbc571d7a7} 
+static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ {\bfseries creer\+Liste\+De\+Joueurs} ()
+\item 
+\Hypertarget{class_joueur_a834c7407a1a92b9e931987f9dd47dcd0}\label{class_joueur_a834c7407a1a92b9e931987f9dd47dcd0} 
+static void {\bfseries affiche\+Liste\+Joueur} ()
+\item 
+\Hypertarget{class_joueur_aaae903d5854d905133ae5634519e7083}\label{class_joueur_aaae903d5854d905133ae5634519e7083} 
+static void {\bfseries ajouter\+Vote\+Au\+Joueur} (String carte)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_joueur_a122579aa7e4004d91cc454e087e6ff30}\label{class_joueur_a122579aa7e4004d91cc454e087e6ff30} 
+String {\bfseries vote\+Courant}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_joueur_a7fb84e96f67563078a70b621d6bad4df}\label{class_joueur_a7fb84e96f67563078a70b621d6bad4df} 
+static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ {\bfseries liste\+Joueurs} = new Array\+List$<$$>$()
 \end{DoxyCompactItemize}
 
 

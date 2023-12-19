@@ -14,6 +14,7 @@ import java.util.List;
  */
 
 public class AffichageInfo {
+    static PlanningPoker planningPoker;
     /* --------------------Dimension de l'écran--------------------- */
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int screenWidth = (int) screenSize.getWidth();

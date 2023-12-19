@@ -1,25 +1,110 @@
 \doxysection{Référence de la classe Planning\+Poker}
 \hypertarget{class_planning_poker}{}\label{class_planning_poker}\index{PlanningPoker@{PlanningPoker}}
-\doxysubsubsection*{Fonctions membres publiques}
+
+
+Gère une instance unique du jeu de planning poker.  
+
+
+\doxysubsubsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_planning_poker_a21d2bec69541974261a8f8ae7647656d}\label{class_planning_poker_a21d2bec69541974261a8f8ae7647656d} 
-{\bfseries Planning\+Poker} (Array\+List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ un\+Liste\+Joueur, \mbox{\hyperlink{class_regles_planning_poker}{Regles\+Planning\+Poker}} un\+Regles, \mbox{\hyperlink{class_backlog}{Backlog}} un\+Backlog)
-\item 
-\Hypertarget{class_planning_poker_adf77e535849259c1877afa35e4a72fe9}\label{class_planning_poker_adf77e535849259c1877afa35e4a72fe9} 
-void {\bfseries initialiser\+Partie} ()
-\item 
-\Hypertarget{class_planning_poker_a15109b04236d7ebc3780517a0240e3b8}\label{class_planning_poker_a15109b04236d7ebc3780517a0240e3b8} 
-void {\bfseries valider\+Backlog} ()
-\item 
-\Hypertarget{class_planning_poker_a8369f306d7b646913674656c36cb9217}\label{class_planning_poker_a8369f306d7b646913674656c36cb9217} 
-void {\bfseries enregistrer\+Resultats} ()
-\item 
-\Hypertarget{class_planning_poker_ab4269d64052f4e5ff0620e6e03057bc1}\label{class_planning_poker_ab4269d64052f4e5ff0620e6e03057bc1} 
-void {\bfseries charger\+Partie} ()
-\end{DoxyCompactItemize}
+static synchronized \mbox{\hyperlink{class_planning_poker}{Planning\+Poker}} \mbox{\hyperlink{class_planning_poker_a9ee75018b0a6379ac284a00c53708fb4}{get\+Instance}} (List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$ liste\+Fonctionnalites, List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ liste\+Joueur, \mbox{\hyperlink{enum_mode_de_jeu}{Mode\+De\+Jeu}} regle)
+\begin{DoxyCompactList}\small\item\em Obtient l\textquotesingle{}instance unique de la classe \doxylink{class_planning_poker}{Planning\+Poker}. \end{DoxyCompactList}\item 
+static List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$ \mbox{\hyperlink{class_planning_poker_a0c2a6308d1998ec3fc3c1f0a32e7c793}{get\+Liste\+Fonctionnalites}} ()
+\begin{DoxyCompactList}\small\item\em Obtient la liste des fonctionnalités. \end{DoxyCompactList}\item 
+static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ \mbox{\hyperlink{class_planning_poker_a0f478c9f1c44fee31884e08faaa42959}{get\+Liste\+Joueurs}} ()
+\begin{DoxyCompactList}\small\item\em Obtient la liste des joueurs. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{enum_mode_de_jeu}{Mode\+De\+Jeu}} \mbox{\hyperlink{class_planning_poker_aaabf72292c72553f055a791a93816b62}{get\+Mode\+De\+Jeu}} ()
+\begin{DoxyCompactList}\small\item\em Obtient le mode de jeu actuel. \end{DoxyCompactList}\item 
+\Hypertarget{class_planning_poker_ad869b6e2ecd485f021bb3d1828cb5692}\label{class_planning_poker_ad869b6e2ecd485f021bb3d1828cb5692} 
+static void {\bfseries partie\+Finie} ()
+\begin{DoxyCompactList}\small\item\em Méthode appelée lorsque la partie est terminée. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_planning_poker_a576f6467312dd54953fa345ce38188e9}{charger\+Partie}} ()  throws IOException 
+\begin{DoxyCompactList}\small\item\em Charge une partie sauvegardée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gère une instance unique du jeu de planning poker. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_planning_poker_a576f6467312dd54953fa345ce38188e9}\label{class_planning_poker_a576f6467312dd54953fa345ce38188e9} 
+\index{PlanningPoker@{PlanningPoker}!chargerPartie@{chargerPartie}}
+\index{chargerPartie@{chargerPartie}!PlanningPoker@{PlanningPoker}}
+\doxysubsubsection{\texorpdfstring{chargerPartie()}{chargerPartie()}}
+{\footnotesize\ttfamily static void Planning\+Poker.\+charger\+Partie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws IOException\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Charge une partie sauvegardée. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & En cas d\textquotesingle{}erreur lors de la lecture depuis le fichier JSON. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_planning_poker_a9ee75018b0a6379ac284a00c53708fb4}\label{class_planning_poker_a9ee75018b0a6379ac284a00c53708fb4} 
+\index{PlanningPoker@{PlanningPoker}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!PlanningPoker@{PlanningPoker}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static synchronized \mbox{\hyperlink{class_planning_poker}{Planning\+Poker}} Planning\+Poker.\+get\+Instance (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$}]{liste\+Fonctionnalites,  }\item[{List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$}]{liste\+Joueur,  }\item[{\mbox{\hyperlink{enum_mode_de_jeu}{Mode\+De\+Jeu}}}]{regle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Obtient l\textquotesingle{}instance unique de la classe \doxylink{class_planning_poker}{Planning\+Poker}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em liste\+Fonctionnalites} & La liste des fonctionnalités. \\
+\hline
+{\em liste\+Joueur} & La liste des joueurs. \\
+\hline
+{\em regle} & Le mode de jeu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}instance unique de \doxylink{class_planning_poker}{Planning\+Poker}. 
+\end{DoxyReturn}
+\Hypertarget{class_planning_poker_a0c2a6308d1998ec3fc3c1f0a32e7c793}\label{class_planning_poker_a0c2a6308d1998ec3fc3c1f0a32e7c793} 
+\index{PlanningPoker@{PlanningPoker}!getListeFonctionnalites@{getListeFonctionnalites}}
+\index{getListeFonctionnalites@{getListeFonctionnalites}!PlanningPoker@{PlanningPoker}}
+\doxysubsubsection{\texorpdfstring{getListeFonctionnalites()}{getListeFonctionnalites()}}
+{\footnotesize\ttfamily static List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$ Planning\+Poker.\+get\+Liste\+Fonctionnalites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Obtient la liste des fonctionnalités. 
+
+\begin{DoxyReturn}{Renvoie}
+La liste des fonctionnalités du planning poker. 
+\end{DoxyReturn}
+\Hypertarget{class_planning_poker_a0f478c9f1c44fee31884e08faaa42959}\label{class_planning_poker_a0f478c9f1c44fee31884e08faaa42959} 
+\index{PlanningPoker@{PlanningPoker}!getListeJoueurs@{getListeJoueurs}}
+\index{getListeJoueurs@{getListeJoueurs}!PlanningPoker@{PlanningPoker}}
+\doxysubsubsection{\texorpdfstring{getListeJoueurs()}{getListeJoueurs()}}
+{\footnotesize\ttfamily static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ Planning\+Poker.\+get\+Liste\+Joueurs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Obtient la liste des joueurs. 
+
+\begin{DoxyReturn}{Renvoie}
+La liste des joueurs participant au planning poker. 
+\end{DoxyReturn}
+\Hypertarget{class_planning_poker_aaabf72292c72553f055a791a93816b62}\label{class_planning_poker_aaabf72292c72553f055a791a93816b62} 
+\index{PlanningPoker@{PlanningPoker}!getModeDeJeu@{getModeDeJeu}}
+\index{getModeDeJeu@{getModeDeJeu}!PlanningPoker@{PlanningPoker}}
+\doxysubsubsection{\texorpdfstring{getModeDeJeu()}{getModeDeJeu()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{enum_mode_de_jeu}{Mode\+De\+Jeu}} Planning\+Poker.\+get\+Mode\+De\+Jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Obtient le mode de jeu actuel. 
+
+\begin{DoxyReturn}{Renvoie}
+Le mode de jeu du planning poker. 
+\end{DoxyReturn}
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/Planning\+Poker.\+java\end{DoxyCompactItemize}
+One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/\mbox{\hyperlink{_planning_poker_8java}{Planning\+Poker.\+java}}\end{DoxyCompactItemize}

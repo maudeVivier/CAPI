@@ -1,5 +1,10 @@
 \doxysection{Référence de la classe Affichage\+Info}
 \hypertarget{class_affichage_info}{}\label{class_affichage_info}\index{AffichageInfo@{AffichageInfo}}
+
+
+Classe statique contenant les informations d\textquotesingle{}affichage pour l\textquotesingle{}interface graphique.  
+
+
 \doxysubsubsection*{Attributs publics statiques}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,23 +23,50 @@ static int {\bfseries size\+Titre} = (int) (screen\+Width \texorpdfstring{$\ast$
 \Hypertarget{class_affichage_info_a170b9185dd015025bb83f9d1b9f65329}\label{class_affichage_info_a170b9185dd015025bb83f9d1b9f65329} 
 static int {\bfseries size\+Texte} = (int) (screen\+Width \texorpdfstring{$\ast$}{*} 0.\+015)
 \item 
-\Hypertarget{class_affichage_info_a6b42616d2e67e2b2e22c33a122ac81ff}\label{class_affichage_info_a6b42616d2e67e2b2e22c33a122ac81ff} 
-static int {\bfseries largeur\+Bouton} = screen\+Width / 5
-\item 
-\Hypertarget{class_affichage_info_ae67e12aa5ca668db24e4ef4d0883f22f}\label{class_affichage_info_ae67e12aa5ca668db24e4ef4d0883f22f} 
-static int {\bfseries hauteur\+Bouton} = (screen\+Height / 10) -\/ (screen\+Height / 138)
-\item 
-\Hypertarget{class_affichage_info_a33b383f91f8df38e1b3fcc0a877352f0}\label{class_affichage_info_a33b383f91f8df38e1b3fcc0a877352f0} 
-static int {\bfseries largeur\+Reponse} = screen\+Width / 5
-\item 
-\Hypertarget{class_affichage_info_a102d201efc5e06432add93674f65f4a3}\label{class_affichage_info_a102d201efc5e06432add93674f65f4a3} 
-static int {\bfseries hauteur\+Reponse} = screen\+Height / 18
+\Hypertarget{class_affichage_info_a9b6c69365d33680088b26dd207961be0}\label{class_affichage_info_a9b6c69365d33680088b26dd207961be0} 
+static String {\bfseries working\+Directory} = System.\+get\+Property("{}user.\+dir"{})
 \item 
 \Hypertarget{class_affichage_info_ab940c8849356d3cf90d36dbd428e4408}\label{class_affichage_info_ab940c8849356d3cf90d36dbd428e4408} 
-static int {\bfseries nb\+Joueur} = 2
+static int {\bfseries nb\+Joueur}
+\item 
+\Hypertarget{class_affichage_info_ab5a84377d4293181187a4177666123bd}\label{class_affichage_info_ab5a84377d4293181187a4177666123bd} 
+static int {\bfseries tour} = 1
+\item 
+\Hypertarget{class_affichage_info_a3d431a210da573fc4835e35c8b1173b5}\label{class_affichage_info_a3d431a210da573fc4835e35c8b1173b5} 
+static int {\bfseries joueur\+Vote} = 0
+\item 
+\Hypertarget{class_affichage_info_aa9f728e3f7099f42b76a067e24d509a6}\label{class_affichage_info_aa9f728e3f7099f42b76a067e24d509a6} 
+static int {\bfseries nb\+Fonctionnalite}
+\item 
+\Hypertarget{class_affichage_info_a0775cbfccb0ec90c20d8036f6a0d0f24}\label{class_affichage_info_a0775cbfccb0ec90c20d8036f6a0d0f24} 
+static int {\bfseries fonctionnalite\+Vote} = 0
+\item 
+\Hypertarget{class_affichage_info_a02daf2b8129554c7b237f0aaa2ed8059}\label{class_affichage_info_a02daf2b8129554c7b237f0aaa2ed8059} 
+static List$<$ String $>$ {\bfseries cartes\+Votees} = new Array\+List$<$$>$()
+\item 
+\Hypertarget{class_affichage_info_a905e84517967552fea2f850aa282fc73}\label{class_affichage_info_a905e84517967552fea2f850aa282fc73} 
+static final int {\bfseries MENU\+\_\+\+ACCUEIL} = 0
+\item 
+\Hypertarget{class_affichage_info_a18c8e546e67a61faadd5ca5faaa0fb28}\label{class_affichage_info_a18c8e546e67a61faadd5ca5faaa0fb28} 
+static final int {\bfseries MENU\+\_\+\+NB\+\_\+\+JOUEUR} = 1
+\item 
+\Hypertarget{class_affichage_info_a5e6c94377cd1bff77596c11c82d1d67e}\label{class_affichage_info_a5e6c94377cd1bff77596c11c82d1d67e} 
+static final int {\bfseries MENU\+\_\+\+PSEUDO} = 2
+\item 
+\Hypertarget{class_affichage_info_a31ff002f716934222fdcbb4e1171b321}\label{class_affichage_info_a31ff002f716934222fdcbb4e1171b321} 
+static final int {\bfseries MENU\+\_\+\+MODE} = 3
+\item 
+\Hypertarget{class_affichage_info_ac9e7f37e236bcc65b754aae0b7ae2d75}\label{class_affichage_info_ac9e7f37e236bcc65b754aae0b7ae2d75} 
+static final int {\bfseries MENU\+\_\+\+FONCTIONNALITE} = 4
+\item 
+\Hypertarget{class_affichage_info_ab3f58b5310093078079e781d7febd922}\label{class_affichage_info_ab3f58b5310093078079e781d7febd922} 
+static final int {\bfseries MENU\+\_\+\+PLATEAU} = 5
 \item 
 \Hypertarget{class_affichage_info_a339d952b9b1fb025b20aaf901fb50f2b}\label{class_affichage_info_a339d952b9b1fb025b20aaf901fb50f2b} 
 static Color {\bfseries couleur\+Fond} = new Color(0, 0, 50)
+\item 
+\Hypertarget{class_affichage_info_aeaa8675c330a8d2fbd5b928b13eedc6b}\label{class_affichage_info_aeaa8675c330a8d2fbd5b928b13eedc6b} 
+static JLabel {\bfseries label\+Titre\+Accueil} = new JLabel("{}Planning Poker"{})
 \item 
 \Hypertarget{class_affichage_info_ad39eebfcc50f3dd5c1197fde2123c95a}\label{class_affichage_info_ad39eebfcc50f3dd5c1197fde2123c95a} 
 static JButton {\bfseries bouton\+Nouvelle\+Partie} = new JButton("{}Nouvelle Partie"{})
@@ -42,14 +74,17 @@ static JButton {\bfseries bouton\+Nouvelle\+Partie} = new JButton("{}Nouvelle Pa
 \Hypertarget{class_affichage_info_a66f0db4932ad5a1318b54fe842f882c8}\label{class_affichage_info_a66f0db4932ad5a1318b54fe842f882c8} 
 static JButton {\bfseries bouton\+Reprendre\+Partie} = new JButton("{}Reprendre la partie"{})
 \item 
+\Hypertarget{class_affichage_info_a2ef56fcc4f45e688ee1e410c538d1c4d}\label{class_affichage_info_a2ef56fcc4f45e688ee1e410c538d1c4d} 
+static JLabel {\bfseries label\+Titre\+Pseudo\+Joueur} = new JLabel("{}Choix des pseudos"{})
+\item 
+\Hypertarget{class_affichage_info_a0c59835c3874b3ef21d3d7b63a2f1981}\label{class_affichage_info_a0c59835c3874b3ef21d3d7b63a2f1981} 
+static JLabel {\bfseries label\+Titre\+Nb\+Joueur} = new JLabel("{}Configuration de la partie"{})
+\item 
+\Hypertarget{class_affichage_info_ad5b9c4d4b16b272675faca5f8cd91653}\label{class_affichage_info_ad5b9c4d4b16b272675faca5f8cd91653} 
+static JLabel {\bfseries label\+Nb\+Joueur} = new JLabel("{}$<$html$>$$<$center$>$Nombre de joueur \+:$<$br$>$(entre 2 et 12)$<$/center$>$$<$/html$>$"{})
+\item 
 \Hypertarget{class_affichage_info_ab0dd4ffe9be1efb7061f992c5517e0e1}\label{class_affichage_info_ab0dd4ffe9be1efb7061f992c5517e0e1} 
 static JButton {\bfseries bouton\+Valider\+Nb\+Joueur} = new JButton("{}Valider"{})
-\item 
-\Hypertarget{class_affichage_info_ada19470bb9782a29a366d64e1f532e50}\label{class_affichage_info_ada19470bb9782a29a366d64e1f532e50} 
-static JButton {\bfseries bouton\+Valider\+Pseudo} = new JButton("{}Valider"{})
-\item 
-\Hypertarget{class_affichage_info_a6c4628b9795dc3fa9f075f31fab98861}\label{class_affichage_info_a6c4628b9795dc3fa9f075f31fab98861} 
-static JButton {\bfseries bouton\+Valider\+Mode} = new JButton("{}Valider"{})
 \item 
 \Hypertarget{class_affichage_info_aeb3d3d210d6af187209f76f96d29b012}\label{class_affichage_info_aeb3d3d210d6af187209f76f96d29b012} 
 static Spinner\+Model {\bfseries spinner\+Model} = new Spinner\+Number\+Model(2, 2, 12, 1)
@@ -57,33 +92,99 @@ static Spinner\+Model {\bfseries spinner\+Model} = new Spinner\+Number\+Model(2,
 \Hypertarget{class_affichage_info_a3b1ba557fb15cb662101966ac87bfabb}\label{class_affichage_info_a3b1ba557fb15cb662101966ac87bfabb} 
 static JSpinner {\bfseries spinner\+Nb\+Joueur} = new JSpinner(spinner\+Model)
 \item 
+\Hypertarget{class_affichage_info_ada19470bb9782a29a366d64e1f532e50}\label{class_affichage_info_ada19470bb9782a29a366d64e1f532e50} 
+static JButton {\bfseries bouton\+Valider\+Pseudo} = new JButton("{}Valider"{})
+\item 
 \Hypertarget{class_affichage_info_af53625fca25af599f080d0f8455d9882}\label{class_affichage_info_af53625fca25af599f080d0f8455d9882} 
 static JText\+Area\mbox{[}$\,$\mbox{]} {\bfseries area\+Tab\+Pseudo}
-\item 
-\Hypertarget{class_affichage_info_aeaa8675c330a8d2fbd5b928b13eedc6b}\label{class_affichage_info_aeaa8675c330a8d2fbd5b928b13eedc6b} 
-static JLabel {\bfseries label\+Titre\+Accueil} = new JLabel("{}Planning Poker"{})
-\item 
-\Hypertarget{class_affichage_info_a0c59835c3874b3ef21d3d7b63a2f1981}\label{class_affichage_info_a0c59835c3874b3ef21d3d7b63a2f1981} 
-static JLabel {\bfseries label\+Titre\+Nb\+Joueur} = new JLabel("{}Configuration de la partie"{})
-\item 
-\Hypertarget{class_affichage_info_ad5b9c4d4b16b272675faca5f8cd91653}\label{class_affichage_info_ad5b9c4d4b16b272675faca5f8cd91653} 
-static JLabel {\bfseries label\+Nb\+Joueur} = new JLabel("{}Nombre de joueur \+: (entre 2 et 12)"{})
-\item 
-\Hypertarget{class_affichage_info_a2ef56fcc4f45e688ee1e410c538d1c4d}\label{class_affichage_info_a2ef56fcc4f45e688ee1e410c538d1c4d} 
-static JLabel {\bfseries label\+Titre\+Pseudo\+Joueur} = new JLabel("{}Choix des pseudos"{})
 \item 
 \Hypertarget{class_affichage_info_a2f0a83bbee869866a597b42c922c4110}\label{class_affichage_info_a2f0a83bbee869866a597b42c922c4110} 
 static JLabel {\bfseries label\+Titre\+Mode} = new JLabel("{}Choix du mode de jeu"{})
 \item 
-\Hypertarget{class_affichage_info_ac29fead0c81786fe6bb83cbee2eb2322}\label{class_affichage_info_ac29fead0c81786fe6bb83cbee2eb2322} 
-static JLabel {\bfseries label\+Titre\+Plateau} = new JLabel("{}Jeu"{})
+\Hypertarget{class_affichage_info_a6c4628b9795dc3fa9f075f31fab98861}\label{class_affichage_info_a6c4628b9795dc3fa9f075f31fab98861} 
+static JButton {\bfseries bouton\+Valider\+Mode} = new JButton("{}Valider"{})
 \item 
 \Hypertarget{class_affichage_info_acbaff1d10c2da6ef9b017285c02b286b}\label{class_affichage_info_acbaff1d10c2da6ef9b017285c02b286b} 
 static JCheck\+Box {\bfseries check\+Unanimate} = new JCheck\+Box("{}Unanimité"{})
 \item 
 \Hypertarget{class_affichage_info_ac33dfcba6664c247891f5e87dd362b12}\label{class_affichage_info_ac33dfcba6664c247891f5e87dd362b12} 
 static JCheck\+Box {\bfseries check\+Moyenne} = new JCheck\+Box("{}Moyenne"{})
+\item 
+\Hypertarget{class_affichage_info_a35100ff92e07d10033ad4d973112eeb7}\label{class_affichage_info_a35100ff92e07d10033ad4d973112eeb7} 
+static JLabel {\bfseries label\+Titre\+Fonctionnalite} = new JLabel("{}Entrez vos fonctionnalités à voter"{})
+\item 
+\Hypertarget{class_affichage_info_a7b425f50308e0ffc2ad2b23279db1f5b}\label{class_affichage_info_a7b425f50308e0ffc2ad2b23279db1f5b} 
+static JButton {\bfseries bouton\+Valider\+Fonctionnalite} = new JButton("{}Valider"{})
+\item 
+\Hypertarget{class_affichage_info_abb091dcc6941ffef049ff6d9454edfe5}\label{class_affichage_info_abb091dcc6941ffef049ff6d9454edfe5} 
+static JButton {\bfseries bouton\+Passer\+Plateau} = new JButton("{}Commencer à voter"{})
+\item 
+\Hypertarget{class_affichage_info_a10a6e6a4e0647cc930838a28e72af555}\label{class_affichage_info_a10a6e6a4e0647cc930838a28e72af555} 
+static JText\+Field {\bfseries field\+Fonctionnalite} = new JText\+Field(screen\+Height/15)
+\item 
+\Hypertarget{class_affichage_info_a845217c15d7bd5fcd6b0d2b2f13cba3e}\label{class_affichage_info_a845217c15d7bd5fcd6b0d2b2f13cba3e} 
+static Default\+List\+Model$<$ String $>$ {\bfseries liste\+Fonctionnalite} = new Default\+List\+Model$<$$>$()
+\item 
+\Hypertarget{class_affichage_info_af7fce62ebf72fc73e5a5a959bb057b9e}\label{class_affichage_info_af7fce62ebf72fc73e5a5a959bb057b9e} 
+static JList$<$ String $>$ {\bfseries fonctionnalites\+List} = new JList$<$$>$(liste\+Fonctionnalite)
+\item 
+\Hypertarget{class_affichage_info_ac29fead0c81786fe6bb83cbee2eb2322}\label{class_affichage_info_ac29fead0c81786fe6bb83cbee2eb2322} 
+static JLabel {\bfseries label\+Titre\+Plateau} = new JLabel("{}Jeu"{})
+\item 
+\Hypertarget{class_affichage_info_a710694d8f2c7caee669ce75777bf93a9}\label{class_affichage_info_a710694d8f2c7caee669ce75777bf93a9} 
+static JLabel {\bfseries label\+Pseudo}
+\item 
+\Hypertarget{class_affichage_info_a1db400f3baf3e48e6a54beb106397ac4}\label{class_affichage_info_a1db400f3baf3e48e6a54beb106397ac4} 
+static JLabel {\bfseries label\+Regle}
+\item 
+\Hypertarget{class_affichage_info_a7d361a1250e328284afcd7106676d409}\label{class_affichage_info_a7d361a1250e328284afcd7106676d409} 
+static JLabel {\bfseries label\+Mode\+Et\+Tour}
+\item 
+\Hypertarget{class_affichage_info_a6fa6e2b039ce247137f6ec1a5d8d6447}\label{class_affichage_info_a6fa6e2b039ce247137f6ec1a5d8d6447} 
+static JButton {\bfseries bouton\+Choix\+Carte} = new JButton("{}Valider"{})
+\item 
+\Hypertarget{class_affichage_info_a3d5eec17541e89c5a1304e2f514d5c7d}\label{class_affichage_info_a3d5eec17541e89c5a1304e2f514d5c7d} 
+static String\mbox{[}$\,$\mbox{]} {\bfseries valeurs\+Cartes} = \{"{}0"{}, "{}1"{}, "{}2"{}, "{}3"{}, "{}5"{}, "{}8"{}, "{}13"{}, "{}20"{}, "{}40"{}, "{}100"{}, "{}cafe"{}, "{}interro"{}\}
+\item 
+static String\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_affichage_info_a0bd519239a52852f6caf61f11413bd0d}{nom\+Fichiers}}
+\item 
+\Hypertarget{class_affichage_info_a26e738f875a1586a9925feca4c0474ac}\label{class_affichage_info_a26e738f875a1586a9925feca4c0474ac} 
+static Buffered\+Image\mbox{[}$\,$\mbox{]} {\bfseries carte} = new Buffered\+Image\mbox{[}12\mbox{]}
+\item 
+\Hypertarget{class_affichage_info_a399047f0f3227adbe383570c754b2e63}\label{class_affichage_info_a399047f0f3227adbe383570c754b2e63} 
+static JLabel\mbox{[}$\,$\mbox{]} {\bfseries labels\+Cartes}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe statique contenant les informations d\textquotesingle{}affichage pour l\textquotesingle{}interface graphique. 
+
+Cette classe stocke des paramètres tels que la dimension de l\textquotesingle{}écran, les tailles de police, les variables, des couleurs, des boutons, des spinners, des textareas, des labels, et des checkboxes utilisés dans l\textquotesingle{}interface graphique du jeu "{}\+Planning Poker"{}. 
+
+\doxysubsection{Documentation des données membres}
+\Hypertarget{class_affichage_info_a0bd519239a52852f6caf61f11413bd0d}\label{class_affichage_info_a0bd519239a52852f6caf61f11413bd0d} 
+\index{AffichageInfo@{AffichageInfo}!nomFichiers@{nomFichiers}}
+\index{nomFichiers@{nomFichiers}!AffichageInfo@{AffichageInfo}}
+\doxysubsubsection{\texorpdfstring{nomFichiers}{nomFichiers}}
+{\footnotesize\ttfamily String \mbox{[}$\,$\mbox{]} Affichage\+Info.\+nom\+Fichiers\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\textcolor{stringliteral}{"{}carte\_0.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_1.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_2.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_3.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_5.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_8.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_13.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_20.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_40.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_100.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_cafe.jpg"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}carte\_interro.jpg"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}

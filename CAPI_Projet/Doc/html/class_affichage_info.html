@@ -75,6 +75,9 @@ $(function() {
   <div class="headertitle"><div class="title">Référence de la classe AffichageInfo</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe statique contenant les informations d'affichage pour l'interface graphique.  
+ <a href="class_affichage_info.html#details">Plus de détails...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Attributs publics statiques</h2></td></tr>
@@ -93,73 +96,177 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>sizeTitre</b> =
 <tr class="memitem:a170b9185dd015025bb83f9d1b9f65329" id="r_a170b9185dd015025bb83f9d1b9f65329"><td class="memItemLeft" align="right" valign="top"><a id="a170b9185dd015025bb83f9d1b9f65329" name="a170b9185dd015025bb83f9d1b9f65329"></a>
 static int&#160;</td><td class="memItemRight" valign="bottom"><b>sizeTexte</b> = (int) (screenWidth * 0.015)</td></tr>
 <tr class="separator:a170b9185dd015025bb83f9d1b9f65329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b42616d2e67e2b2e22c33a122ac81ff" id="r_a6b42616d2e67e2b2e22c33a122ac81ff"><td class="memItemLeft" align="right" valign="top"><a id="a6b42616d2e67e2b2e22c33a122ac81ff" name="a6b42616d2e67e2b2e22c33a122ac81ff"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>largeurBouton</b> = screenWidth / 5</td></tr>
-<tr class="separator:a6b42616d2e67e2b2e22c33a122ac81ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae67e12aa5ca668db24e4ef4d0883f22f" id="r_ae67e12aa5ca668db24e4ef4d0883f22f"><td class="memItemLeft" align="right" valign="top"><a id="ae67e12aa5ca668db24e4ef4d0883f22f" name="ae67e12aa5ca668db24e4ef4d0883f22f"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>hauteurBouton</b> = (screenHeight / 10) - (screenHeight / 138)</td></tr>
-<tr class="separator:ae67e12aa5ca668db24e4ef4d0883f22f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33b383f91f8df38e1b3fcc0a877352f0" id="r_a33b383f91f8df38e1b3fcc0a877352f0"><td class="memItemLeft" align="right" valign="top"><a id="a33b383f91f8df38e1b3fcc0a877352f0" name="a33b383f91f8df38e1b3fcc0a877352f0"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>largeurReponse</b> = screenWidth / 5</td></tr>
-<tr class="separator:a33b383f91f8df38e1b3fcc0a877352f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a102d201efc5e06432add93674f65f4a3" id="r_a102d201efc5e06432add93674f65f4a3"><td class="memItemLeft" align="right" valign="top"><a id="a102d201efc5e06432add93674f65f4a3" name="a102d201efc5e06432add93674f65f4a3"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>hauteurReponse</b> = screenHeight / 18</td></tr>
-<tr class="separator:a102d201efc5e06432add93674f65f4a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b6c69365d33680088b26dd207961be0" id="r_a9b6c69365d33680088b26dd207961be0"><td class="memItemLeft" align="right" valign="top"><a id="a9b6c69365d33680088b26dd207961be0" name="a9b6c69365d33680088b26dd207961be0"></a>
+static String&#160;</td><td class="memItemRight" valign="bottom"><b>workingDirectory</b> = System.getProperty(&quot;user.dir&quot;)</td></tr>
+<tr class="separator:a9b6c69365d33680088b26dd207961be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab940c8849356d3cf90d36dbd428e4408" id="r_ab940c8849356d3cf90d36dbd428e4408"><td class="memItemLeft" align="right" valign="top"><a id="ab940c8849356d3cf90d36dbd428e4408" name="ab940c8849356d3cf90d36dbd428e4408"></a>
-static int&#160;</td><td class="memItemRight" valign="bottom"><b>nbJoueur</b> = 2</td></tr>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>nbJoueur</b></td></tr>
 <tr class="separator:ab940c8849356d3cf90d36dbd428e4408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5a84377d4293181187a4177666123bd" id="r_ab5a84377d4293181187a4177666123bd"><td class="memItemLeft" align="right" valign="top"><a id="ab5a84377d4293181187a4177666123bd" name="ab5a84377d4293181187a4177666123bd"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>tour</b> = 1</td></tr>
+<tr class="separator:ab5a84377d4293181187a4177666123bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d431a210da573fc4835e35c8b1173b5" id="r_a3d431a210da573fc4835e35c8b1173b5"><td class="memItemLeft" align="right" valign="top"><a id="a3d431a210da573fc4835e35c8b1173b5" name="a3d431a210da573fc4835e35c8b1173b5"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>joueurVote</b> = 0</td></tr>
+<tr class="separator:a3d431a210da573fc4835e35c8b1173b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9f728e3f7099f42b76a067e24d509a6" id="r_aa9f728e3f7099f42b76a067e24d509a6"><td class="memItemLeft" align="right" valign="top"><a id="aa9f728e3f7099f42b76a067e24d509a6" name="aa9f728e3f7099f42b76a067e24d509a6"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>nbFonctionnalite</b></td></tr>
+<tr class="separator:aa9f728e3f7099f42b76a067e24d509a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0775cbfccb0ec90c20d8036f6a0d0f24" id="r_a0775cbfccb0ec90c20d8036f6a0d0f24"><td class="memItemLeft" align="right" valign="top"><a id="a0775cbfccb0ec90c20d8036f6a0d0f24" name="a0775cbfccb0ec90c20d8036f6a0d0f24"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>fonctionnaliteVote</b> = 0</td></tr>
+<tr class="separator:a0775cbfccb0ec90c20d8036f6a0d0f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02daf2b8129554c7b237f0aaa2ed8059" id="r_a02daf2b8129554c7b237f0aaa2ed8059"><td class="memItemLeft" align="right" valign="top"><a id="a02daf2b8129554c7b237f0aaa2ed8059" name="a02daf2b8129554c7b237f0aaa2ed8059"></a>
+static List&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>cartesVotees</b> = new ArrayList&lt;&gt;()</td></tr>
+<tr class="separator:a02daf2b8129554c7b237f0aaa2ed8059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a905e84517967552fea2f850aa282fc73" id="r_a905e84517967552fea2f850aa282fc73"><td class="memItemLeft" align="right" valign="top"><a id="a905e84517967552fea2f850aa282fc73" name="a905e84517967552fea2f850aa282fc73"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>MENU_ACCUEIL</b> = 0</td></tr>
+<tr class="separator:a905e84517967552fea2f850aa282fc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c8e546e67a61faadd5ca5faaa0fb28" id="r_a18c8e546e67a61faadd5ca5faaa0fb28"><td class="memItemLeft" align="right" valign="top"><a id="a18c8e546e67a61faadd5ca5faaa0fb28" name="a18c8e546e67a61faadd5ca5faaa0fb28"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>MENU_NB_JOUEUR</b> = 1</td></tr>
+<tr class="separator:a18c8e546e67a61faadd5ca5faaa0fb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e6c94377cd1bff77596c11c82d1d67e" id="r_a5e6c94377cd1bff77596c11c82d1d67e"><td class="memItemLeft" align="right" valign="top"><a id="a5e6c94377cd1bff77596c11c82d1d67e" name="a5e6c94377cd1bff77596c11c82d1d67e"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>MENU_PSEUDO</b> = 2</td></tr>
+<tr class="separator:a5e6c94377cd1bff77596c11c82d1d67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31ff002f716934222fdcbb4e1171b321" id="r_a31ff002f716934222fdcbb4e1171b321"><td class="memItemLeft" align="right" valign="top"><a id="a31ff002f716934222fdcbb4e1171b321" name="a31ff002f716934222fdcbb4e1171b321"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>MENU_MODE</b> = 3</td></tr>
+<tr class="separator:a31ff002f716934222fdcbb4e1171b321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e7f37e236bcc65b754aae0b7ae2d75" id="r_ac9e7f37e236bcc65b754aae0b7ae2d75"><td class="memItemLeft" align="right" valign="top"><a id="ac9e7f37e236bcc65b754aae0b7ae2d75" name="ac9e7f37e236bcc65b754aae0b7ae2d75"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>MENU_FONCTIONNALITE</b> = 4</td></tr>
+<tr class="separator:ac9e7f37e236bcc65b754aae0b7ae2d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f58b5310093078079e781d7febd922" id="r_ab3f58b5310093078079e781d7febd922"><td class="memItemLeft" align="right" valign="top"><a id="ab3f58b5310093078079e781d7febd922" name="ab3f58b5310093078079e781d7febd922"></a>
+static final int&#160;</td><td class="memItemRight" valign="bottom"><b>MENU_PLATEAU</b> = 5</td></tr>
+<tr class="separator:ab3f58b5310093078079e781d7febd922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a339d952b9b1fb025b20aaf901fb50f2b" id="r_a339d952b9b1fb025b20aaf901fb50f2b"><td class="memItemLeft" align="right" valign="top"><a id="a339d952b9b1fb025b20aaf901fb50f2b" name="a339d952b9b1fb025b20aaf901fb50f2b"></a>
 static Color&#160;</td><td class="memItemRight" valign="bottom"><b>couleurFond</b> = new Color(0, 0, 50)</td></tr>
 <tr class="separator:a339d952b9b1fb025b20aaf901fb50f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa8675c330a8d2fbd5b928b13eedc6b" id="r_aeaa8675c330a8d2fbd5b928b13eedc6b"><td class="memItemLeft" align="right" valign="top"><a id="aeaa8675c330a8d2fbd5b928b13eedc6b" name="aeaa8675c330a8d2fbd5b928b13eedc6b"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitreAccueil</b> = new JLabel(&quot;Planning Poker&quot;)</td></tr>
+<tr class="separator:aeaa8675c330a8d2fbd5b928b13eedc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad39eebfcc50f3dd5c1197fde2123c95a" id="r_ad39eebfcc50f3dd5c1197fde2123c95a"><td class="memItemLeft" align="right" valign="top"><a id="ad39eebfcc50f3dd5c1197fde2123c95a" name="ad39eebfcc50f3dd5c1197fde2123c95a"></a>
 static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonNouvellePartie</b> = new JButton(&quot;Nouvelle Partie&quot;)</td></tr>
 <tr class="separator:ad39eebfcc50f3dd5c1197fde2123c95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66f0db4932ad5a1318b54fe842f882c8" id="r_a66f0db4932ad5a1318b54fe842f882c8"><td class="memItemLeft" align="right" valign="top"><a id="a66f0db4932ad5a1318b54fe842f882c8" name="a66f0db4932ad5a1318b54fe842f882c8"></a>
 static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonReprendrePartie</b> = new JButton(&quot;Reprendre la partie&quot;)</td></tr>
 <tr class="separator:a66f0db4932ad5a1318b54fe842f882c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef56fcc4f45e688ee1e410c538d1c4d" id="r_a2ef56fcc4f45e688ee1e410c538d1c4d"><td class="memItemLeft" align="right" valign="top"><a id="a2ef56fcc4f45e688ee1e410c538d1c4d" name="a2ef56fcc4f45e688ee1e410c538d1c4d"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitrePseudoJoueur</b> = new JLabel(&quot;Choix des pseudos&quot;)</td></tr>
+<tr class="separator:a2ef56fcc4f45e688ee1e410c538d1c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c59835c3874b3ef21d3d7b63a2f1981" id="r_a0c59835c3874b3ef21d3d7b63a2f1981"><td class="memItemLeft" align="right" valign="top"><a id="a0c59835c3874b3ef21d3d7b63a2f1981" name="a0c59835c3874b3ef21d3d7b63a2f1981"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitreNbJoueur</b> = new JLabel(&quot;Configuration de la partie&quot;)</td></tr>
+<tr class="separator:a0c59835c3874b3ef21d3d7b63a2f1981"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5b9c4d4b16b272675faca5f8cd91653" id="r_ad5b9c4d4b16b272675faca5f8cd91653"><td class="memItemLeft" align="right" valign="top"><a id="ad5b9c4d4b16b272675faca5f8cd91653" name="ad5b9c4d4b16b272675faca5f8cd91653"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelNbJoueur</b> = new JLabel(&quot;&lt;html&gt;&lt;center&gt;Nombre de joueur :&lt;br&gt;(entre 2 et 12)&lt;/center&gt;&lt;/html&gt;&quot;)</td></tr>
+<tr class="separator:ad5b9c4d4b16b272675faca5f8cd91653"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0dd4ffe9be1efb7061f992c5517e0e1" id="r_ab0dd4ffe9be1efb7061f992c5517e0e1"><td class="memItemLeft" align="right" valign="top"><a id="ab0dd4ffe9be1efb7061f992c5517e0e1" name="ab0dd4ffe9be1efb7061f992c5517e0e1"></a>
 static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonValiderNbJoueur</b> = new JButton(&quot;Valider&quot;)</td></tr>
 <tr class="separator:ab0dd4ffe9be1efb7061f992c5517e0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada19470bb9782a29a366d64e1f532e50" id="r_ada19470bb9782a29a366d64e1f532e50"><td class="memItemLeft" align="right" valign="top"><a id="ada19470bb9782a29a366d64e1f532e50" name="ada19470bb9782a29a366d64e1f532e50"></a>
-static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonValiderPseudo</b> = new JButton(&quot;Valider&quot;)</td></tr>
-<tr class="separator:ada19470bb9782a29a366d64e1f532e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c4628b9795dc3fa9f075f31fab98861" id="r_a6c4628b9795dc3fa9f075f31fab98861"><td class="memItemLeft" align="right" valign="top"><a id="a6c4628b9795dc3fa9f075f31fab98861" name="a6c4628b9795dc3fa9f075f31fab98861"></a>
-static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonValiderMode</b> = new JButton(&quot;Valider&quot;)</td></tr>
-<tr class="separator:a6c4628b9795dc3fa9f075f31fab98861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb3d3d210d6af187209f76f96d29b012" id="r_aeb3d3d210d6af187209f76f96d29b012"><td class="memItemLeft" align="right" valign="top"><a id="aeb3d3d210d6af187209f76f96d29b012" name="aeb3d3d210d6af187209f76f96d29b012"></a>
 static SpinnerModel&#160;</td><td class="memItemRight" valign="bottom"><b>spinnerModel</b> = new SpinnerNumberModel(2, 2, 12, 1)</td></tr>
 <tr class="separator:aeb3d3d210d6af187209f76f96d29b012"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b1ba557fb15cb662101966ac87bfabb" id="r_a3b1ba557fb15cb662101966ac87bfabb"><td class="memItemLeft" align="right" valign="top"><a id="a3b1ba557fb15cb662101966ac87bfabb" name="a3b1ba557fb15cb662101966ac87bfabb"></a>
 static JSpinner&#160;</td><td class="memItemRight" valign="bottom"><b>spinnerNbJoueur</b> = new JSpinner(spinnerModel)</td></tr>
 <tr class="separator:a3b1ba557fb15cb662101966ac87bfabb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada19470bb9782a29a366d64e1f532e50" id="r_ada19470bb9782a29a366d64e1f532e50"><td class="memItemLeft" align="right" valign="top"><a id="ada19470bb9782a29a366d64e1f532e50" name="ada19470bb9782a29a366d64e1f532e50"></a>
+static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonValiderPseudo</b> = new JButton(&quot;Valider&quot;)</td></tr>
+<tr class="separator:ada19470bb9782a29a366d64e1f532e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af53625fca25af599f080d0f8455d9882" id="r_af53625fca25af599f080d0f8455d9882"><td class="memItemLeft" align="right" valign="top"><a id="af53625fca25af599f080d0f8455d9882" name="af53625fca25af599f080d0f8455d9882"></a>
 static JTextArea[]&#160;</td><td class="memItemRight" valign="bottom"><b>areaTabPseudo</b></td></tr>
 <tr class="separator:af53625fca25af599f080d0f8455d9882"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaa8675c330a8d2fbd5b928b13eedc6b" id="r_aeaa8675c330a8d2fbd5b928b13eedc6b"><td class="memItemLeft" align="right" valign="top"><a id="aeaa8675c330a8d2fbd5b928b13eedc6b" name="aeaa8675c330a8d2fbd5b928b13eedc6b"></a>
-static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitreAccueil</b> = new JLabel(&quot;Planning Poker&quot;)</td></tr>
-<tr class="separator:aeaa8675c330a8d2fbd5b928b13eedc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c59835c3874b3ef21d3d7b63a2f1981" id="r_a0c59835c3874b3ef21d3d7b63a2f1981"><td class="memItemLeft" align="right" valign="top"><a id="a0c59835c3874b3ef21d3d7b63a2f1981" name="a0c59835c3874b3ef21d3d7b63a2f1981"></a>
-static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitreNbJoueur</b> = new JLabel(&quot;Configuration de la partie&quot;)</td></tr>
-<tr class="separator:a0c59835c3874b3ef21d3d7b63a2f1981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5b9c4d4b16b272675faca5f8cd91653" id="r_ad5b9c4d4b16b272675faca5f8cd91653"><td class="memItemLeft" align="right" valign="top"><a id="ad5b9c4d4b16b272675faca5f8cd91653" name="ad5b9c4d4b16b272675faca5f8cd91653"></a>
-static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelNbJoueur</b> = new JLabel(&quot;Nombre de joueur : (entre 2 et 12)&quot;)</td></tr>
-<tr class="separator:ad5b9c4d4b16b272675faca5f8cd91653"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ef56fcc4f45e688ee1e410c538d1c4d" id="r_a2ef56fcc4f45e688ee1e410c538d1c4d"><td class="memItemLeft" align="right" valign="top"><a id="a2ef56fcc4f45e688ee1e410c538d1c4d" name="a2ef56fcc4f45e688ee1e410c538d1c4d"></a>
-static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitrePseudoJoueur</b> = new JLabel(&quot;Choix des pseudos&quot;)</td></tr>
-<tr class="separator:a2ef56fcc4f45e688ee1e410c538d1c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f0a83bbee869866a597b42c922c4110" id="r_a2f0a83bbee869866a597b42c922c4110"><td class="memItemLeft" align="right" valign="top"><a id="a2f0a83bbee869866a597b42c922c4110" name="a2f0a83bbee869866a597b42c922c4110"></a>
 static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitreMode</b> = new JLabel(&quot;Choix du mode de jeu&quot;)</td></tr>
 <tr class="separator:a2f0a83bbee869866a597b42c922c4110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac29fead0c81786fe6bb83cbee2eb2322" id="r_ac29fead0c81786fe6bb83cbee2eb2322"><td class="memItemLeft" align="right" valign="top"><a id="ac29fead0c81786fe6bb83cbee2eb2322" name="ac29fead0c81786fe6bb83cbee2eb2322"></a>
-static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitrePlateau</b> = new JLabel(&quot;Jeu&quot;)</td></tr>
-<tr class="separator:ac29fead0c81786fe6bb83cbee2eb2322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4628b9795dc3fa9f075f31fab98861" id="r_a6c4628b9795dc3fa9f075f31fab98861"><td class="memItemLeft" align="right" valign="top"><a id="a6c4628b9795dc3fa9f075f31fab98861" name="a6c4628b9795dc3fa9f075f31fab98861"></a>
+static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonValiderMode</b> = new JButton(&quot;Valider&quot;)</td></tr>
+<tr class="separator:a6c4628b9795dc3fa9f075f31fab98861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbaff1d10c2da6ef9b017285c02b286b" id="r_acbaff1d10c2da6ef9b017285c02b286b"><td class="memItemLeft" align="right" valign="top"><a id="acbaff1d10c2da6ef9b017285c02b286b" name="acbaff1d10c2da6ef9b017285c02b286b"></a>
 static JCheckBox&#160;</td><td class="memItemRight" valign="bottom"><b>checkUnanimate</b> = new JCheckBox(&quot;Unanimité&quot;)</td></tr>
 <tr class="separator:acbaff1d10c2da6ef9b017285c02b286b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33dfcba6664c247891f5e87dd362b12" id="r_ac33dfcba6664c247891f5e87dd362b12"><td class="memItemLeft" align="right" valign="top"><a id="ac33dfcba6664c247891f5e87dd362b12" name="ac33dfcba6664c247891f5e87dd362b12"></a>
 static JCheckBox&#160;</td><td class="memItemRight" valign="bottom"><b>checkMoyenne</b> = new JCheckBox(&quot;Moyenne&quot;)</td></tr>
 <tr class="separator:ac33dfcba6664c247891f5e87dd362b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35100ff92e07d10033ad4d973112eeb7" id="r_a35100ff92e07d10033ad4d973112eeb7"><td class="memItemLeft" align="right" valign="top"><a id="a35100ff92e07d10033ad4d973112eeb7" name="a35100ff92e07d10033ad4d973112eeb7"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitreFonctionnalite</b> = new JLabel(&quot;Entrez vos fonctionnalités à voter&quot;)</td></tr>
+<tr class="separator:a35100ff92e07d10033ad4d973112eeb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b425f50308e0ffc2ad2b23279db1f5b" id="r_a7b425f50308e0ffc2ad2b23279db1f5b"><td class="memItemLeft" align="right" valign="top"><a id="a7b425f50308e0ffc2ad2b23279db1f5b" name="a7b425f50308e0ffc2ad2b23279db1f5b"></a>
+static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonValiderFonctionnalite</b> = new JButton(&quot;Valider&quot;)</td></tr>
+<tr class="separator:a7b425f50308e0ffc2ad2b23279db1f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb091dcc6941ffef049ff6d9454edfe5" id="r_abb091dcc6941ffef049ff6d9454edfe5"><td class="memItemLeft" align="right" valign="top"><a id="abb091dcc6941ffef049ff6d9454edfe5" name="abb091dcc6941ffef049ff6d9454edfe5"></a>
+static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonPasserPlateau</b> = new JButton(&quot;Commencer à voter&quot;)</td></tr>
+<tr class="separator:abb091dcc6941ffef049ff6d9454edfe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a6e6a4e0647cc930838a28e72af555" id="r_a10a6e6a4e0647cc930838a28e72af555"><td class="memItemLeft" align="right" valign="top"><a id="a10a6e6a4e0647cc930838a28e72af555" name="a10a6e6a4e0647cc930838a28e72af555"></a>
+static JTextField&#160;</td><td class="memItemRight" valign="bottom"><b>fieldFonctionnalite</b> = new JTextField(screenHeight/15)</td></tr>
+<tr class="separator:a10a6e6a4e0647cc930838a28e72af555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a845217c15d7bd5fcd6b0d2b2f13cba3e" id="r_a845217c15d7bd5fcd6b0d2b2f13cba3e"><td class="memItemLeft" align="right" valign="top"><a id="a845217c15d7bd5fcd6b0d2b2f13cba3e" name="a845217c15d7bd5fcd6b0d2b2f13cba3e"></a>
+static DefaultListModel&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>listeFonctionnalite</b> = new DefaultListModel&lt;&gt;()</td></tr>
+<tr class="separator:a845217c15d7bd5fcd6b0d2b2f13cba3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7fce62ebf72fc73e5a5a959bb057b9e" id="r_af7fce62ebf72fc73e5a5a959bb057b9e"><td class="memItemLeft" align="right" valign="top"><a id="af7fce62ebf72fc73e5a5a959bb057b9e" name="af7fce62ebf72fc73e5a5a959bb057b9e"></a>
+static JList&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>fonctionnalitesList</b> = new JList&lt;&gt;(listeFonctionnalite)</td></tr>
+<tr class="separator:af7fce62ebf72fc73e5a5a959bb057b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29fead0c81786fe6bb83cbee2eb2322" id="r_ac29fead0c81786fe6bb83cbee2eb2322"><td class="memItemLeft" align="right" valign="top"><a id="ac29fead0c81786fe6bb83cbee2eb2322" name="ac29fead0c81786fe6bb83cbee2eb2322"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelTitrePlateau</b> = new JLabel(&quot;Jeu&quot;)</td></tr>
+<tr class="separator:ac29fead0c81786fe6bb83cbee2eb2322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a710694d8f2c7caee669ce75777bf93a9" id="r_a710694d8f2c7caee669ce75777bf93a9"><td class="memItemLeft" align="right" valign="top"><a id="a710694d8f2c7caee669ce75777bf93a9" name="a710694d8f2c7caee669ce75777bf93a9"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelPseudo</b></td></tr>
+<tr class="separator:a710694d8f2c7caee669ce75777bf93a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db400f3baf3e48e6a54beb106397ac4" id="r_a1db400f3baf3e48e6a54beb106397ac4"><td class="memItemLeft" align="right" valign="top"><a id="a1db400f3baf3e48e6a54beb106397ac4" name="a1db400f3baf3e48e6a54beb106397ac4"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelRegle</b></td></tr>
+<tr class="separator:a1db400f3baf3e48e6a54beb106397ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d361a1250e328284afcd7106676d409" id="r_a7d361a1250e328284afcd7106676d409"><td class="memItemLeft" align="right" valign="top"><a id="a7d361a1250e328284afcd7106676d409" name="a7d361a1250e328284afcd7106676d409"></a>
+static JLabel&#160;</td><td class="memItemRight" valign="bottom"><b>labelModeEtTour</b></td></tr>
+<tr class="separator:a7d361a1250e328284afcd7106676d409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa6e2b039ce247137f6ec1a5d8d6447" id="r_a6fa6e2b039ce247137f6ec1a5d8d6447"><td class="memItemLeft" align="right" valign="top"><a id="a6fa6e2b039ce247137f6ec1a5d8d6447" name="a6fa6e2b039ce247137f6ec1a5d8d6447"></a>
+static JButton&#160;</td><td class="memItemRight" valign="bottom"><b>boutonChoixCarte</b> = new JButton(&quot;Valider&quot;)</td></tr>
+<tr class="separator:a6fa6e2b039ce247137f6ec1a5d8d6447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5eec17541e89c5a1304e2f514d5c7d" id="r_a3d5eec17541e89c5a1304e2f514d5c7d"><td class="memItemLeft" align="right" valign="top"><a id="a3d5eec17541e89c5a1304e2f514d5c7d" name="a3d5eec17541e89c5a1304e2f514d5c7d"></a>
+static String[]&#160;</td><td class="memItemRight" valign="bottom"><b>valeursCartes</b> = {&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;5&quot;, &quot;8&quot;, &quot;13&quot;, &quot;20&quot;, &quot;40&quot;, &quot;100&quot;, &quot;cafe&quot;, &quot;interro&quot;}</td></tr>
+<tr class="separator:a3d5eec17541e89c5a1304e2f514d5c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd519239a52852f6caf61f11413bd0d" id="r_a0bd519239a52852f6caf61f11413bd0d"><td class="memItemLeft" align="right" valign="top">static String[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_affichage_info.html#a0bd519239a52852f6caf61f11413bd0d">nomFichiers</a></td></tr>
+<tr class="separator:a0bd519239a52852f6caf61f11413bd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26e738f875a1586a9925feca4c0474ac" id="r_a26e738f875a1586a9925feca4c0474ac"><td class="memItemLeft" align="right" valign="top"><a id="a26e738f875a1586a9925feca4c0474ac" name="a26e738f875a1586a9925feca4c0474ac"></a>
+static BufferedImage[]&#160;</td><td class="memItemRight" valign="bottom"><b>carte</b> = new BufferedImage[12]</td></tr>
+<tr class="separator:a26e738f875a1586a9925feca4c0474ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399047f0f3227adbe383570c754b2e63" id="r_a399047f0f3227adbe383570c754b2e63"><td class="memItemLeft" align="right" valign="top"><a id="a399047f0f3227adbe383570c754b2e63" name="a399047f0f3227adbe383570c754b2e63"></a>
+static JLabel[]&#160;</td><td class="memItemRight" valign="bottom"><b>labelsCartes</b></td></tr>
+<tr class="separator:a399047f0f3227adbe383570c754b2e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Classe statique contenant les informations d'affichage pour l'interface graphique. </p>
+<p>Cette classe stocke des paramètres tels que la dimension de l'écran, les tailles de police, les variables, des couleurs, des boutons, des spinners, des textareas, des labels, et des checkboxes utilisés dans l'interface graphique du jeu "Planning Poker". </p>
+</div><h2 class="groupheader">Documentation des données membres</h2>
+<a id="a0bd519239a52852f6caf61f11413bd0d" name="a0bd519239a52852f6caf61f11413bd0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bd519239a52852f6caf61f11413bd0d">&#9670;&#160;</a></span>nomFichiers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String [] AffichageInfo.nomFichiers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {<span class="stringliteral">&quot;carte_0.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_1.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_2.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_3.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_5.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_8.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_13.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_20.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_40.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_100.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_cafe.jpg&quot;</span>,</div>
+<div class="line">            <span class="stringliteral">&quot;carte_interro.jpg&quot;</span></div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>OneDrive/Documents/M1/semestre_1/Conception_agile_de_projets_info/projet/CAPI/CAPI_Projet/src/main/java/<b>AffichageInfo.java</b></li>
 </ul>

@@ -71,6 +71,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
+<a href="#pub-attribs">Attributs publics</a> &#124;
+<a href="#pub-static-attribs">Attributs publics statiques</a> &#124;
 <a href="class_joueur-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle"><div class="title">Référence de la classe Joueur</div></div>
 </div><!--header-->
@@ -78,12 +81,51 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a442c9faedad63a48a98a7406809c5182" id="r_a442c9faedad63a48a98a7406809c5182"><td class="memItemLeft" align="right" valign="top"><a id="a442c9faedad63a48a98a7406809c5182" name="a442c9faedad63a48a98a7406809c5182"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Joueur</b> (int unId, String unPseudo)</td></tr>
-<tr class="separator:a442c9faedad63a48a98a7406809c5182"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34e9720afb2cd44e01eb9efe96bb76d6" id="r_a34e9720afb2cd44e01eb9efe96bb76d6"><td class="memItemLeft" align="right" valign="top"><a id="a34e9720afb2cd44e01eb9efe96bb76d6" name="a34e9720afb2cd44e01eb9efe96bb76d6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>voter</b> (<a class="el" href="class_carte.html">Carte</a> carte)</td></tr>
-<tr class="separator:a34e9720afb2cd44e01eb9efe96bb76d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12300c9c9670c9c307a97944ef32b434" id="r_a12300c9c9670c9c307a97944ef32b434"><td class="memItemLeft" align="right" valign="top"><a id="a12300c9c9670c9c307a97944ef32b434" name="a12300c9c9670c9c307a97944ef32b434"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Joueur</b> (int identifiant, String p)</td></tr>
+<tr class="separator:a12300c9c9670c9c307a97944ef32b434"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9077188a3679c2fcb52dccf51c59703d" id="r_a9077188a3679c2fcb52dccf51c59703d"><td class="memItemLeft" align="right" valign="top"><a id="a9077188a3679c2fcb52dccf51c59703d" name="a9077188a3679c2fcb52dccf51c59703d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> ()</td></tr>
+<tr class="separator:a9077188a3679c2fcb52dccf51c59703d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c0cbc13aae6c56d4d2373bd4a5b94f6" id="r_a9c0cbc13aae6c56d4d2373bd4a5b94f6"><td class="memItemLeft" align="right" valign="top"><a id="a9c0cbc13aae6c56d4d2373bd4a5b94f6" name="a9c0cbc13aae6c56d4d2373bd4a5b94f6"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>getPseudo</b> ()</td></tr>
+<tr class="separator:a9c0cbc13aae6c56d4d2373bd4a5b94f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aade6030ab9e0c7469795af2d86f110af" id="r_aade6030ab9e0c7469795af2d86f110af"><td class="memItemLeft" align="right" valign="top"><a id="aade6030ab9e0c7469795af2d86f110af" name="aade6030ab9e0c7469795af2d86f110af"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>getVoteCourant</b> ()</td></tr>
+<tr class="separator:aade6030ab9e0c7469795af2d86f110af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7264144be3be1ae62f61225cbd2e0470" id="r_a7264144be3be1ae62f61225cbd2e0470"><td class="memItemLeft" align="right" valign="top"><a id="a7264144be3be1ae62f61225cbd2e0470" name="a7264144be3be1ae62f61225cbd2e0470"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setVoteEnCours</b> (String nouveauVote)</td></tr>
+<tr class="separator:a7264144be3be1ae62f61225cbd2e0470"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:a97c31df9831de936f35c29d8d1c914ac" id="r_a97c31df9831de936f35c29d8d1c914ac"><td class="memItemLeft" align="right" valign="top"><a id="a97c31df9831de936f35c29d8d1c914ac" name="a97c31df9831de936f35c29d8d1c914ac"></a>
+static boolean&#160;</td><td class="memItemRight" valign="bottom"><b>verifierPseudosUniques</b> ()</td></tr>
+<tr class="separator:a97c31df9831de936f35c29d8d1c914ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95ce4e8f82788e67200768083e30bdc" id="r_ab95ce4e8f82788e67200768083e30bdc"><td class="memItemLeft" align="right" valign="top"><a id="ab95ce4e8f82788e67200768083e30bdc" name="ab95ce4e8f82788e67200768083e30bdc"></a>
+static boolean&#160;</td><td class="memItemRight" valign="bottom"><b>verifierPseudosNonNuls</b> ()</td></tr>
+<tr class="separator:ab95ce4e8f82788e67200768083e30bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1819dbd470d2f4be3d270cbc571d7a7" id="r_af1819dbd470d2f4be3d270cbc571d7a7"><td class="memItemLeft" align="right" valign="top"><a id="af1819dbd470d2f4be3d270cbc571d7a7" name="af1819dbd470d2f4be3d270cbc571d7a7"></a>
+static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>creerListeDeJoueurs</b> ()</td></tr>
+<tr class="separator:af1819dbd470d2f4be3d270cbc571d7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a834c7407a1a92b9e931987f9dd47dcd0" id="r_a834c7407a1a92b9e931987f9dd47dcd0"><td class="memItemLeft" align="right" valign="top"><a id="a834c7407a1a92b9e931987f9dd47dcd0" name="a834c7407a1a92b9e931987f9dd47dcd0"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>afficheListeJoueur</b> ()</td></tr>
+<tr class="separator:a834c7407a1a92b9e931987f9dd47dcd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae903d5854d905133ae5634519e7083" id="r_aaae903d5854d905133ae5634519e7083"><td class="memItemLeft" align="right" valign="top"><a id="aaae903d5854d905133ae5634519e7083" name="aaae903d5854d905133ae5634519e7083"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>ajouterVoteAuJoueur</b> (String carte)</td></tr>
+<tr class="separator:aaae903d5854d905133ae5634519e7083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Attributs publics</h2></td></tr>
+<tr class="memitem:a122579aa7e4004d91cc454e087e6ff30" id="r_a122579aa7e4004d91cc454e087e6ff30"><td class="memItemLeft" align="right" valign="top"><a id="a122579aa7e4004d91cc454e087e6ff30" name="a122579aa7e4004d91cc454e087e6ff30"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>voteCourant</b></td></tr>
+<tr class="separator:a122579aa7e4004d91cc454e087e6ff30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Attributs publics statiques</h2></td></tr>
+<tr class="memitem:a7fb84e96f67563078a70b621d6bad4df" id="r_a7fb84e96f67563078a70b621d6bad4df"><td class="memItemLeft" align="right" valign="top"><a id="a7fb84e96f67563078a70b621d6bad4df" name="a7fb84e96f67563078a70b621d6bad4df"></a>
+static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>listeJoueurs</b> = new ArrayList&lt;&gt;()</td></tr>
+<tr class="separator:a7fb84e96f67563078a70b621d6bad4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>OneDrive/Documents/M1/semestre_1/Conception_agile_de_projets_info/projet/CAPI/CAPI_Projet/src/main/java/<b>Joueur.java</b></li>

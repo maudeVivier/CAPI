@@ -70,32 +70,212 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
 <a href="class_planning_poker-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle"><div class="title">Référence de la classe PlanningPoker</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Gère une instance unique du jeu de planning poker.  
+ <a href="class_planning_poker.html#details">Plus de détails...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a21d2bec69541974261a8f8ae7647656d" id="r_a21d2bec69541974261a8f8ae7647656d"><td class="memItemLeft" align="right" valign="top"><a id="a21d2bec69541974261a8f8ae7647656d" name="a21d2bec69541974261a8f8ae7647656d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PlanningPoker</b> (ArrayList&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt; unListeJoueur, <a class="el" href="class_regles_planning_poker.html">ReglesPlanningPoker</a> unRegles, <a class="el" href="class_backlog.html">Backlog</a> unBacklog)</td></tr>
-<tr class="separator:a21d2bec69541974261a8f8ae7647656d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf77e535849259c1877afa35e4a72fe9" id="r_adf77e535849259c1877afa35e4a72fe9"><td class="memItemLeft" align="right" valign="top"><a id="adf77e535849259c1877afa35e4a72fe9" name="adf77e535849259c1877afa35e4a72fe9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initialiserPartie</b> ()</td></tr>
-<tr class="separator:adf77e535849259c1877afa35e4a72fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15109b04236d7ebc3780517a0240e3b8" id="r_a15109b04236d7ebc3780517a0240e3b8"><td class="memItemLeft" align="right" valign="top"><a id="a15109b04236d7ebc3780517a0240e3b8" name="a15109b04236d7ebc3780517a0240e3b8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>validerBacklog</b> ()</td></tr>
-<tr class="separator:a15109b04236d7ebc3780517a0240e3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8369f306d7b646913674656c36cb9217" id="r_a8369f306d7b646913674656c36cb9217"><td class="memItemLeft" align="right" valign="top"><a id="a8369f306d7b646913674656c36cb9217" name="a8369f306d7b646913674656c36cb9217"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>enregistrerResultats</b> ()</td></tr>
-<tr class="separator:a8369f306d7b646913674656c36cb9217"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4269d64052f4e5ff0620e6e03057bc1" id="r_ab4269d64052f4e5ff0620e6e03057bc1"><td class="memItemLeft" align="right" valign="top"><a id="ab4269d64052f4e5ff0620e6e03057bc1" name="ab4269d64052f4e5ff0620e6e03057bc1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>chargerPartie</b> ()</td></tr>
-<tr class="separator:ab4269d64052f4e5ff0620e6e03057bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:a9ee75018b0a6379ac284a00c53708fb4" id="r_a9ee75018b0a6379ac284a00c53708fb4"><td class="memItemLeft" align="right" valign="top">static synchronized <a class="el" href="class_planning_poker.html">PlanningPoker</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_planning_poker.html#a9ee75018b0a6379ac284a00c53708fb4">getInstance</a> (List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt; listeFonctionnalites, List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt; listeJoueur, <a class="el" href="enum_mode_de_jeu.html">ModeDeJeu</a> regle)</td></tr>
+<tr class="memdesc:a9ee75018b0a6379ac284a00c53708fb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient l'instance unique de la classe <a class="el" href="class_planning_poker.html" title="Gère une instance unique du jeu de planning poker.">PlanningPoker</a>.  <br /></td></tr>
+<tr class="separator:a9ee75018b0a6379ac284a00c53708fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2a6308d1998ec3fc3c1f0a32e7c793" id="r_a0c2a6308d1998ec3fc3c1f0a32e7c793"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_planning_poker.html#a0c2a6308d1998ec3fc3c1f0a32e7c793">getListeFonctionnalites</a> ()</td></tr>
+<tr class="memdesc:a0c2a6308d1998ec3fc3c1f0a32e7c793"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient la liste des fonctionnalités.  <br /></td></tr>
+<tr class="separator:a0c2a6308d1998ec3fc3c1f0a32e7c793"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f478c9f1c44fee31884e08faaa42959" id="r_a0f478c9f1c44fee31884e08faaa42959"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_planning_poker.html#a0f478c9f1c44fee31884e08faaa42959">getListeJoueurs</a> ()</td></tr>
+<tr class="memdesc:a0f478c9f1c44fee31884e08faaa42959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient la liste des joueurs.  <br /></td></tr>
+<tr class="separator:a0f478c9f1c44fee31884e08faaa42959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaabf72292c72553f055a791a93816b62" id="r_aaabf72292c72553f055a791a93816b62"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="enum_mode_de_jeu.html">ModeDeJeu</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_planning_poker.html#aaabf72292c72553f055a791a93816b62">getModeDeJeu</a> ()</td></tr>
+<tr class="memdesc:aaabf72292c72553f055a791a93816b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient le mode de jeu actuel.  <br /></td></tr>
+<tr class="separator:aaabf72292c72553f055a791a93816b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad869b6e2ecd485f021bb3d1828cb5692" id="r_ad869b6e2ecd485f021bb3d1828cb5692"><td class="memItemLeft" align="right" valign="top"><a id="ad869b6e2ecd485f021bb3d1828cb5692" name="ad869b6e2ecd485f021bb3d1828cb5692"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>partieFinie</b> ()</td></tr>
+<tr class="memdesc:ad869b6e2ecd485f021bb3d1828cb5692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Méthode appelée lorsque la partie est terminée. <br /></td></tr>
+<tr class="separator:ad869b6e2ecd485f021bb3d1828cb5692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a576f6467312dd54953fa345ce38188e9" id="r_a576f6467312dd54953fa345ce38188e9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_planning_poker.html#a576f6467312dd54953fa345ce38188e9">chargerPartie</a> ()  throws IOException </td></tr>
+<tr class="memdesc:a576f6467312dd54953fa345ce38188e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une partie sauvegardée.  <br /></td></tr>
+<tr class="separator:a576f6467312dd54953fa345ce38188e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gère une instance unique du jeu de planning poker. </p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="a576f6467312dd54953fa345ce38188e9" name="a576f6467312dd54953fa345ce38188e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a576f6467312dd54953fa345ce38188e9">&#9670;&#160;</a></span>chargerPartie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PlanningPoker.chargerPartie </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> throws IOException</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge une partie sauvegardée. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IOException</td><td>En cas d'erreur lors de la lecture depuis le fichier JSON. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ee75018b0a6379ac284a00c53708fb4" name="a9ee75018b0a6379ac284a00c53708fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee75018b0a6379ac284a00c53708fb4">&#9670;&#160;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static synchronized <a class="el" href="class_planning_poker.html">PlanningPoker</a> PlanningPoker.getInstance </td>
+          <td>(</td>
+          <td class="paramtype">List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt;&#160;</td>
+          <td class="paramname"><em>listeFonctionnalites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt;&#160;</td>
+          <td class="paramname"><em>listeJoueur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="enum_mode_de_jeu.html">ModeDeJeu</a>&#160;</td>
+          <td class="paramname"><em>regle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtient l'instance unique de la classe <a class="el" href="class_planning_poker.html" title="Gère une instance unique du jeu de planning poker.">PlanningPoker</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listeFonctionnalites</td><td>La liste des fonctionnalités. </td></tr>
+    <tr><td class="paramname">listeJoueur</td><td>La liste des joueurs. </td></tr>
+    <tr><td class="paramname">regle</td><td>Le mode de jeu. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'instance unique de <a class="el" href="class_planning_poker.html" title="Gère une instance unique du jeu de planning poker.">PlanningPoker</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a0c2a6308d1998ec3fc3c1f0a32e7c793" name="a0c2a6308d1998ec3fc3c1f0a32e7c793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2a6308d1998ec3fc3c1f0a32e7c793">&#9670;&#160;</a></span>getListeFonctionnalites()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt; PlanningPoker.getListeFonctionnalites </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtient la liste des fonctionnalités. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>La liste des fonctionnalités du planning poker. </dd></dl>
+
+</div>
+</div>
+<a id="a0f478c9f1c44fee31884e08faaa42959" name="a0f478c9f1c44fee31884e08faaa42959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f478c9f1c44fee31884e08faaa42959">&#9670;&#160;</a></span>getListeJoueurs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt; PlanningPoker.getListeJoueurs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtient la liste des joueurs. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>La liste des joueurs participant au planning poker. </dd></dl>
+
+</div>
+</div>
+<a id="aaabf72292c72553f055a791a93816b62" name="aaabf72292c72553f055a791a93816b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaabf72292c72553f055a791a93816b62">&#9670;&#160;</a></span>getModeDeJeu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="enum_mode_de_jeu.html">ModeDeJeu</a> PlanningPoker.getModeDeJeu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtient le mode de jeu actuel. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Le mode de jeu du planning poker. </dd></dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
-<li>OneDrive/Documents/M1/semestre_1/Conception_agile_de_projets_info/projet/CAPI/CAPI_Projet/src/main/java/<b>PlanningPoker.java</b></li>
+<li>OneDrive/Documents/M1/semestre_1/Conception_agile_de_projets_info/projet/CAPI/CAPI_Projet/src/main/java/<a class="el" href="_planning_poker_8java.html">PlanningPoker.java</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

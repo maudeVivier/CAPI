@@ -24,10 +24,10 @@ public class Backlog {
 
         // Objet qui contient les données à enregistrer
         Map<String, Object> donnees = new HashMap<>();
-        donnees.put("fonctionnalites", Fonctionnalite.listeFonctionnalites);
-        donnees.put("joueurs", Joueur.listeJoueurs);
+        donnees.put("fonctionnalites", PlanningPoker.getListeFonctionnalites());
+        donnees.put("joueurs", PlanningPoker.getListeJoueurs());
         donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote);
-        donnees.put("modeDeJeu", ReglesPlanningPoker.modeDeJeu);
+        donnees.put("modeDeJeu", PlanningPoker.getModeDeJeu());
 
         try {
             objectMapper.writeValue(new File(chemin), donnees);
@@ -61,7 +61,6 @@ public class Backlog {
 
             //Chargement du mode de jeu
             ReglesPlanningPoker.modeDeJeu = ModeDeJeu.valueOf((String) donnees.get("modeDeJeu"));
-
 
             System.out.println("Données chargées depuis le fichier JSON avec succès.");
         } else {

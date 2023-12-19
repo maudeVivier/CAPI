@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['carte_0',['Carte',['../class_carte.html',1,'']]]
+  ['fenetre_0',['Fenetre',['../class_fenetre.html',1,'']]],
+  ['fonctionnalite_1',['Fonctionnalite',['../class_fonctionnalite.html',1,'']]]
 ];
