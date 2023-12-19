@@ -74,7 +74,7 @@ public class PlanningPoker {
     public static ModeDeJeu getModeDeJeu() {
         return modeDeJeu;
     }
-    
+
     /**
      * @brief Méthode appelée lorsque la partie est terminée.
      */
@@ -101,7 +101,7 @@ public class PlanningPoker {
      */
     public static void chargerPartie() throws IOException {
         Backlog.chargerDepuisJSON();
-        planningPoker = getInstance(Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
+        planningPoker = getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
     }
 }
 
