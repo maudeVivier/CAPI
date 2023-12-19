@@ -6,17 +6,17 @@
     "validee" : true
   }, {
     "description" : "regle2",
-    "difficulte" : "13",
-    "validee" : true
+    "difficulte" : null,
+    "validee" : false
   } ],
   "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {
     "id" : 1,
     "pseudo" : "j1",
-    "voteCourant" : "13"
+    "voteCourant" : "cafe"
   }, {
     "id" : 2,
     "pseudo" : "j2",
-    "voteCourant" : "13"
+    "voteCourant" : "cafe"
   } ]
 }

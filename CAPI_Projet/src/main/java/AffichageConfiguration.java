@@ -33,10 +33,6 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     PlanningPoker.chargerPartie();
-                    Joueur.afficheListeJoueur();
-                    Fonctionnalite.afficheListeFonctionnalites();
-                    System.out.println("nombre de fonctionnalites deja ok : " + AffichageInfo.fonctionnaliteVote);
-                    System.out.println("MODE DE JEU : "+ ReglesPlanningPoker.modeDeJeu);
 
                     Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
@@ -67,7 +63,6 @@ public class AffichageConfiguration extends JPanel {
                     add(modePanel);
                     setMenu(AffichageInfo.MENU_MODE, false);
                     Joueur.listeJoueurs = Joueur.creerListeDeJoueurs();
-                    Joueur.afficheListeJoueur();
                 } else {
                     JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -115,7 +110,6 @@ public class AffichageConfiguration extends JPanel {
                 if(!AffichageInfo.listeFonctionnalite.isEmpty()) {
                     Fonctionnalite.listeFonctionnalites = Fonctionnalite.creerListeFonctionnalites();
                     AffichageInfo.nbFonctionnalite = Fonctionnalite.listeFonctionnalites.size();
-                    Fonctionnalite.afficheListeFonctionnalites();
                     Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
@@ -130,30 +124,33 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonChoixCarte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(AffichageInfo.fonctionnaliteVote - 1 <= AffichageInfo.nbFonctionnalite) {
-                    Joueur.ajouterVoteAuJoueur(numeroCarte);
-                    Affichage.changerPseudo();
-                    if (AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
-                        String res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
-                        if (res != null) { //Fonctionnalite Validee
-                            clearBorders("-1");
+                Joueur.ajouterVoteAuJoueur(numeroCarte);
+                clearBorders("-1");
+                Affichage.changerPseudo();
+                if (AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
+                    String res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
+                    if (!res.equals("-1")) { //Fonctionnalite Validee
+                        clearBorders("-1");
+                        if(!res.equals("cafe")) {//Affiche le message seulement si le resultat est différent de café
                             Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setDifficulte(res);
                             Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setValidee(true);
                             AffichageInfo.joueurVote = 0;
                             AffichageInfo.tour = 1;
                             AffichageInfo.fonctionnaliteVote += 1;
-                            Affichage.changerRegle();
-                            Backlog.sauvegarderEnJSON();
-                        } else {//Fonctionnalité refusée
-                            JOptionPane.showMessageDialog(null, "Refuser", "Information", JOptionPane.INFORMATION_MESSAGE);
-                            clearBorders("-1");
-                            AffichageInfo.joueurVote = 0;
-                            AffichageInfo.tour += 1;
-                            Affichage.changerTour();
+                            JOptionPane.showMessageDialog(null, "Fonctionnalité validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         }
+                        if (AffichageInfo.fonctionnaliteVote == AffichageInfo.nbFonctionnalite){ //Fin de partie
+                            PlanningPoker.partieFinie();
+                        }else {//Partie qui continue
+                            Affichage.changerRegle();
+                        }
+                    } else{//Fonctionnalité refusée
+                        JOptionPane.showMessageDialog(null, "Fonctionnalité non validée", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        clearBorders("-1");
+                        AffichageInfo.joueurVote = 0;
+                        AffichageInfo.tour += 1;
+                        Affichage.changerTour();
                     }
-                }else{
-                    PlanningPoker.partieFinie();
                 }
             }
         });

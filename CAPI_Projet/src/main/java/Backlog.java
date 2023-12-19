@@ -26,7 +26,7 @@ public class Backlog {
         Map<String, Object> donnees = new HashMap<>();
         donnees.put("fonctionnalites", Fonctionnalite.listeFonctionnalites);
         donnees.put("joueurs", Joueur.listeJoueurs);
-        donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote-1);
+        donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote);
         donnees.put("modeDeJeu", ReglesPlanningPoker.modeDeJeu);
 
         try {
@@ -49,12 +49,10 @@ public class Backlog {
 
             //Chargement des fonctionnalites
             Fonctionnalite.listeFonctionnalites = creerListeFonctionnalitesDepuisJSON(donnees);
-            Fonctionnalite.afficheListeFonctionnalites();
             AffichageInfo.nbFonctionnalite = Fonctionnalite.listeFonctionnalites.size();
 
             //Chargement des joueurs
             Joueur.listeJoueurs = creerListeJoueursDepuisJSON(donnees);
-            Joueur.afficheListeJoueur();
             AffichageInfo.nbJoueur = Joueur.listeJoueurs.size();
 
 

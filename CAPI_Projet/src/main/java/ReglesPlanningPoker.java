@@ -11,15 +11,11 @@ public class ReglesPlanningPoker {
         String res = null;
         if(modeDeJeu == ModeDeJeu.UNANIMITE || (modeDeJeu == ModeDeJeu.MOYENNE && AffichageInfo.tour==1)){
             res = resultatUnanimite();
-            System.out.println(res);
-
         } else if (modeDeJeu == ModeDeJeu.MOYENNE) {
-
             moyenne = AffichageInfo.nbJoueur % 2;
-
             res = resultatMoyenne();
-            System.out.println(res);
         }
+        System.out.println(res);
         return res;
     }
 
@@ -32,17 +28,12 @@ public class ReglesPlanningPoker {
             occurrences.put(element, occurrences.getOrDefault(element, 0) + 1);
         }
 
-
-        // Tri de la map en fonction des occurrences (ordre décroissant)
+        // Tri de la map par ordre decroissant en fonction des occurrences
+        // pour avoir la bonne reponse
         Map<String, Integer> occurrencesTriees = occurrences.entrySet()
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-
-        // Affichage des occurrences triées
-        for (Map.Entry<String, Integer> entry : occurrencesTriees.entrySet()) {
-            System.out.println("Élément : " + entry.getKey() + ", Occurrences : " + entry.getValue());
-        }
 
         return occurrencesTriees;
     }
@@ -58,7 +49,7 @@ public class ReglesPlanningPoker {
                 }
             }
         }
-        return null;
+        return "-1";
     }
 
     private static String resultatMoyenne(){
@@ -71,13 +62,21 @@ public class ReglesPlanningPoker {
                 }
             }
         }
-        return null;
+        return "-1";
     }
 
     private static boolean partieEnPause(Map.Entry<String, Integer> entry){
         if(entry.getKey().equals("cafe")){
             Backlog.sauvegarderEnJSON();
             JOptionPane.showMessageDialog(null, "Partie sauvegarder dans un fichier JSON", "Information", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Fermeture de la fenêtre
+            Fenetre.frame.dispose();
         }
         return true;
     }

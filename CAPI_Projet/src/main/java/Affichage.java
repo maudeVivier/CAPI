@@ -415,7 +415,7 @@ public class Affichage {
 
     public static void changerRegle(){
         int indexRegleCourante = (AffichageInfo.fonctionnaliteVote) % AffichageInfo.nbFonctionnalite;
-        AffichageInfo.labelRegle.setText("<html><center> Fonctionnalité : " + (indexRegleCourante + 1) + "/" + AffichageInfo.nbFonctionnalite + " : "
+        AffichageInfo.labelRegle.setText("<html><center> Fonctionnalité " + (indexRegleCourante + 1) + "/" + AffichageInfo.nbFonctionnalite + " : "
                 + "<br>"
                 + Fonctionnalite.listeFonctionnalites.get(indexRegleCourante).getDescription()
                 + "</center></html>");

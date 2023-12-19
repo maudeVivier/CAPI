@@ -6,8 +6,8 @@
     "validee" : true
   }, {
     "description" : "regle2",
-    "difficulte" : "13",
-    "validee" : true
+    "difficulte" : null,
+    "validee" : false
   } ],
   "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {

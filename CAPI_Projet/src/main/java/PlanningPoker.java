@@ -20,10 +20,20 @@ public class PlanningPoker {
     }
 
     public static void partieFinie(){
+        Backlog.sauvegarderEnJSON();
         JOptionPane.showMessageDialog(null, "<html>Toutes les fonctionnalités ont été traîtées" +
-                "<br"+
-                "Sauvegardé dans un fichier JSON</html>"
+                "<br><br>"+
+                "Elles sont sauvegardées dans un fichier JSON</html>" +
+                "<br><br>"
                 , "Information", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Fermeture de la fenêtre
+        Fenetre.frame.dispose();
     }
 
     public static void chargerPartie() throws IOException {
