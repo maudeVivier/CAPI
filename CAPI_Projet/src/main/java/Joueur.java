@@ -1,5 +1,9 @@
-import javax.swing.*;
-import java.util.*;
+import javax.swing.JTextArea;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Joueur {
     public static List<Joueur> listeJoueurs = new ArrayList<>();

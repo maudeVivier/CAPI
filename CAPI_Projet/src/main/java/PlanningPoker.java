@@ -3,8 +3,10 @@
  * @brief Définition de la classe PlanningPoker.
  */
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+
 import java.io.IOException;
+
 import java.util.List;
 
 /**
@@ -47,8 +49,6 @@ public class PlanningPoker {
     public static synchronized PlanningPoker getInstance(List<Fonctionnalite> listeFonctionnalites, List<Joueur> listeJoueur, ModeDeJeu regle) {
         if (planningPoker == null) {
             planningPoker = new PlanningPoker(listeFonctionnalites, listeJoueur, regle);
-            ReglesPlanningPoker.debutPartieMillis = System.currentTimeMillis(); // Enregistrez le temps de début de la partie
-            ReglesPlanningPoker.tempsPartie();
         }
         return planningPoker;
     }
@@ -104,6 +104,7 @@ public class PlanningPoker {
     public static void chargerPartie() throws IOException {
         Backlog.chargerDepuisJSON();
         planningPoker = getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
+        ReglesPlanningPoker.reprendreTimerPartie();
     }
 }
 

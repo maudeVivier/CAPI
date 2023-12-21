@@ -1,9 +1,11 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
+
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +30,7 @@ public class Backlog {
         donnees.put("joueurs", PlanningPoker.getListeJoueurs());
         donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote);
         donnees.put("modeDeJeu", PlanningPoker.getModeDeJeu());
+        donnees.put("tempsEcoule", ReglesPlanningPoker.tempsPauseMillis);
 
         try {
             objectMapper.writeValue(new File(chemin), donnees);
@@ -55,12 +58,21 @@ public class Backlog {
             Joueur.listeJoueurs = creerListeJoueursDepuisJSON(donnees);
             AffichageInfo.nbJoueur = Joueur.listeJoueurs.size();
 
-
             //Chargement du nombre de fonctionnalites deja traitees
             AffichageInfo.fonctionnaliteVote = (int) donnees.get("fonctionnalitesValidees");
 
             //Chargement du mode de jeu
             ReglesPlanningPoker.modeDeJeu = ModeDeJeu.valueOf((String) donnees.get("modeDeJeu"));
+
+            //Chargement du temps déjà écoulée
+            Object valeurTempsEcoule = donnees.get("tempsEcoule");
+
+            if (valeurTempsEcoule != null && valeurTempsEcoule instanceof Integer) {
+                // On converti en long
+                ReglesPlanningPoker.tempsPauseMillis = ((Integer) valeurTempsEcoule).longValue();
+            } else {
+                System.err.println("Le type de tempsEcoule n'est pas Integer : " + valeurTempsEcoule);
+            }
 
             System.out.println("Données chargées depuis le fichier JSON avec succès.");
         } else {

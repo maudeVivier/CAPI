@@ -1,5 +1,6 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 
 public class Fenetre extends JFrame{
     public static JFrame frame = new JFrame("Planning Poker");

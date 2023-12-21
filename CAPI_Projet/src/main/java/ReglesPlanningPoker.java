@@ -1,11 +1,13 @@
-import java.awt.*;
+import java.awt.Color;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.swing.*;
+import javax.swing.Timer;
+import javax.swing.JOptionPane;
 
 public class ReglesPlanningPoker {
     public static ModeDeJeu modeDeJeu;
@@ -13,9 +15,9 @@ public class ReglesPlanningPoker {
     public static int moyenne;
     private static Map<String, Integer> resultatTour;
     private static Timer timerPartie;
-    public static long debutPartieMillis = 0;
+    public static long debutPartieMillis;
     private static long pauseTimeMillis;
-    private static long tempsPauseMillis = 0;
+    public static long tempsPauseMillis;
     private static Timer timerInterro;
     private static int tempsPauseInterro = 0;
     private static final int tempsPauseTotal = 10; //En seconde
@@ -107,12 +109,10 @@ public class ReglesPlanningPoker {
         // On démarre le timer
         timerPartie.start();
     }
-
     private static void miseAJourTimer() {
         long tempsEcouleTotal = System.currentTimeMillis() - debutPartieMillis;
         long secondesTotal = tempsEcouleTotal / 1000;
 
-        // Calculer les heures, minutes et secondes
         long heures = secondesTotal / 3600;
         long minutes = (secondesTotal % 3600) / 60;
         long secondes = secondesTotal % 60;

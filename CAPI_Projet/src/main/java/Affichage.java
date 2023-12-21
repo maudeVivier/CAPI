@@ -2,12 +2,28 @@
  * @file Affichage.java
  * @brief Contient les méthodes pour afficher différentes pages de l'interface graphique.
  */
-import java.awt.*;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Image;
+
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+
+import javax.swing.JPanel;
+import javax.swing.BoxLayout;
+import javax.swing.Box;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.ImageIcon;
 
 /**
  * @class Affichage

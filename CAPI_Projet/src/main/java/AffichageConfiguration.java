@@ -1,6 +1,18 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JPanel;
+import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import javax.swing.BorderFactory;
+
+import java.awt.Component;
+import java.awt.Color;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
+
+
 import java.io.IOException;
 
 public class AffichageConfiguration extends JPanel {
@@ -116,6 +128,8 @@ public class AffichageConfiguration extends JPanel {
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
                     AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
+                    ReglesPlanningPoker.debutPartieMillis = System.currentTimeMillis();
+                    ReglesPlanningPoker.tempsPartie();
                 }else{
                     JOptionPane.showMessageDialog(null, "Veuillez entrez au moins une fonctionnalité, avant de lancer la partie", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -131,6 +145,7 @@ public class AffichageConfiguration extends JPanel {
                 Affichage.changerPseudo();
                 if (AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
                     String res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
+                    System.out.println("RES : " + res);
                     if (!res.equals("-1") && !res.equals("interro")) { //Fonctionnalite Validee
                         clearBorders("-1");
                         if(!res.equals("cafe")) {//Affiche le message seulement si le resultat est différent de café
@@ -147,6 +162,8 @@ public class AffichageConfiguration extends JPanel {
                             Affichage.changerRegle();
                         }
                     } else if(res.equals("interro")){
+                        AffichageInfo.joueurVote = 0;
+                        AffichageInfo.tour += 1;
                         ReglesPlanningPoker.mettreEnPauseTimerPartie();
                         JOptionPane.showMessageDialog(null, "Le résultat est indéterminé. Vous avez du temps pour discuter et revoter la tâche.", "Information", JOptionPane.INFORMATION_MESSAGE);
                         ReglesPlanningPoker.partieEnPauseInterro();

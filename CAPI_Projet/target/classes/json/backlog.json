@@ -1,18 +1,15 @@
 {
   "fonctionnalitesValidees" : 0,
-  "fonctionnalites" : [ {
-    "description" : "r1",
-    "difficulte" : null,
-    "validee" : false
-  } ],
-  "modeDeJeu" : "MOYENNE",
+  "fonctionnalites" : [ ],
+  "modeDeJeu" : "UNANIMITE",
   "joueurs" : [ {
     "id" : 1,
-    "pseudo" : "j1",
-    "voteCourant" : "20"
+    "pseudo" : "toto",
+    "voteCourant" : "cafe"
   }, {
     "id" : 2,
-    "pseudo" : "j2",
-    "voteCourant" : "20"
-  } ]
+    "pseudo" : "titi",
+    "voteCourant" : "cafe"
+  } ],
+  "tempsEcoule" : 16086
 }
