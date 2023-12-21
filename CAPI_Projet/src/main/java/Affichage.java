@@ -343,7 +343,7 @@ public class Affichage {
             /* -----------------------Panel pour ecrire le mode de jeu choisi et le nombre de tour------------------------ */
             JPanel panelTimer = new JPanel(new FlowLayout(FlowLayout.LEFT));
             panelTimer.setBackground(AffichageInfo.couleurFond);
-        AffichageInfo.labelTimer = new JLabel("Temps écoulé : 0 sec");
+            AffichageInfo.labelTimer = new JLabel("Temps écoulé : 0 sec");
             AffichageInfo.labelTimer.setFont(new Font("Arial", Font.PLAIN, AffichageInfo.sizeTexte));
             AffichageInfo.labelTimer.setForeground(Color.WHITE);
             panelTimer.add(AffichageInfo.labelTimer);

@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -13,15 +14,12 @@ public class ReglesPlanningPoker {
     private static Map<String, Integer> resultatTour;
     private static Timer timerPartie;
     public static long debutPartieMillis = 0;
+    private static long pauseTimeMillis;
     private static long tempsPauseMillis = 0;
-
     private static Timer timerInterro;
     private static int tempsPauseInterro = 0;
+    private static final int tempsPauseTotal = 10; //En seconde
 
-
-    public static int getTempsPauseInterro(){
-        return tempsPauseInterro;
-    }
 
     public static String appliquerRegles(ModeDeJeu modeDeJeu) {
         String res = null;
@@ -119,6 +117,7 @@ public class ReglesPlanningPoker {
         long minutes = (secondesTotal % 3600) / 60;
         long secondes = secondesTotal % 60;
 
+
         if(heures == 0) {
             if (minutes == 0) {
                 AffichageInfo.labelTimer.setText("Temps écoulé : " + secondes + " sec");
@@ -128,15 +127,17 @@ public class ReglesPlanningPoker {
         }else{
             AffichageInfo.labelTimer.setText("Temps écoulé : " + heures + " h, " + minutes + " min, " + secondes + " sec");
         }
-    }
 
+    }
     public static void mettreEnPauseTimerPartie() {
         timerPartie.stop();
         tempsPauseMillis = System.currentTimeMillis() - debutPartieMillis;
+        pauseTimeMillis = System.currentTimeMillis();
     }
 
     public static void reprendreTimerPartie() {
         debutPartieMillis = System.currentTimeMillis() - tempsPauseMillis;
+        JOptionPane.showMessageDialog(null, "Le temps pour discuter est écoulé. Veuillez revoter.", "Information", JOptionPane.WARNING_MESSAGE);
         timerPartie.start();
     }
 
@@ -144,18 +145,44 @@ public class ReglesPlanningPoker {
         timerInterro = new Timer(1000, e -> {
             tempsPauseInterro++;
             miseAJourTimerInterro();
-            if (tempsPauseInterro == 5) {
-                timerInterro.stop(); // Arrêter le timer lorsque la condition est atteinte
+            if (tempsPauseInterro >= tempsPauseTotal) {
+                timerInterro.stop();
+                tempsPauseInterro = 0;
                 reprendreTimerPartie();
+                AffichageInfo.labelTimer.setForeground(Color.WHITE);
             }
         });
 
-        timerInterro.start(); // Assurez-vous d'appeler cette méthode pour démarrer le timer
+        timerInterro.start();
 
     }
 
     private static void miseAJourTimerInterro() {
-        System.out.println("DANS LA FOCNTION MISEAJOUR INTERRO");
-        AffichageInfo.labelTimer.setText("Temps écoulé : " + ReglesPlanningPoker.getTempsPauseInterro());
+        long tempsEcouleTotal = System.currentTimeMillis() - pauseTimeMillis;
+        long secondesTotal = tempsEcouleTotal / 1000;
+
+        long heures = secondesTotal / 3600;
+        long minutes = (secondesTotal % 3600) / 60;
+        long secondes = secondesTotal % 60;
+
+        long heuresTempsTotal = tempsPauseTotal / 3600;
+        long minutesTempsTotal = (tempsPauseTotal % 3600) / 60;
+        long secondesTempsTotal = tempsPauseTotal % 60;
+
+        AffichageInfo.labelTimer.setForeground(Color.RED);
+        String tempsPause;
+
+        if(heuresTempsTotal == 0) {
+            if (minutesTempsTotal == 0) {
+                tempsPause = "Temps de pause (" + secondesTempsTotal + " sec) : ";
+                AffichageInfo.labelTimer.setText(tempsPause + secondes + " sec");
+            } else {
+                tempsPause = "Temps de pause (" + minutesTempsTotal + " min, " + secondesTempsTotal + " sec) : ";
+                AffichageInfo.labelTimer.setText(tempsPause + minutes + " min, "  + secondes + " sec");
+            }
+        }else{
+            tempsPause = "Temps de pause (" + heuresTempsTotal + " h, " + minutesTempsTotal + " min, " + secondesTempsTotal + " sec) : ";
+            AffichageInfo.labelTimer.setText(tempsPause + heures + " h, " + minutes + " min, "  + secondes + " sec");
+        }
     }
 }

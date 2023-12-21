@@ -147,8 +147,8 @@ public class AffichageConfiguration extends JPanel {
                             Affichage.changerRegle();
                         }
                     } else if(res.equals("interro")){
-                        JOptionPane.showMessageDialog(null, "Vous n'arrivez pas à vous décider, vous avez 1 minute pour débattre", "Information", JOptionPane.INFORMATION_MESSAGE);
                         ReglesPlanningPoker.mettreEnPauseTimerPartie();
+                        JOptionPane.showMessageDialog(null, "Le résultat est indéterminé. Vous avez du temps pour discuter et revoter la tâche.", "Information", JOptionPane.INFORMATION_MESSAGE);
                         ReglesPlanningPoker.partieEnPauseInterro();
                     } else {//Fonctionnalité refusée
                         JOptionPane.showMessageDialog(null, "Fonctionnalité non validée", "Information", JOptionPane.INFORMATION_MESSAGE);
