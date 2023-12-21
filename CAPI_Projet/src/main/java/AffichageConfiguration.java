@@ -1,4 +1,15 @@
-import javax.swing.*;
+/**
+ * @file AffichageConfiguration.java
+ * @brief Elle représente la fenêtre d'interface graphique
+ * pour la configuration du Planning Poker. Elle gère l'affichage des différents
+ *  menus et la gestion des actions utilisateur.
+ */
+
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JComponent;
+import javax.swing.BorderFactory;
+import javax.swing.JOptionPane;
 
 import java.awt.Component;
 import java.awt.Color;
@@ -9,8 +20,14 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 
-
 import java.io.IOException;
+
+/**
+ * @class AffichageConfiguration
+ * @brief Classe gérant l'affichage des différentes pages de l'interface graphique.
+ * Cette classe hérite de JPanel et offre des méthodes pour afficher les différentes
+ * pages de configuration ainsi que la gestion des éléments d'interface utilisateur.
+ */
 
 public class AffichageConfiguration extends JPanel {
     private final JPanel accueilPanel = new JPanel();
@@ -22,6 +39,10 @@ public class AffichageConfiguration extends JPanel {
     private static String numeroCarte;
 
 
+    /**
+     * Constructeur par défaut de la classe AffichageConfiguration.
+     * Initialise les différents panneaux et configure les écouteurs d'événements.
+     */
     public AffichageConfiguration(){
         Affichage.pageAccueil(accueilPanel);
         add(accueilPanel);
@@ -32,7 +53,7 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 Affichage.pageNbPerso(nbJoueurPanel);
                 add(nbJoueurPanel);
-                setMenu(AffichageInfo.MENU_NB_JOUEUR, false);
+                setMenu(AffichageInfo.MENU_NB_JOUEUR);
             }
         });
 
@@ -45,7 +66,7 @@ public class AffichageConfiguration extends JPanel {
                     ChronoTemps.tempsPartie();
                     Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
-                    setMenu(AffichageInfo.MENU_PLATEAU, true);
+                    setMenu(AffichageInfo.MENU_PLATEAU);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -59,7 +80,7 @@ public class AffichageConfiguration extends JPanel {
                 AffichageInfo.nbJoueur = (int) AffichageInfo.spinnerNbJoueur.getValue();
                 Affichage.pagePseudoPerso(pseudoPanel);
                 add(pseudoPanel);
-                setMenu(AffichageInfo.MENU_PSEUDO, false);
+                setMenu(AffichageInfo.MENU_PSEUDO);
             }
         });
 
@@ -70,7 +91,7 @@ public class AffichageConfiguration extends JPanel {
                 if (Joueur.verifierPseudosNonNuls() && Joueur.verifierPseudosUniques()) {
                     Affichage.pageChoixMode(modePanel);
                     add(modePanel);
-                    setMenu(AffichageInfo.MENU_MODE, false);
+                    setMenu(AffichageInfo.MENU_MODE);
                     Joueur.listeJoueurs = Joueur.creerListeDeJoueurs();
                 } else {
                     JOptionPane.showMessageDialog(null, "Certains pseudos sont manquants ou identiques.", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -90,13 +111,13 @@ public class AffichageConfiguration extends JPanel {
                     ReglesPlanningPoker.moyenne = AffichageInfo.nbJoueur % 2;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
-                    setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
+                    setMenu(AffichageInfo.MENU_FONCTIONNALITE);
 
                 } else if (unanimiteSelected && !moyenneSelected) {
                     ReglesPlanningPoker.modeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
-                    setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
+                    setMenu(AffichageInfo.MENU_FONCTIONNALITE);
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -123,7 +144,7 @@ public class AffichageConfiguration extends JPanel {
                     AffichageInfo.nbFonctionnalite = Fonctionnalite.listeFonctionnalites.size();
                     Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
-                    setMenu(AffichageInfo.MENU_PLATEAU, true);
+                    setMenu(AffichageInfo.MENU_PLATEAU);
                     AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
                     ChronoTemps.tempsPartie = 0;
                     ChronoTemps.tempsPartie();
@@ -146,7 +167,6 @@ public class AffichageConfiguration extends JPanel {
                     if (!res.equals("-1") && !res.equals("interro")) { //Fonctionnalite Validee
                         clearBorders("-1");
                         if(!res.equals("cafe")) {//Affiche le message seulement si le resultat est différent de café
-                            System.out.println("VALIDER VALIDER");
                             Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setDifficulte(res);
                             AffichageInfo.joueurVote = 0;
                             AffichageInfo.tour = 1;
@@ -154,14 +174,11 @@ public class AffichageConfiguration extends JPanel {
                             JOptionPane.showMessageDialog(null, "Fonctionnalité validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         }
                         if (AffichageInfo.fonctionnaliteVote == AffichageInfo.nbFonctionnalite){ //Fin de partie
-                            System.out.println("PARTIE FINIE");
                             PlanningPoker.partieFinie();
                         }else {//Partie qui continue
-                            System.out.println("REGLE VALIDEE");
                             Affichage.changerRegle();
                         }
                     } else if(res.equals("interro")){
-                        System.out.println("INTERRO INTERRO");
                         //On enleve les ecouteurs des cartes et du bouton
                         //Comme ça on ne peux voter pendant le temps de reflexion
                         retirerEcouteursCartes();
@@ -182,7 +199,6 @@ public class AffichageConfiguration extends JPanel {
                             ChronoTemps.partieEnPauseInterro();
                         }
                     } else {//Fonctionnalité refusée
-                        System.out.println("REFUSE REFUSE");
                         JOptionPane.showMessageDialog(null, "Fonctionnalité non validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         clearBorders("-1");
                         AffichageInfo.joueurVote = 0;
@@ -213,6 +229,14 @@ public class AffichageConfiguration extends JPanel {
         }
     };
 
+    /**
+     * @brief Efface les contours des cartes, sauf celle spécifiée.
+     *
+     * Cette méthode parcourt les cartes et supprime les contours de celles qui ne correspondent
+     * pas à la carte spécifiée par le paramètre "numeroCarte".
+     *
+     * @param numeroCarte La carte pour laquelle le contour doit être préservé.
+     */
     private static void clearBorders(String numeroCarte) {
         String numCarte;
 
@@ -224,7 +248,12 @@ public class AffichageConfiguration extends JPanel {
         }
     }
 
-    public void setMenu(int menu, boolean ajouterEcouteursCartes) {
+    /**
+     * @brief Affiche la page correspondant au menu spécifié.
+     *
+     * @param menu Le numéro du menu à afficher.
+     */
+    public void setMenu(int menu) {
         switch (menu) {
             case 0:
                 // Affichage de l'accueil
@@ -284,21 +313,39 @@ public class AffichageConfiguration extends JPanel {
         }
     }
 
+    /**
+     * @brief Méthode publique qui ajoute des écouteurs aux cartes de vote.
+     */
     public static void ajouterEcouteursCartes() {
         for (JLabel carteLabel : AffichageInfo.labelsCartes) {
             carteLabel.addMouseListener(carteClickListener);
         }
     }
+
+    /**
+     * @brief Méthode privée qui retire des écouteurs aux cartes de vote.
+     */
     private void retirerEcouteursCartes() {
         for (JLabel carteLabel : AffichageInfo.labelsCartes) {
             carteLabel.removeMouseListener(carteClickListener);
         }
     }
 
+    /**
+     * @brief Méthode publique qui ajoute des écouteurs à des composants spécifiques.
+     *
+     * @param components Liste variable de composants auxquels ajouter les écouteurs.
+     */
     public static void ajouterEcouteurs(JComponent... components) {
         for (JComponent component : components) {
             component.setEnabled(true);        }
     }
+
+    /**
+     * @brief Méthode privée qui enlève des écouteurs à des composants spécifiques.
+     *
+     * @param components Liste variable de composants auxquels ajouter les écouteurs.
+     */
     private void retirerEcouteurs(JComponent ... components) {
         for (JComponent component : components) {
             component.setEnabled(false);

@@ -1,8 +1,17 @@
+/**
+ * @file ChronoTemps.java
+ * @brief Définition de la classe ChronoTemps pour la gestion du temps de partie.
+ */
+
 import javax.swing.Timer;
 import javax.swing.JOptionPane;
 
 import java.awt.Color;
 
+/**
+ * @class ChronoTemps
+ * @brief Classe pour la gestion du temps de partie et des pauses d'interrogation.
+ */
 public class ChronoTemps {
     private static Timer timerPartie;
     public static int tempsPartie = 0;
@@ -10,6 +19,9 @@ public class ChronoTemps {
     private static int tempsPauseInterro = 0;
     private static final int tempsPauseTotal = 10; //En seconde
 
+    /**
+     * @brief Lance le timer de la partie.
+     */
     public static void tempsPartie(){
         timerPartie = new Timer(1000, e -> { // A chaque seconde, on rentre dans cette partie
             tempsPartie+=1000;
@@ -23,7 +35,9 @@ public class ChronoTemps {
         timerPartie.start();
     }
 
-
+    /**
+     * @brief Met à jour l'affichage du timer de partie.
+     */
     private static void miseAJourTimerPartie() {
         int tempsEcouleTotal = tempsPartie;
         int secondesTotal = tempsEcouleTotal / 1000;
@@ -41,25 +55,32 @@ public class ChronoTemps {
         }else{
             AffichageInfo.labelTimer.setText("Temps écoulé : " + heures + " h, " + minutes + " min, " + secondes + " sec");
         }
-
     }
+
+    /**
+     * @brief Met en pause le timer de partie.
+     */
     public static void mettreEnPauseTimerPartie() {
         timerPartie.stop();
     }
 
+    /**
+     * @brief Reprend le timer de partie après la pause suite au vote "interrogation".
+     */
     public static void reprendreTimerPartieInterro() {
         JOptionPane.showMessageDialog(null, "Le temps pour discuter est écoulé. Veuillez revoter.", "Information", JOptionPane.WARNING_MESSAGE);
         AffichageConfiguration.ajouterEcouteursCartes();
         AffichageConfiguration.ajouterEcouteurs(AffichageInfo.boutonChoixCarte);
-        System.out.println(AffichageInfo.tour + " " + AffichageInfo.joueurVote);
         AffichageInfo.joueurVote = 0;
         AffichageInfo.tour += 1;
         Affichage.changerTour();
-        System.out.println("APRES " + AffichageInfo.tour + " " + AffichageInfo.joueurVote);
 
         timerPartie.start();
     }
 
+    /**
+     * @brief Lance le timer de pause d'interrogation.
+     */
     public static void partieEnPauseInterro(){
         timerInterro = new Timer(1000, e -> {
             tempsPauseInterro+=1000;
@@ -74,6 +95,9 @@ public class ChronoTemps {
         timerInterro.start();
     }
 
+    /**
+     * @brief Met à jour l'affichage du timer de pause d'interrogation.
+     */
     private static void miseAJourTimerInterro() {
         int secondesTotal = tempsPauseInterro / 1000;
 

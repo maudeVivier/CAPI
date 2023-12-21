@@ -1,22 +1,84 @@
 \doxysection{Référence de la classe Backlog}
 \hypertarget{class_backlog}{}\label{class_backlog}\index{Backlog@{Backlog}}
+
+
+Classe pour la gestion du backlog en JSON.  
+
+
 \doxysubsubsection*{Fonctions membres publiques statiques}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_backlog_add323504818df356ac91ef27fc400023}\label{class_backlog_add323504818df356ac91ef27fc400023} 
-static void {\bfseries sauvegarder\+En\+JSON} ()
-\item 
-\Hypertarget{class_backlog_a5378f321b4dadea19bf3e2e4313f8f76}\label{class_backlog_a5378f321b4dadea19bf3e2e4313f8f76} 
-static void {\bfseries charger\+Depuis\+JSON} ()  throws IOException 
-\item 
+\Hypertarget{class_backlog_affbbf4deae2535ceed8a4e02ec15e84d}\label{class_backlog_affbbf4deae2535ceed8a4e02ec15e84d} 
+static void {\bfseries sauvegarder\+En\+JSONFini} ()
+\begin{DoxyCompactList}\small\item\em Sauvegarde le backlog en JSON lorsque la partie est terminée. \end{DoxyCompactList}\item 
+\Hypertarget{class_backlog_a146b7c09488d68a518efe10399a67603}\label{class_backlog_a146b7c09488d68a518efe10399a67603} 
+static void {\bfseries sauvegarder\+En\+JSONPause} ()
+\begin{DoxyCompactList}\small\item\em Sauvegarde le backlog en JSON pendant une pause de partie. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_backlog_adffe91df1380c90a288afd8791bd1dfe}{charger\+Depuis\+JSONPause}} ()  throws IOException 
+\begin{DoxyCompactList}\small\item\em Charge les données du backlog depuis un fichier JSON lors d\textquotesingle{}une pause de partie. \end{DoxyCompactList}\item 
+static List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$ \mbox{\hyperlink{class_backlog_a59572eee9bcb7df26abfe71dea5a4370}{creer\+Liste\+Fonctionnalites\+Depuis\+JSON}} (Map$<$ String, Object $>$ donnees)
+\begin{DoxyCompactList}\small\item\em Créer une liste de fonctionnalités à partir des données JSON. \end{DoxyCompactList}\item 
+static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ \mbox{\hyperlink{class_backlog_a801b1809726a910ee33c513c5f7c90b0}{creer\+Liste\+Joueurs\+Depuis\+JSON}} (Map$<$ String, Object $>$ donnees)
+\begin{DoxyCompactList}\small\item\em Créer une liste de joueurs à partir des données JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe pour la gestion du backlog en JSON. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_backlog_adffe91df1380c90a288afd8791bd1dfe}\label{class_backlog_adffe91df1380c90a288afd8791bd1dfe} 
+\index{Backlog@{Backlog}!chargerDepuisJSONPause@{chargerDepuisJSONPause}}
+\index{chargerDepuisJSONPause@{chargerDepuisJSONPause}!Backlog@{Backlog}}
+\doxysubsubsection{\texorpdfstring{chargerDepuisJSONPause()}{chargerDepuisJSONPause()}}
+{\footnotesize\ttfamily static void Backlog.\+charger\+Depuis\+JSONPause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws IOException\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Charge les données du backlog depuis un fichier JSON lors d\textquotesingle{}une pause de partie. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & En cas d\textquotesingle{}erreur lors de la lecture du fichier. \\
+\hline
+\end{DoxyExceptions}
 \Hypertarget{class_backlog_a59572eee9bcb7df26abfe71dea5a4370}\label{class_backlog_a59572eee9bcb7df26abfe71dea5a4370} 
-static List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$ {\bfseries creer\+Liste\+Fonctionnalites\+Depuis\+JSON} (Map$<$ String, Object $>$ donnees)
-\item 
+\index{Backlog@{Backlog}!creerListeFonctionnalitesDepuisJSON@{creerListeFonctionnalitesDepuisJSON}}
+\index{creerListeFonctionnalitesDepuisJSON@{creerListeFonctionnalitesDepuisJSON}!Backlog@{Backlog}}
+\doxysubsubsection{\texorpdfstring{creerListeFonctionnalitesDepuisJSON()}{creerListeFonctionnalitesDepuisJSON()}}
+{\footnotesize\ttfamily static List$<$ \mbox{\hyperlink{class_fonctionnalite}{Fonctionnalite}} $>$ Backlog.\+creer\+Liste\+Fonctionnalites\+Depuis\+JSON (\begin{DoxyParamCaption}\item[{Map$<$ String, Object $>$}]{donnees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Créer une liste de fonctionnalités à partir des données JSON. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em donnees} & Les données JSON à convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La liste de fonctionnalités créée. 
+\end{DoxyReturn}
 \Hypertarget{class_backlog_a801b1809726a910ee33c513c5f7c90b0}\label{class_backlog_a801b1809726a910ee33c513c5f7c90b0} 
-static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ {\bfseries creer\+Liste\+Joueurs\+Depuis\+JSON} (Map$<$ String, Object $>$ donnees)
-\end{DoxyCompactItemize}
+\index{Backlog@{Backlog}!creerListeJoueursDepuisJSON@{creerListeJoueursDepuisJSON}}
+\index{creerListeJoueursDepuisJSON@{creerListeJoueursDepuisJSON}!Backlog@{Backlog}}
+\doxysubsubsection{\texorpdfstring{creerListeJoueursDepuisJSON()}{creerListeJoueursDepuisJSON()}}
+{\footnotesize\ttfamily static List$<$ \mbox{\hyperlink{class_joueur}{Joueur}} $>$ Backlog.\+creer\+Liste\+Joueurs\+Depuis\+JSON (\begin{DoxyParamCaption}\item[{Map$<$ String, Object $>$}]{donnees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Créer une liste de joueurs à partir des données JSON. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em donnees} & Les données JSON à convertir. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La liste de joueurs créée. 
+\end{DoxyReturn}
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/Backlog.\+java\end{DoxyCompactItemize}
+One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/\mbox{\hyperlink{_backlog_8java}{Backlog.\+java}}\end{DoxyCompactItemize}

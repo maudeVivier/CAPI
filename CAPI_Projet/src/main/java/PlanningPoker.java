@@ -81,7 +81,7 @@ public class PlanningPoker {
      * @brief Méthode appelée lorsque la partie est terminée.
      */
     public static void partieFinie() {
-        Backlog.sauvegarderEnJSON();
+        Backlog.sauvegarderEnJSONFini();
         JOptionPane.showMessageDialog(null, "<html>Toutes les fonctionnalités ont été traitées" +
                         "<br><br>" +
                         "Elles sont sauvegardées dans un fichier JSON</html>" +
@@ -102,7 +102,7 @@ public class PlanningPoker {
      * @throws IOException En cas d'erreur lors de la lecture depuis le fichier JSON.
      */
     public static void chargerPartie() throws IOException {
-        Backlog.chargerDepuisJSON();
+        Backlog.chargerDepuisJSONPause();
         planningPoker = getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
     }
 }

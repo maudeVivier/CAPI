@@ -75,24 +75,138 @@ $(function() {
   <div class="headertitle"><div class="title">Référence de la classe Backlog</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe pour la gestion du backlog en JSON.  
+ <a href="class_backlog.html#details">Plus de détails...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Fonctions membres publiques statiques</h2></td></tr>
-<tr class="memitem:add323504818df356ac91ef27fc400023" id="r_add323504818df356ac91ef27fc400023"><td class="memItemLeft" align="right" valign="top"><a id="add323504818df356ac91ef27fc400023" name="add323504818df356ac91ef27fc400023"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>sauvegarderEnJSON</b> ()</td></tr>
-<tr class="separator:add323504818df356ac91ef27fc400023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5378f321b4dadea19bf3e2e4313f8f76" id="r_a5378f321b4dadea19bf3e2e4313f8f76"><td class="memItemLeft" align="right" valign="top"><a id="a5378f321b4dadea19bf3e2e4313f8f76" name="a5378f321b4dadea19bf3e2e4313f8f76"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>chargerDepuisJSON</b> ()  throws IOException </td></tr>
-<tr class="separator:a5378f321b4dadea19bf3e2e4313f8f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59572eee9bcb7df26abfe71dea5a4370" id="r_a59572eee9bcb7df26abfe71dea5a4370"><td class="memItemLeft" align="right" valign="top"><a id="a59572eee9bcb7df26abfe71dea5a4370" name="a59572eee9bcb7df26abfe71dea5a4370"></a>
-static List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>creerListeFonctionnalitesDepuisJSON</b> (Map&lt; String, Object &gt; donnees)</td></tr>
+<tr class="memitem:affbbf4deae2535ceed8a4e02ec15e84d" id="r_affbbf4deae2535ceed8a4e02ec15e84d"><td class="memItemLeft" align="right" valign="top"><a id="affbbf4deae2535ceed8a4e02ec15e84d" name="affbbf4deae2535ceed8a4e02ec15e84d"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>sauvegarderEnJSONFini</b> ()</td></tr>
+<tr class="memdesc:affbbf4deae2535ceed8a4e02ec15e84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde le backlog en JSON lorsque la partie est terminée. <br /></td></tr>
+<tr class="separator:affbbf4deae2535ceed8a4e02ec15e84d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a146b7c09488d68a518efe10399a67603" id="r_a146b7c09488d68a518efe10399a67603"><td class="memItemLeft" align="right" valign="top"><a id="a146b7c09488d68a518efe10399a67603" name="a146b7c09488d68a518efe10399a67603"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>sauvegarderEnJSONPause</b> ()</td></tr>
+<tr class="memdesc:a146b7c09488d68a518efe10399a67603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sauvegarde le backlog en JSON pendant une pause de partie. <br /></td></tr>
+<tr class="separator:a146b7c09488d68a518efe10399a67603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adffe91df1380c90a288afd8791bd1dfe" id="r_adffe91df1380c90a288afd8791bd1dfe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_backlog.html#adffe91df1380c90a288afd8791bd1dfe">chargerDepuisJSONPause</a> ()  throws IOException </td></tr>
+<tr class="memdesc:adffe91df1380c90a288afd8791bd1dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge les données du backlog depuis un fichier JSON lors d'une pause de partie.  <br /></td></tr>
+<tr class="separator:adffe91df1380c90a288afd8791bd1dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59572eee9bcb7df26abfe71dea5a4370" id="r_a59572eee9bcb7df26abfe71dea5a4370"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_backlog.html#a59572eee9bcb7df26abfe71dea5a4370">creerListeFonctionnalitesDepuisJSON</a> (Map&lt; String, Object &gt; donnees)</td></tr>
+<tr class="memdesc:a59572eee9bcb7df26abfe71dea5a4370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une liste de fonctionnalités à partir des données JSON.  <br /></td></tr>
 <tr class="separator:a59572eee9bcb7df26abfe71dea5a4370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a801b1809726a910ee33c513c5f7c90b0" id="r_a801b1809726a910ee33c513c5f7c90b0"><td class="memItemLeft" align="right" valign="top"><a id="a801b1809726a910ee33c513c5f7c90b0" name="a801b1809726a910ee33c513c5f7c90b0"></a>
-static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>creerListeJoueursDepuisJSON</b> (Map&lt; String, Object &gt; donnees)</td></tr>
+<tr class="memitem:a801b1809726a910ee33c513c5f7c90b0" id="r_a801b1809726a910ee33c513c5f7c90b0"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_backlog.html#a801b1809726a910ee33c513c5f7c90b0">creerListeJoueursDepuisJSON</a> (Map&lt; String, Object &gt; donnees)</td></tr>
+<tr class="memdesc:a801b1809726a910ee33c513c5f7c90b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Créer une liste de joueurs à partir des données JSON.  <br /></td></tr>
 <tr class="separator:a801b1809726a910ee33c513c5f7c90b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Classe pour la gestion du backlog en JSON. </p>
+</div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="adffe91df1380c90a288afd8791bd1dfe" name="adffe91df1380c90a288afd8791bd1dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adffe91df1380c90a288afd8791bd1dfe">&#9670;&#160;</a></span>chargerDepuisJSONPause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Backlog.chargerDepuisJSONPause </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> throws IOException</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Charge les données du backlog depuis un fichier JSON lors d'une pause de partie. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">IOException</td><td>En cas d'erreur lors de la lecture du fichier. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a59572eee9bcb7df26abfe71dea5a4370" name="a59572eee9bcb7df26abfe71dea5a4370"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59572eee9bcb7df26abfe71dea5a4370">&#9670;&#160;</a></span>creerListeFonctionnalitesDepuisJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt; <a class="el" href="class_fonctionnalite.html">Fonctionnalite</a> &gt; Backlog.creerListeFonctionnalitesDepuisJSON </td>
+          <td>(</td>
+          <td class="paramtype">Map&lt; String, Object &gt;&#160;</td>
+          <td class="paramname"><em>donnees</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Créer une liste de fonctionnalités à partir des données JSON. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">donnees</td><td>Les données JSON à convertir. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La liste de fonctionnalités créée. </dd></dl>
+
+</div>
+</div>
+<a id="a801b1809726a910ee33c513c5f7c90b0" name="a801b1809726a910ee33c513c5f7c90b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a801b1809726a910ee33c513c5f7c90b0">&#9670;&#160;</a></span>creerListeJoueursDepuisJSON()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt; <a class="el" href="class_joueur.html">Joueur</a> &gt; Backlog.creerListeJoueursDepuisJSON </td>
+          <td>(</td>
+          <td class="paramtype">Map&lt; String, Object &gt;&#160;</td>
+          <td class="paramname"><em>donnees</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Créer une liste de joueurs à partir des données JSON. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">donnees</td><td>Les données JSON à convertir. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La liste de joueurs créée. </dd></dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
-<li>OneDrive/Documents/M1/semestre_1/Conception_agile_de_projets_info/projet/CAPI/CAPI_Projet/src/main/java/<b>Backlog.java</b></li>
+<li>OneDrive/Documents/M1/semestre_1/Conception_agile_de_projets_info/projet/CAPI/CAPI_Projet/src/main/java/<a class="el" href="_backlog_8java.html">Backlog.java</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['changerpseudo_0',['changerPseudo',['../class_affichage.html#a3e2acaecea6750d53b0a61c073373bb5',1,'Affichage']]],
-  ['changerregle_1',['changerRegle',['../class_affichage.html#a056a3a85d9bcf76ba423372f6db835bc',1,'Affichage']]],
-  ['changertour_2',['changerTour',['../class_affichage.html#a174db2a84a6f3e38da3b286ddbfcbfff',1,'Affichage']]],
-  ['chargerpartie_3',['chargerPartie',['../class_planning_poker.html#a576f6467312dd54953fa345ce38188e9',1,'PlanningPoker']]]
+  ['affichageconfiguration_0',['AffichageConfiguration',['../class_affichage_configuration.html#ad16e0beb05f46f382ac4c650ab3c28fd',1,'AffichageConfiguration']]],
+  ['affichelistefonctionnalites_1',['afficheListeFonctionnalites',['../class_fonctionnalite.html#a0f071d0f88cb2981251e41680220c5bd',1,'Fonctionnalite']]],
+  ['ajouterecouteurs_2',['ajouterEcouteurs',['../class_affichage_configuration.html#a248d0c4fdf00339a33f0dd1c8f883f7d',1,'AffichageConfiguration']]],
+  ['ajouterecouteurscartes_3',['ajouterEcouteursCartes',['../class_affichage_configuration.html#aca715a1cd21af6ca402b1eede1159db2',1,'AffichageConfiguration']]],
+  ['ajouterfonctionnalite_4',['ajouterFonctionnalite',['../class_fonctionnalite.html#ad0bcce24acf68cef1ede68daf6714fda',1,'Fonctionnalite']]]
 ];

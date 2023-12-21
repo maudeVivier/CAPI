@@ -72,7 +72,7 @@ public class ReglesPlanningPoker {
     private static boolean partieEnPauseCafe(Map.Entry<String, Integer> entry){
         if(entry.getKey().equals("cafe")){
             ChronoTemps.mettreEnPauseTimerPartie();
-            Backlog.sauvegarderEnJSON();
+            Backlog.sauvegarderEnJSONPause();
             JOptionPane.showMessageDialog(null, "Partie sauvegarder dans un fichier JSON", "Information", JOptionPane.INFORMATION_MESSAGE);
             try {
                 Thread.sleep(2000);

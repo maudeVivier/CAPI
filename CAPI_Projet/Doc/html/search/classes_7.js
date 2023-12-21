@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['singleton_0',['Singleton',['../class_singleton.html',1,'']]]
+  ['reglesplanningpoker_0',['ReglesPlanningPoker',['../class_regles_planning_poker.html',1,'']]]
 ];

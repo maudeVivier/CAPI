@@ -1,3 +1,8 @@
+/**
+ * @file Backlog.java
+ * @brief Définition de la classe Backlog pour la gestion du backlog en JSON.
+ */
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -11,14 +16,41 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @class Backlog
+ * @brief Classe pour la gestion du backlog en JSON.
+ */
 public class Backlog {
-    /*
-     * La méthode sauvegarderEnJSON utilise un bloc try-catch
-     * pour intercepter toute exception liée à l'écriture du fichier.
-     * Si une IOException se produit lors de l'écriture du fichier,
-     * elle sera interceptée et traitée dans le bloc catch.
-     * */
-    public static void sauvegarderEnJSON() {
+
+    /**
+     * @brief Sauvegarde le backlog en JSON lorsque la partie est terminée.
+     */
+    public static void sauvegarderEnJSONFini() {
+        String chemin = AffichageInfo.workingDirectory + "\\src\\json\\backlog.json";
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        // Objet qui contient les données à enregistrer
+        Map<String, Object> donnees = new HashMap<>();
+        donnees.put("fonctionnalites", PlanningPoker.getListeFonctionnalites());
+        donnees.put("joueurs", PlanningPoker.getListeJoueurs());
+        donnees.put("modeDeJeu", PlanningPoker.getModeDeJeu());
+        donnees.put("tempsEcoule", ChronoTemps.tempsPartie);
+
+        try {
+            objectMapper.writeValue(new File(chemin), donnees);
+            System.out.println("Backlog sauvegardé en JSON avec succès.");
+        } catch (IOException e) {
+            // Gérer les exceptions liées à l'écriture du fichier
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @brief Sauvegarde le backlog en JSON pendant une pause de partie.
+     **/
+    public static void sauvegarderEnJSONPause() {
         String chemin = AffichageInfo.workingDirectory + "\\src\\json\\backlog.json";
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -41,8 +73,11 @@ public class Backlog {
         }
     }
 
-
-    public static void chargerDepuisJSON() throws IOException {
+    /**
+     * @brief Charge les données du backlog depuis un fichier JSON lors d'une pause de partie.
+     * @throws IOException En cas d'erreur lors de la lecture du fichier.
+     */
+    public static void chargerDepuisJSONPause() throws IOException {
         String chemin = AffichageInfo.workingDirectory + "\\src\\json\\backlog.json";
 
         if (verifierSiFichierExiste(chemin)) {
@@ -75,6 +110,11 @@ public class Backlog {
         }
     }
 
+    /**
+     * @brief Créer une liste de fonctionnalités à partir des données JSON.
+     * @param donnees Les données JSON à convertir.
+     * @return La liste de fonctionnalités créée.
+     */
     public static List<Fonctionnalite> creerListeFonctionnalitesDepuisJSON(Map<String, Object> donnees) {
         List<Fonctionnalite> listeFonc = new ArrayList<>();
 
@@ -88,6 +128,11 @@ public class Backlog {
         return listeFonc;
     }
 
+    /**
+     * @brief Créer une liste de joueurs à partir des données JSON.
+     * @param donnees Les données JSON à convertir.
+     * @return La liste de joueurs créée.
+     */
     public static List<Joueur> creerListeJoueursDepuisJSON(Map<String, Object> donnees) {
         List<Joueur> listeJou = new ArrayList<>();
 
@@ -104,6 +149,11 @@ public class Backlog {
         return listeJou;
     }
 
+    /**
+     * @brief Vérifie si un fichier existe.
+     * @param cheminFichier Le chemin du fichier à vérifier.
+     * @return True si le fichier existe, sinon False.
+     */
     private static boolean verifierSiFichierExiste(String cheminFichier) {
         File fichier = new File(cheminFichier);
         return fichier.exists() && fichier.isFile();

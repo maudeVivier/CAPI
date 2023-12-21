@@ -1,5 +1,10 @@
 \doxysection{Référence de la classe Affichage\+Configuration}
 \hypertarget{class_affichage_configuration}{}\label{class_affichage_configuration}\index{AffichageConfiguration@{AffichageConfiguration}}
+
+
+Classe gérant l\textquotesingle{}affichage des différentes pages de l\textquotesingle{}interface graphique. Cette classe hérite de JPanel et offre des méthodes pour afficher les différentes pages de configuration ainsi que la gestion des éléments d\textquotesingle{}interface utilisateur.  
+
+
 Graphe d\textquotesingle{}héritage de Affichage\+Configuration\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,11 +14,65 @@ Graphe d\textquotesingle{}héritage de Affichage\+Configuration\+:\begin{figure}
 \doxysubsubsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_affichage_configuration_a55c219ec4214a34e4ddbbbc6307b7158}\label{class_affichage_configuration_a55c219ec4214a34e4ddbbbc6307b7158} 
-void {\bfseries set\+Menu} (int menu, boolean ajouter\+Ecouteurs\+Cartes)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_affichage_configuration_ad16e0beb05f46f382ac4c650ab3c28fd}{Affichage\+Configuration}} ()
+\item 
+void \mbox{\hyperlink{class_affichage_configuration_abfc927a3fbe99ea9b6f21a3e7b6c089d}{set\+Menu}} (int menu)
+\begin{DoxyCompactList}\small\item\em Affiche la page correspondant au menu spécifié. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_affichage_configuration_aca715a1cd21af6ca402b1eede1159db2}\label{class_affichage_configuration_aca715a1cd21af6ca402b1eede1159db2} 
+static void {\bfseries ajouter\+Ecouteurs\+Cartes} ()
+\begin{DoxyCompactList}\small\item\em Méthode publique qui ajoute des écouteurs aux cartes de vote. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_affichage_configuration_a248d0c4fdf00339a33f0dd1c8f883f7d}{ajouter\+Ecouteurs}} (JComponent... components)
+\begin{DoxyCompactList}\small\item\em Méthode publique qui ajoute des écouteurs à des composants spécifiques. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Classe gérant l\textquotesingle{}affichage des différentes pages de l\textquotesingle{}interface graphique. Cette classe hérite de JPanel et offre des méthodes pour afficher les différentes pages de configuration ainsi que la gestion des éléments d\textquotesingle{}interface utilisateur. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_affichage_configuration_ad16e0beb05f46f382ac4c650ab3c28fd}\label{class_affichage_configuration_ad16e0beb05f46f382ac4c650ab3c28fd} 
+\index{AffichageConfiguration@{AffichageConfiguration}!AffichageConfiguration@{AffichageConfiguration}}
+\index{AffichageConfiguration@{AffichageConfiguration}!AffichageConfiguration@{AffichageConfiguration}}
+\doxysubsubsection{\texorpdfstring{AffichageConfiguration()}{AffichageConfiguration()}}
+{\footnotesize\ttfamily Affichage\+Configuration.\+Affichage\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructeur par défaut de la classe \doxylink{class_affichage_configuration}{Affichage\+Configuration}. Initialise les différents panneaux et configure les écouteurs d\textquotesingle{}événements. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_affichage_configuration_a248d0c4fdf00339a33f0dd1c8f883f7d}\label{class_affichage_configuration_a248d0c4fdf00339a33f0dd1c8f883f7d} 
+\index{AffichageConfiguration@{AffichageConfiguration}!ajouterEcouteurs@{ajouterEcouteurs}}
+\index{ajouterEcouteurs@{ajouterEcouteurs}!AffichageConfiguration@{AffichageConfiguration}}
+\doxysubsubsection{\texorpdfstring{ajouterEcouteurs()}{ajouterEcouteurs()}}
+{\footnotesize\ttfamily static void Affichage\+Configuration.\+ajouter\+Ecouteurs (\begin{DoxyParamCaption}\item[{JComponent...}]{components }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Méthode publique qui ajoute des écouteurs à des composants spécifiques. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em components} & Liste variable de composants auxquels ajouter les écouteurs. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_affichage_configuration_abfc927a3fbe99ea9b6f21a3e7b6c089d}\label{class_affichage_configuration_abfc927a3fbe99ea9b6f21a3e7b6c089d} 
+\index{AffichageConfiguration@{AffichageConfiguration}!setMenu@{setMenu}}
+\index{setMenu@{setMenu}!AffichageConfiguration@{AffichageConfiguration}}
+\doxysubsubsection{\texorpdfstring{setMenu()}{setMenu()}}
+{\footnotesize\ttfamily void Affichage\+Configuration.\+set\+Menu (\begin{DoxyParamCaption}\item[{int}]{menu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Affiche la page correspondant au menu spécifié. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em menu} & Le numéro du menu à afficher. \\
+\hline
+\end{DoxyParams}
 
 
 La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/Affichage\+Configuration.\+java\end{DoxyCompactItemize}
+One\+Drive/\+Documents/\+M1/semestre\+\_\+1/\+Conception\+\_\+agile\+\_\+de\+\_\+projets\+\_\+info/projet/\+CAPI/\+CAPI\+\_\+\+Projet/src/main/java/\mbox{\hyperlink{_affichage_configuration_8java}{Affichage\+Configuration.\+java}}\end{DoxyCompactItemize}
