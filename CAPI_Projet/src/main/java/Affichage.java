@@ -422,7 +422,7 @@ public class Affichage {
 
                     // Configurez les propriétés spécifiques à chaque carte
                     AffichageInfo.labelsCartes[i].putClientProperty("valeur", AffichageInfo.valeursCartes[i]);
-                    AffichageInfo.labelsCartes[i].setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                    AffichageInfo.labelsCartes[i].setBorder(BorderFactory.createLineBorder(AffichageInfo.couleurFond, 2));
 
                     cartesPanel.add(AffichageInfo.labelsCartes[i]);
                 }

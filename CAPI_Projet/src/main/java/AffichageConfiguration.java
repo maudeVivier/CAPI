@@ -1,7 +1,4 @@
-import javax.swing.JPanel;
-import javax.swing.JOptionPane;
-import javax.swing.JLabel;
-import javax.swing.BorderFactory;
+import javax.swing.*;
 
 import java.awt.Component;
 import java.awt.Color;
@@ -22,7 +19,7 @@ public class AffichageConfiguration extends JPanel {
     private final JPanel modePanel = new JPanel();
     private final JPanel fonctionnalitePanel = new JPanel();
     private final JPanel plateauPanel = new JPanel();
-    private String numeroCarte;
+    private static String numeroCarte;
 
 
     public AffichageConfiguration(){
@@ -149,21 +146,27 @@ public class AffichageConfiguration extends JPanel {
                     if (!res.equals("-1") && !res.equals("interro")) { //Fonctionnalite Validee
                         clearBorders("-1");
                         if(!res.equals("cafe")) {//Affiche le message seulement si le resultat est différent de café
+                            System.out.println("VALIDER VALIDER");
                             Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setDifficulte(res);
-                            Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setValidee(true);
                             AffichageInfo.joueurVote = 0;
                             AffichageInfo.tour = 1;
                             AffichageInfo.fonctionnaliteVote += 1;
                             JOptionPane.showMessageDialog(null, "Fonctionnalité validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         }
                         if (AffichageInfo.fonctionnaliteVote == AffichageInfo.nbFonctionnalite){ //Fin de partie
+                            System.out.println("PARTIE FINIE");
                             PlanningPoker.partieFinie();
                         }else {//Partie qui continue
+                            System.out.println("REGLE VALIDEE");
                             Affichage.changerRegle();
                         }
                     } else if(res.equals("interro")){
-                        AffichageInfo.joueurVote = 0;
-                        AffichageInfo.tour += 1;
+                        System.out.println("INTERRO INTERRO");
+                        //On enleve les ecouteurs des cartes et du bouton
+                        //Comme ça on ne peux voter pendant le temps de reflexion
+                        retirerEcouteursCartes();
+                        retirerEcouteurs(AffichageInfo.boutonChoixCarte);
+
                         ChronoTemps.mettreEnPauseTimerPartie();
                         int optionAppuye = JOptionPane.showOptionDialog(
                                 null,
@@ -175,11 +178,11 @@ public class AffichageConfiguration extends JPanel {
                                 new Object[]{"Démarrer Timer"},
                                 null
                         );
-                        //int optionAppuye = JOptionPane.showMessageDialog(null, "Le résultat est indéterminé. Vous avez du temps pour discuter et revoter la tâche.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        if(optionAppuye == 0){
+                        if(optionAppuye == 0){ // Le chrono se lance une fois qu'on a appuier sur le bouton du message qui s'affiche
                             ChronoTemps.partieEnPauseInterro();
                         }
                     } else {//Fonctionnalité refusée
+                        System.out.println("REFUSE REFUSE");
                         JOptionPane.showMessageDialog(null, "Fonctionnalité non validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         clearBorders("-1");
                         AffichageInfo.joueurVote = 0;
@@ -192,7 +195,7 @@ public class AffichageConfiguration extends JPanel {
     }
 
     /* -------------------Ecouteur pour savoir quand on a cliqué sur une carte---------------------- */
-    private final MouseListener carteClickListener = new MouseAdapter() {
+    private static final MouseListener carteClickListener = new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
             Component source = e.getComponent();
@@ -205,18 +208,18 @@ public class AffichageConfiguration extends JPanel {
                 clearBorders(numeroCarte);
 
                 // Ajoutez un contour à la carte cliquée
-                carteCliquee.setBorder(BorderFactory.createLineBorder(Color.GREEN, 2));
+                carteCliquee.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             }
         }
     };
 
-    private void clearBorders(String numeroCarte) {
+    private static void clearBorders(String numeroCarte) {
         String numCarte;
 
         for (int i = 0; i < AffichageInfo.valeursCartes.length; i++) {
             numCarte =  AffichageInfo.valeursCartes[i];
             if (!numCarte.equals(numeroCarte)) {
-                AffichageInfo.labelsCartes[i].setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+                AffichageInfo.labelsCartes[i].setBorder(BorderFactory.createLineBorder(AffichageInfo.couleurFond, 2));
             }
         }
     }
@@ -276,16 +279,12 @@ public class AffichageConfiguration extends JPanel {
                 modePanel.setVisible(false);
                 fonctionnalitePanel.setVisible(false);
                 plateauPanel.setVisible(true);
-                // Ajout ou retrait des écouteurs de clic sur les cartes
-                if (ajouterEcouteursCartes) {
-                    ajouterEcouteursCartes();
-                } else {
-                    retirerEcouteursCartes();
-                }break;
+                ajouterEcouteursCartes();
+                break;
         }
     }
 
-    private void ajouterEcouteursCartes() {
+    public static void ajouterEcouteursCartes() {
         for (JLabel carteLabel : AffichageInfo.labelsCartes) {
             carteLabel.addMouseListener(carteClickListener);
         }
@@ -293,6 +292,16 @@ public class AffichageConfiguration extends JPanel {
     private void retirerEcouteursCartes() {
         for (JLabel carteLabel : AffichageInfo.labelsCartes) {
             carteLabel.removeMouseListener(carteClickListener);
+        }
+    }
+
+    public static void ajouterEcouteurs(JComponent... components) {
+        for (JComponent component : components) {
+            component.setEnabled(true);        }
+    }
+    private void retirerEcouteurs(JComponent ... components) {
+        for (JComponent component : components) {
+            component.setEnabled(false);
         }
     }
 }

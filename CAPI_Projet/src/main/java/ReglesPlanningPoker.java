@@ -20,7 +20,6 @@ public class ReglesPlanningPoker {
             moyenne = AffichageInfo.nbJoueur % 2;
             res = resultatMoyenne();
         }
-        System.out.println(res);
         return res;
     }
 

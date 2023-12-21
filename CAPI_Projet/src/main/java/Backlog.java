@@ -83,7 +83,6 @@ public class Backlog {
         for (Map<String, Object> donnee : donneesFonctionnalite) {
             Fonctionnalite fonctionnalite = new Fonctionnalite( (String) donnee.get("description"));
             fonctionnalite.setDifficulte((String) donnee.get("difficulte"));
-            fonctionnalite.setValidee((Boolean) donnee.get("validee"));
             listeFonc.add(fonctionnalite);
         }
         return listeFonc;

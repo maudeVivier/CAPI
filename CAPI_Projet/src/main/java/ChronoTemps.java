@@ -49,6 +49,14 @@ public class ChronoTemps {
 
     public static void reprendreTimerPartieInterro() {
         JOptionPane.showMessageDialog(null, "Le temps pour discuter est écoulé. Veuillez revoter.", "Information", JOptionPane.WARNING_MESSAGE);
+        AffichageConfiguration.ajouterEcouteursCartes();
+        AffichageConfiguration.ajouterEcouteurs(AffichageInfo.boutonChoixCarte);
+        System.out.println(AffichageInfo.tour + " " + AffichageInfo.joueurVote);
+        AffichageInfo.joueurVote = 0;
+        AffichageInfo.tour += 1;
+        Affichage.changerTour();
+        System.out.println("APRES " + AffichageInfo.tour + " " + AffichageInfo.joueurVote);
+
         timerPartie.start();
     }
 

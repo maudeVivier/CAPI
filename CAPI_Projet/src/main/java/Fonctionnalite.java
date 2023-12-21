@@ -6,14 +6,12 @@ import java.util.List;
 public class Fonctionnalite {
     private final String description;
     private String difficulte;
-    private boolean validee;
 
     public static List<Fonctionnalite> listeFonctionnalites = new ArrayList<>();
 
     public Fonctionnalite(String des) {
         this.description = des;
         this.difficulte = null;
-        this.validee = false;
     }
 
     public String getDescription() {
@@ -26,14 +24,6 @@ public class Fonctionnalite {
 
     public void setDifficulte(String difficulte) {
         this.difficulte = difficulte;
-    }
-
-    public boolean getValidee() {
-        return validee;
-    }
-
-    public void setValidee(boolean validee) {
-        this.validee = validee;
     }
 
     public static void ajouterFonctionnalite(){
@@ -59,7 +49,7 @@ public class Fonctionnalite {
     public static void afficheListeFonctionnalites() {
         System.out.println("Liste des Fonctionnalites : ");
         for (Fonctionnalite listeFonctionnalite : listeFonctionnalites) {
-            System.out.println(listeFonctionnalite.getDescription() + listeFonctionnalite.getDifficulte() + listeFonctionnalite.getValidee());
+            System.out.println(listeFonctionnalite.getDescription() + listeFonctionnalite.getDifficulte());
         }
     }
 }
