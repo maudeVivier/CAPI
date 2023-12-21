@@ -1,15 +1,20 @@
 {
+  "tempsDebutPause" : 1703183003111,
   "fonctionnalitesValidees" : 0,
-  "fonctionnalites" : [ ],
-  "modeDeJeu" : "UNANIMITE",
+  "fonctionnalites" : [ {
+    "description" : "toi",
+    "difficulte" : null,
+    "validee" : false
+  } ],
+  "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {
     "id" : 1,
-    "pseudo" : "toto",
+    "pseudo" : "mm",
     "voteCourant" : "cafe"
   }, {
     "id" : 2,
-    "pseudo" : "titi",
+    "pseudo" : "ll",
     "voteCourant" : "cafe"
   } ],
-  "tempsEcoule" : 16086
+  "tempsEcoule" : 78092
 }

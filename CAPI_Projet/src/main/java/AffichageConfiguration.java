@@ -45,7 +45,7 @@ public class AffichageConfiguration extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     PlanningPoker.chargerPartie();
-
+                    ChronoTemps.tempsPartie();
                     Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
@@ -94,14 +94,12 @@ public class AffichageConfiguration extends JPanel {
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
-                    AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
 
                 } else if (unanimiteSelected && !moyenneSelected) {
                     ReglesPlanningPoker.modeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
-                    AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -121,16 +119,19 @@ public class AffichageConfiguration extends JPanel {
         AffichageInfo.boutonPasserPlateau.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!AffichageInfo.listeFonctionnalite.isEmpty()) {
+                if(!AffichageInfo.fieldFonctionnalite.getText().trim().isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Le champ n'est pas vide,veuillez le valider avant de lancer la partie au risque de le perdre", "Information", JOptionPane.INFORMATION_MESSAGE);
+                }else if(!AffichageInfo.listeFonctionnalite.isEmpty()) {
                     Fonctionnalite.listeFonctionnalites = Fonctionnalite.creerListeFonctionnalites();
                     AffichageInfo.nbFonctionnalite = Fonctionnalite.listeFonctionnalites.size();
                     Affichage.pagePlateau(plateauPanel);
                     add(plateauPanel);
                     setMenu(AffichageInfo.MENU_PLATEAU, true);
                     AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
-                    ReglesPlanningPoker.debutPartieMillis = System.currentTimeMillis();
-                    ReglesPlanningPoker.tempsPartie();
-                }else{
+                    ChronoTemps.tempsPartie = 0;
+                    ChronoTemps.tempsPartie();
+                }
+                else{
                     JOptionPane.showMessageDialog(null, "Veuillez entrez au moins une fonctionnalité, avant de lancer la partie", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
@@ -145,7 +146,6 @@ public class AffichageConfiguration extends JPanel {
                 Affichage.changerPseudo();
                 if (AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
                     String res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
-                    System.out.println("RES : " + res);
                     if (!res.equals("-1") && !res.equals("interro")) { //Fonctionnalite Validee
                         clearBorders("-1");
                         if(!res.equals("cafe")) {//Affiche le message seulement si le resultat est différent de café
@@ -164,9 +164,21 @@ public class AffichageConfiguration extends JPanel {
                     } else if(res.equals("interro")){
                         AffichageInfo.joueurVote = 0;
                         AffichageInfo.tour += 1;
-                        ReglesPlanningPoker.mettreEnPauseTimerPartie();
-                        JOptionPane.showMessageDialog(null, "Le résultat est indéterminé. Vous avez du temps pour discuter et revoter la tâche.", "Information", JOptionPane.INFORMATION_MESSAGE);
-                        ReglesPlanningPoker.partieEnPauseInterro();
+                        ChronoTemps.mettreEnPauseTimerPartie();
+                        int optionAppuye = JOptionPane.showOptionDialog(
+                                null,
+                                "Le résultat est indéterminé. Vous avez du temps pour discuter et revoter la tâche. Cliquez pour démarrer le timer",
+                                "Information",
+                                JOptionPane.DEFAULT_OPTION,
+                                JOptionPane.INFORMATION_MESSAGE,
+                                null,
+                                new Object[]{"Démarrer Timer"},
+                                null
+                        );
+                        //int optionAppuye = JOptionPane.showMessageDialog(null, "Le résultat est indéterminé. Vous avez du temps pour discuter et revoter la tâche.", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        if(optionAppuye == 0){
+                            ChronoTemps.partieEnPauseInterro();
+                        }
                     } else {//Fonctionnalité refusée
                         JOptionPane.showMessageDialog(null, "Fonctionnalité non validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         clearBorders("-1");

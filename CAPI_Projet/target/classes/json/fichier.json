@@ -1,0 +1,30 @@
+{
+  "fonctionnalitesValidees" : 0,
+  "fonctionnalites" : [ {
+    "description" : "regle 1",
+    "difficulte" : "cafe",
+    "validee" : true
+  }, {
+    "description" : "regle 2",
+    "difficulte" : null,
+    "validee" : false
+  }, {
+    "description" : "regle 3",
+    "difficulte" : null,
+    "validee" : false
+  } ],
+  "modeDeJeu" : "MOYENNE",
+  "joueurs" : [ {
+    "id" : 1,
+    "pseudo" : "j1",
+    "voteCourant" : "cafe"
+  }, {
+    "id" : 2,
+    "pseudo" : "j2",
+    "voteCourant" : "cafe"
+  }, {
+    "id" : 3,
+    "pseudo" : "j3",
+    "voteCourant" : "cafe"
+  } ]
+}

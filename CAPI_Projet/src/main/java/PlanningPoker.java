@@ -104,7 +104,6 @@ public class PlanningPoker {
     public static void chargerPartie() throws IOException {
         Backlog.chargerDepuisJSON();
         planningPoker = getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
-        ReglesPlanningPoker.reprendreTimerPartie();
     }
 }
 

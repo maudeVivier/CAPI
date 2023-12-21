@@ -1,26 +1,15 @@
-import java.awt.Color;
-
+import javax.swing.*;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.swing.Timer;
-import javax.swing.JOptionPane;
-
 public class ReglesPlanningPoker {
     public static ModeDeJeu modeDeJeu;
 
     public static int moyenne;
     private static Map<String, Integer> resultatTour;
-    private static Timer timerPartie;
-    public static long debutPartieMillis;
-    private static long pauseTimeMillis;
-    public static long tempsPauseMillis;
-    private static Timer timerInterro;
-    private static int tempsPauseInterro = 0;
-    private static final int tempsPauseTotal = 10; //En seconde
 
 
     public static String appliquerRegles(ModeDeJeu modeDeJeu) {
@@ -83,10 +72,11 @@ public class ReglesPlanningPoker {
 
     private static boolean partieEnPauseCafe(Map.Entry<String, Integer> entry){
         if(entry.getKey().equals("cafe")){
+            ChronoTemps.mettreEnPauseTimerPartie();
             Backlog.sauvegarderEnJSON();
             JOptionPane.showMessageDialog(null, "Partie sauvegarder dans un fichier JSON", "Information", JOptionPane.INFORMATION_MESSAGE);
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -95,94 +85,5 @@ public class ReglesPlanningPoker {
             Fenetre.frame.dispose();
         }
         return true;
-    }
-
-    public static void tempsPartie(){
-        timerPartie = new Timer(1000, e -> { // A chaque seconde, on rentre dans cette partie
-            debutPartieMillis++;
-            miseAJourTimer();
-            if (AffichageInfo.nbFonctionnalite == AffichageInfo.fonctionnaliteVote) {
-                timerPartie.stop(); // On stoppe le timer quand la partie est finie
-            }
-        });
-
-        // On démarre le timer
-        timerPartie.start();
-    }
-    private static void miseAJourTimer() {
-        long tempsEcouleTotal = System.currentTimeMillis() - debutPartieMillis;
-        long secondesTotal = tempsEcouleTotal / 1000;
-
-        long heures = secondesTotal / 3600;
-        long minutes = (secondesTotal % 3600) / 60;
-        long secondes = secondesTotal % 60;
-
-
-        if(heures == 0) {
-            if (minutes == 0) {
-                AffichageInfo.labelTimer.setText("Temps écoulé : " + secondes + " sec");
-            } else {
-                AffichageInfo.labelTimer.setText("Temps écoulé : " + minutes + " min, " + secondes + " sec");
-            }
-        }else{
-            AffichageInfo.labelTimer.setText("Temps écoulé : " + heures + " h, " + minutes + " min, " + secondes + " sec");
-        }
-
-    }
-    public static void mettreEnPauseTimerPartie() {
-        timerPartie.stop();
-        tempsPauseMillis = System.currentTimeMillis() - debutPartieMillis;
-        pauseTimeMillis = System.currentTimeMillis();
-    }
-
-    public static void reprendreTimerPartie() {
-        debutPartieMillis = System.currentTimeMillis() - tempsPauseMillis;
-        JOptionPane.showMessageDialog(null, "Le temps pour discuter est écoulé. Veuillez revoter.", "Information", JOptionPane.WARNING_MESSAGE);
-        timerPartie.start();
-    }
-
-    public static void partieEnPauseInterro(){
-        timerInterro = new Timer(1000, e -> {
-            tempsPauseInterro++;
-            miseAJourTimerInterro();
-            if (tempsPauseInterro >= tempsPauseTotal) {
-                timerInterro.stop();
-                tempsPauseInterro = 0;
-                reprendreTimerPartie();
-                AffichageInfo.labelTimer.setForeground(Color.WHITE);
-            }
-        });
-
-        timerInterro.start();
-
-    }
-
-    private static void miseAJourTimerInterro() {
-        long tempsEcouleTotal = System.currentTimeMillis() - pauseTimeMillis;
-        long secondesTotal = tempsEcouleTotal / 1000;
-
-        long heures = secondesTotal / 3600;
-        long minutes = (secondesTotal % 3600) / 60;
-        long secondes = secondesTotal % 60;
-
-        long heuresTempsTotal = tempsPauseTotal / 3600;
-        long minutesTempsTotal = (tempsPauseTotal % 3600) / 60;
-        long secondesTempsTotal = tempsPauseTotal % 60;
-
-        AffichageInfo.labelTimer.setForeground(Color.RED);
-        String tempsPause;
-
-        if(heuresTempsTotal == 0) {
-            if (minutesTempsTotal == 0) {
-                tempsPause = "Temps de pause (" + secondesTempsTotal + " sec) : ";
-                AffichageInfo.labelTimer.setText(tempsPause + secondes + " sec");
-            } else {
-                tempsPause = "Temps de pause (" + minutesTempsTotal + " min, " + secondesTempsTotal + " sec) : ";
-                AffichageInfo.labelTimer.setText(tempsPause + minutes + " min, "  + secondes + " sec");
-            }
-        }else{
-            tempsPause = "Temps de pause (" + heuresTempsTotal + " h, " + minutesTempsTotal + " min, " + secondesTempsTotal + " sec) : ";
-            AffichageInfo.labelTimer.setText(tempsPause + heures + " h, " + minutes + " min, "  + secondes + " sec");
-        }
     }
 }

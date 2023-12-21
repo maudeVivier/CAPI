@@ -30,7 +30,7 @@ public class Backlog {
         donnees.put("joueurs", PlanningPoker.getListeJoueurs());
         donnees.put("fonctionnalitesValidees", AffichageInfo.fonctionnaliteVote);
         donnees.put("modeDeJeu", PlanningPoker.getModeDeJeu());
-        donnees.put("tempsEcoule", ReglesPlanningPoker.tempsPauseMillis);
+        donnees.put("tempsEcoule", ChronoTemps.tempsPartie);
 
         try {
             objectMapper.writeValue(new File(chemin), donnees);
@@ -65,14 +65,8 @@ public class Backlog {
             ReglesPlanningPoker.modeDeJeu = ModeDeJeu.valueOf((String) donnees.get("modeDeJeu"));
 
             //Chargement du temps déjà écoulée
-            Object valeurTempsEcoule = donnees.get("tempsEcoule");
+            ChronoTemps.tempsPartie = (int) donnees.get("tempsEcoule");
 
-            if (valeurTempsEcoule != null && valeurTempsEcoule instanceof Integer) {
-                // On converti en long
-                ReglesPlanningPoker.tempsPauseMillis = ((Integer) valeurTempsEcoule).longValue();
-            } else {
-                System.err.println("Le type de tempsEcoule n'est pas Integer : " + valeurTempsEcoule);
-            }
 
             System.out.println("Données chargées depuis le fichier JSON avec succès.");
         } else {
