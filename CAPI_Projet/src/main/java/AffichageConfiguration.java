@@ -83,12 +83,14 @@ public class AffichageConfiguration extends JPanel {
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
                     AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
+
                 } else if (unanimiteSelected && !moyenneSelected) {
                     ReglesPlanningPoker.modeDeJeu = ModeDeJeu.UNANIMITE;
                     Affichage.pageFonctionnalite(fonctionnalitePanel);
                     add(fonctionnalitePanel);
                     setMenu(AffichageInfo.MENU_FONCTIONNALITE, false);
                     AffichageInfo.planningPoker = PlanningPoker.getInstance(Fonctionnalite.listeFonctionnalites, Joueur.listeJoueurs, ReglesPlanningPoker.modeDeJeu);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Veuillez sélectionner un mode de jeu.", "Information", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -129,7 +131,7 @@ public class AffichageConfiguration extends JPanel {
                 Affichage.changerPseudo();
                 if (AffichageInfo.nbJoueur == AffichageInfo.joueurVote) {
                     String res = ReglesPlanningPoker.appliquerRegles(ReglesPlanningPoker.modeDeJeu);
-                    if (!res.equals("-1")) { //Fonctionnalite Validee
+                    if (!res.equals("-1") && !res.equals("interro")) { //Fonctionnalite Validee
                         clearBorders("-1");
                         if(!res.equals("cafe")) {//Affiche le message seulement si le resultat est différent de café
                             Fonctionnalite.listeFonctionnalites.get(AffichageInfo.fonctionnaliteVote).setDifficulte(res);
@@ -144,7 +146,11 @@ public class AffichageConfiguration extends JPanel {
                         }else {//Partie qui continue
                             Affichage.changerRegle();
                         }
-                    } else{//Fonctionnalité refusée
+                    } else if(res.equals("interro")){
+                        JOptionPane.showMessageDialog(null, "Vous n'arrivez pas à vous décider, vous avez 1 minute pour débattre", "Information", JOptionPane.INFORMATION_MESSAGE);
+                        ReglesPlanningPoker.mettreEnPauseTimerPartie();
+                        ReglesPlanningPoker.partieEnPauseInterro();
+                    } else {//Fonctionnalité refusée
                         JOptionPane.showMessageDialog(null, "Fonctionnalité non validée", "Information", JOptionPane.INFORMATION_MESSAGE);
                         clearBorders("-1");
                         AffichageInfo.joueurVote = 0;

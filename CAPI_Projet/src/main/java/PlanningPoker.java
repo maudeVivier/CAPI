@@ -27,12 +27,12 @@ public class PlanningPoker {
 
     /**
      * @brief Constructeur privé de la classe PlanningPoker.
-     * @param listeFonctionnalites La liste des fonctionnalités.
+     * @param listeFonctionnalite La liste des fonctionnalités.
      * @param listeJoueur La liste des joueurs.
      * @param regle Le mode de jeu.
      */
-    private PlanningPoker(List<Fonctionnalite> listeFonctionnalites, List<Joueur> listeJoueur, ModeDeJeu regle) {
-        listeFonctionnalites = listeFonctionnalites;
+    private PlanningPoker(List<Fonctionnalite> listeFonctionnalite, List<Joueur> listeJoueur, ModeDeJeu regle) {
+        listeFonctionnalites = listeFonctionnalite;
         listeJoueurs = listeJoueur;
         modeDeJeu = regle;
     }
@@ -47,6 +47,8 @@ public class PlanningPoker {
     public static synchronized PlanningPoker getInstance(List<Fonctionnalite> listeFonctionnalites, List<Joueur> listeJoueur, ModeDeJeu regle) {
         if (planningPoker == null) {
             planningPoker = new PlanningPoker(listeFonctionnalites, listeJoueur, regle);
+            ReglesPlanningPoker.debutPartieMillis = System.currentTimeMillis(); // Enregistrez le temps de début de la partie
+            ReglesPlanningPoker.tempsPartie();
         }
         return planningPoker;
     }
