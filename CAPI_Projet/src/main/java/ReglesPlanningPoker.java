@@ -1,17 +1,42 @@
-import javax.swing.*;
+/**
+ * @file ReglesPlanningPoker.java
+ * @brief Définition de la classe ReglesPlanningPoker.
+ */
+
+import javax.swing.JOptionPane;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @class ReglesPlanningPoker
+ * @brief Applique les règles du planning poker en fonction du mode de jeu.
+ */
 public class ReglesPlanningPoker {
+    /**
+     * Mode de jeu utilisé.
+     */
     public static ModeDeJeu modeDeJeu;
 
+    /**
+     * Moyenne calculée pendant le jeu en mode "MOYENNE".
+     */
     public static int moyenne;
+
+    /**
+     * Résultat du tour en cours, cartes votées avec leurs occurrences.
+     */
     private static Map<String, Integer> resultatTour;
 
-
+    /**
+     * Applique les règles du planning poker en fonction du mode de jeu.
+     *
+     * @param modeDeJeu Mode de jeu à appliquer.
+     * @return Résultat du tour en cours.
+     */
     public static String appliquerRegles(ModeDeJeu modeDeJeu) {
         String res = null;
         if(modeDeJeu == ModeDeJeu.UNANIMITE || (modeDeJeu == ModeDeJeu.MOYENNE && AffichageInfo.tour==1)){
@@ -23,6 +48,12 @@ public class ReglesPlanningPoker {
         return res;
     }
 
+    /**
+     * Compte le nombre d'occurrences de chaque carte dans la liste.
+     *
+     * @param listeCarte Liste des cartes votées.
+     * @return Map contenant les cartes et leur nombre d'occurrences triées par ordre décroissant.
+     */
     private static Map<String, Integer> compterNombreOccurence(List<String> listeCarte){
         // Utilisation d'une map pour compter les occurrences de chaque élément
         Map<String, Integer> occurrences = new HashMap<>();
@@ -42,6 +73,11 @@ public class ReglesPlanningPoker {
         return occurrencesTriees;
     }
 
+    /**
+     * Applique les règles du mode "UNANIMITE".
+     *
+     * @return Résultat du tour en cours en mode "UNANIMITE".
+     */
     private static String resultatUnanimite(){
         resultatTour = compterNombreOccurence(AffichageInfo.cartesVotees);
 
@@ -56,6 +92,11 @@ public class ReglesPlanningPoker {
         return "-1";
     }
 
+    /**
+     * Applique les règles du mode "MOYENNE".
+     *
+     * @return Résultat du tour en cours en mode "MOYENNE".
+     */
     private static String resultatMoyenne(){
         resultatTour = compterNombreOccurence(AffichageInfo.cartesVotees);
 
@@ -69,6 +110,12 @@ public class ReglesPlanningPoker {
         return "-1";
     }
 
+    /**
+     * Met en pause la partie et sauvegarde l'état du jeu en JSON si la carte "cafe" est choisie.
+     *
+     * @param entry Entry représentant la carte choisie et son nombre d'occurrences.
+     * @return true si la partie est mise en pause, sinon false.
+     */
     private static boolean partieEnPauseCafe(Map.Entry<String, Integer> entry){
         if(entry.getKey().equals("cafe")){
             ChronoTemps.mettreEnPauseTimerPartie();

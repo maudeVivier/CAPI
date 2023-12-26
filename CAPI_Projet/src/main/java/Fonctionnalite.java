@@ -81,14 +81,4 @@ public class Fonctionnalite {
         }
         return listeFonc;
     }
-
-    /**
-     * @brief Affiche la liste des fonctionnalités.
-     */
-    public static void afficheListeFonctionnalites() {
-        System.out.println("Liste des Fonctionnalites : ");
-        for (Fonctionnalite listeFonctionnalite : listeFonctionnalites) {
-            System.out.println(listeFonctionnalite.getDescription() + listeFonctionnalite.getDifficulte());
-        }
-    }
 }
