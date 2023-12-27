@@ -1,7 +1,20 @@
+/**
+ * @file ReglesPlanningPokerTest.java
+ * @brief Fichier de tests unitaires pour la classe ReglesPlanningPoker.
+ */
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @class ReglesPlanningPokerTest
+ * @brief Classe de tests unitaires pour la classe ReglesPlanningPoker.
+ */
 class ReglesPlanningPokerTest {
+
+    /**
+     * @brief Teste l'application des règles en mode "UNANIMITE".
+     */
     @Test
     void testAppliquerReglesModeUnanimite() {
         // Configuration du test
@@ -20,6 +33,9 @@ class ReglesPlanningPokerTest {
         assertEquals("-1", resultat);
     }
 
+    /**
+     * @brief Teste l'application des règles en mode "MOYENNE".
+     */
     @Test
     void testAppliquerReglesModeMoyenne() {
         // Configuration du test
@@ -37,10 +53,11 @@ class ReglesPlanningPokerTest {
 
         // Vérification du résultat
         assertEquals("13", resultat);
-
-        // Nettoyage après le test
     }
 
+    /**
+     * @brief Teste l'application des règles en mode "MOYENNE" au premier tour.
+     */
     @Test
     void testAppliquerReglesModeMoyennePremierTour() {
         // Configuration du test
@@ -50,8 +67,10 @@ class ReglesPlanningPokerTest {
         AffichageInfo.cartesVotees.add("8");
         AffichageInfo.cartesVotees.add("13");
         AffichageInfo.cartesVotees.add("21");
+
         // Exécution de la méthode à tester
         String resultat = ReglesPlanningPoker.appliquerRegles(ModeDeJeu.MOYENNE);
+
         // Vérification du résultat
         assertEquals("-1", resultat);
     }

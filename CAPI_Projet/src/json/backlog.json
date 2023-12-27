@@ -1,17 +1,20 @@
 {
   "fonctionnalites" : [ {
-    "description" : "test1",
-    "difficulte" : "5"
+    "description" : "Fonction1",
+    "difficulte" : "3"
+  }, {
+    "description" : "Fonction2",
+    "difficulte" : "8"
   } ],
-  "modeDeJeu" : "UNANIMITE",
+  "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {
     "id" : 1,
-    "pseudo" : "essaie1",
-    "voteCourant" : "5"
+    "pseudo" : "Bob",
+    "voteCourant" : "8"
   }, {
     "id" : 2,
-    "pseudo" : "essaie2",
-    "voteCourant" : "5"
+    "pseudo" : "Bobette",
+    "voteCourant" : "8"
   } ],
-  "tempsEcoule" : 27000
+  "tempsEcoule" : 19000
 }

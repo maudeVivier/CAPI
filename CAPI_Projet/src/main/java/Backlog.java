@@ -72,7 +72,6 @@ public class Backlog {
             e.printStackTrace();
         }
     }
-
     /**
      * @brief Charge les données du backlog depuis un fichier JSON lors d'une pause de partie.
      * @throws IOException En cas d'erreur lors de la lecture du fichier.

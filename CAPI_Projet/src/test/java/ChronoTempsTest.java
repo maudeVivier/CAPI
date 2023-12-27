@@ -1,10 +1,22 @@
+/**
+ * @file ChronoTempsTest.java
+ * @brief Fichier de tests unitaires pour la classe ChronoTemps.
+ */
+
 import org.junit.jupiter.api.Test;
 import javax.swing.*;
 import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @class ChronoTempsTest
+ * @brief Classe de tests unitaires pour la classe ChronoTemps.
+ */
 class ChronoTempsTest {
 
+    /**
+     * @brief Teste le fonctionnement du timer de partie.
+     */
     @Test
     void testTempsPartie() {
         // Créez une instance de ChronoTemps
@@ -39,6 +51,7 @@ class ChronoTempsTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         // Vérifiez que le temps n'a pas changé après la pause
         assertEquals(tempsAvantPause, ChronoTemps.tempsPartie);
     }

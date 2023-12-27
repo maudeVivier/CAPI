@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b283b575-3165-411c-aad2-86d6b1dc47c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/BacklogTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ChronoTempsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/FenetreTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ReglesPlanningPokerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/json/backlog.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/json/backlog.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Backlog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Backlog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/JoueurTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Fenetre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fenetre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BacklogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BacklogTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ChronoTempsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ChronoTempsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FenetreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FenetreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ReglesPlanningPokerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ReglesPlanningPokerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Backlog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Backlog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Fenetre.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Fenetre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +124,7 @@
       <workItem from="1703193689134" duration="4409000" />
       <workItem from="1703663800459" duration="3679000" />
       <workItem from="1703671370063" duration="310000" />
-      <workItem from="1703677787530" duration="1963000" />
+      <workItem from="1703677787530" duration="3068000" />
     </task>
     <servers />
   </component>
