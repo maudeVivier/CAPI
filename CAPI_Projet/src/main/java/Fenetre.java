@@ -20,7 +20,6 @@ public class Fenetre extends JFrame{
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             AffichageConfiguration affichageConfig = new AffichageConfiguration();

@@ -3,15 +3,23 @@
 - Langage : Java
 - Editeur : IntelliJ
 - Bibliothèque : JFrame
+- Documentation : Doxygen
 
 ## Autrices
-- VIVIER Maude
 - RANDRIAMITANDRINA Finaritra
+- VIVIER Maude
 
 ## Utilisation
-Aller dans le fichier: *CAPI_projet/CAPI_projet/src/Main.java*
+1. Sur IntelliJ, ouvrir le projet *CAPI_Projet*.
+2. Lancer le programme principal *Fenetre*
+    Le programme principal (*main*)se trouve dans le fichier *Fenetre.java* 
+    Son chemin d'accès est : *CAPI\CAPI_Projet\src\main\java\Fenetre.java*
+3. Lancer une nouvelle partie de Planning Poker (ou reprenez une partie déjà sauvegardée dans un fichier JSON)
 
-Faire clique droit > ouvrir avec IntelliJ
+## Documentation
+Le fichier html de documentation du programme a été généré avec Doxygen.
+Vous le trouverez dans le fichier index.html
+Son chemin d'accès est : *CAPI\CAPI_Projet\Doc\html\index.html*
 
 ## Description
 L'objectif de l'application est de permettre à des joueurs de faire une partie de planning poker, en respectant les règles vues en cours.

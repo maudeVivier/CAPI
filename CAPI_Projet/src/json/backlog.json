@@ -1,21 +1,24 @@
 {
-  "fonctionnalitesValidees" : 0,
+  "fonctionnalitesValidees" : 2,
   "fonctionnalites" : [ {
-    "description" : "Regle1",
-    "difficulte" : null
+    "description" : "fonc 1",
+    "difficulte" : "5"
   }, {
-    "description" : "Regle2",
+    "description" : "fonc2",
+    "difficulte" : "13"
+  }, {
+    "description" : "fonc 3",
     "difficulte" : null
   } ],
   "modeDeJeu" : "MOYENNE",
   "joueurs" : [ {
     "id" : 1,
-    "pseudo" : "Maude",
+    "pseudo" : "dv",
     "voteCourant" : "cafe"
   }, {
     "id" : 2,
-    "pseudo" : "Fina",
+    "pseudo" : "dfv",
     "voteCourant" : "cafe"
   } ],
-  "tempsEcoule" : 16000
+  "tempsEcoule" : 58000
 }
