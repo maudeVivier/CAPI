@@ -7,7 +7,8 @@ var searchData=
   ['chargerpartie_4',['chargerPartie',['../class_planning_poker.html#a576f6467312dd54953fa345ce38188e9',1,'PlanningPoker']]],
   ['chronotemps_5',['ChronoTemps',['../class_chrono_temps.html',1,'']]],
   ['chronotemps_2ejava_6',['ChronoTemps.java',['../_chrono_temps_8java.html',1,'']]],
-  ['creerlistefonctionnalites_7',['creerListeFonctionnalites',['../class_fonctionnalite.html#a100befd240b5c8d2a5ab43a511b1f169',1,'Fonctionnalite']]],
-  ['creerlistefonctionnalitesdepuisjson_8',['creerListeFonctionnalitesDepuisJSON',['../class_backlog.html#a59572eee9bcb7df26abfe71dea5a4370',1,'Backlog']]],
-  ['creerlistejoueursdepuisjson_9',['creerListeJoueursDepuisJSON',['../class_backlog.html#a801b1809726a910ee33c513c5f7c90b0',1,'Backlog']]]
+  ['creerlistedejoueurs_7',['creerListeDeJoueurs',['../class_joueur.html#af1819dbd470d2f4be3d270cbc571d7a7',1,'Joueur']]],
+  ['creerlistefonctionnalites_8',['creerListeFonctionnalites',['../class_fonctionnalite.html#a100befd240b5c8d2a5ab43a511b1f169',1,'Fonctionnalite']]],
+  ['creerlistefonctionnalitesdepuisjson_9',['creerListeFonctionnalitesDepuisJSON',['../class_backlog.html#a59572eee9bcb7df26abfe71dea5a4370',1,'Backlog']]],
+  ['creerlistejoueursdepuisjson_10',['creerListeJoueursDepuisJSON',['../class_backlog.html#a801b1809726a910ee33c513c5f7c90b0',1,'Backlog']]]
 ];
