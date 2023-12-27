@@ -37,14 +37,14 @@ L'application se fait en locale : les joueurs choisissent chacun à leur tour le
 
 Un menu permet de décider du nombre de joueurs et de rentrer un pseudo pour chacun des joueurs. Le menu permet aussi de choisir parmi différentes règles de planning poker. Nous avons choisis les règles "unanimité" et "moyenne".
 
-On peut également entrer une liste de fonctionnalités (backlog) en JSON.
+On peut également entrer une liste de fonctionnalités (backlog) en JSON (Le fichier se nomme *backlog.json* et se trouve dans le chemin "*CAPI\CAPI_Projet\src\json*"), ou directement dans le menu avant la partie.
 
-Une fois que chacun à voté, l'application valide ou non la fonctionnalité en fonction des règles choisies via le menu. Si la fonctionnalités n'est pas validée, on recommence le vote.
+Une fois que chacun a voté, l'application valide ou non la fonctionnalité en fonction des règles choisies via le menu. Si la fonctionnalités n'est pas validée, on recommence le vote.
 
 Lorsque tout le backlog est validé, l'application enregistre un fichier JSON avec, pour chaque fonctionnalité, la difficulté estimée par l'équipe.
 
 #### Note :
- 1. Nous avons mis en place un chronomètre pour estimer la durée de la partie du planning Poker.
- 2. Si tous les joueurs utilisent la carte café, l'application enregistre un fichier JSON avec l'état d'avancement du backlog. Ce fichier JSON peut être chargé via le menu pour "reprendre une partie".
+ 1. Nous avons mis en place un chronomètre pour estimer la durée de la partie du planning Poker, il est également enregistré dans le fichier JSON.
+ 2. Si tous les joueurs utilisent la carte café, l'application enregistre un fichier JSON avec l'état d'avancement du backlog. Ce fichier JSON peut être chargé via le menu dans "reprendre une partie".
  3. Si tous les jours optent pour la carte "?" (donc s'ils ne savent pas comment estimer la difficulté) un temps de pause de 10 secondes s'enclenche. Le temps que tout le monde se concerte pour décider d'un niveau de difficulté. Puis, on reprend le tour. 
  4. Dans notre projet, nous avons utilisé un design patterns, le singleton.
