@@ -2,7 +2,7 @@
 ## Support
 - Langage : Java
 - Editeur : IntelliJ
-- Bibliothèque : JFrame
+- Bibliothèque : JFrame (pour l'affichage) et JUnit (pour les tests)
 - Documentation : Doxygen
 
 ## Autrices
@@ -19,7 +19,7 @@
 ## Documentation
 Le fichier html de documentation du programme a été généré avec Doxygen.
 
-Vous le trouverez dans le fichier index.html
+Vous le trouverez dans le fichier *index.html*
 
 Son chemin d'accès est : *CAPI\CAPI_Projet\Doc\html\index.html*
 
@@ -33,19 +33,18 @@ Son chemin d'accès est : *CAPI\CAPI_Projet\src\test\java*
 ## Description
 L'objectif de l'application est de permettre à des joueurs de faire une partie de planning poker, en respectant les règles vues en cours.
 
-L'application peut être à distance (chaque joueur utilise son propre dispositif) ou locale (les joueurs choisissent chacun à leur tour leurs cartes).
+L'application se fait en locale : les joueurs choisissent chacun à leur tour leurs cartes sur le même écran.
 
-Un menu permet de décider du nombre de joueurs et de rentrer un pseudo pour chacun des joueurs. Le menu doit aussi permettre de choisir parmi différentes règles de planning poker (règles strictes, moyenne, médiane, etc.)
+Un menu permet de décider du nombre de joueurs et de rentrer un pseudo pour chacun des joueurs. Le menu permet aussi de choisir parmi différentes règles de planning poker. Nous avons choisis les règles "unanimité" et "moyenne".
 
-On doit pouvoir entrer une liste de fonctionnalités (backlog) en JSON (vous êtes libre d'utiliser la structure que vous souhaitez).
+On peut également entrer une liste de fonctionnalités (backlog) en JSON.
 
 Une fois que chacun à voté, l'application valide ou non la fonctionnalité en fonction des règles choisies via le menu. Si la fonctionnalités n'est pas validée, on recommence le vote.
 
 Lorsque tout le backlog est validé, l'application enregistre un fichier JSON avec, pour chaque fonctionnalité, la difficulté estimée par l'équipe.
 
 #### Note :
- Si tous les joueurs utilisent la carte café, l'application doit enregistrer un fichier JSON avec l'état d'avancement du backlog. Ce fichier JSON doit pouvoir être chargé via le menu pour "reprendre" une partie.
-
- Vous êtres très fortement encouragés à ajouter des fonctionnalités qui vous semblent utiles au bon déroulement du planning poker (chronomètre, espace de discussion, etc.)
-
-Vous devez, dans votre projet, utiliser au moins trois des design patterns présentés en cours. Vous devez justifier l'utilisation de ces designs patterns dans votre rapport, ainsi que de la façon dont vous les avez implémenté dans votre projet.
+ 1. Nous avons mis en place un chronomètre pour estimer la durée de la partie du planning Poker.
+ 2. Si tous les joueurs utilisent la carte café, l'application enregistre un fichier JSON avec l'état d'avancement du backlog. Ce fichier JSON peut être chargé via le menu pour "reprendre une partie".
+ 3. Si tous les jours optent pour la carte "?" (donc s'ils ne savent pas comment estimer la difficulté) un temps de pause de 10 secondes s'enclenche. Le temps que tout le monde se concerte pour décider d'un niveau de difficulté. Puis, on reprend le tour. 
+ 4. Dans notre projet, nous avons utilisé un design patterns, le singleton.
