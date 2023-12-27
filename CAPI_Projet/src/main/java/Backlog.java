@@ -94,7 +94,12 @@ public class Backlog {
             AffichageInfo.nbJoueur = Joueur.listeJoueurs.size();
 
             //Chargement du nombre de fonctionnalites deja traitees
-            AffichageInfo.fonctionnaliteVote = (int) donnees.get("fonctionnalitesValidees");
+            if (donnees.containsKey("fonctionnalitesValidees")) {
+                AffichageInfo.fonctionnaliteVote = (int) donnees.get("fonctionnalitesValidees");
+            } else {
+                // Gérer le cas où les données ou la clé sont null
+                System.out.println("Les données ou la clé 'fonctionnalitesValidees' sont null.");
+            }
 
             //Chargement du mode de jeu
             ReglesPlanningPoker.modeDeJeu = ModeDeJeu.valueOf((String) donnees.get("modeDeJeu"));
@@ -154,7 +159,7 @@ public class Backlog {
      * @param cheminFichier Le chemin du fichier à vérifier.
      * @return True si le fichier existe, sinon False.
      */
-    private static boolean verifierSiFichierExiste(String cheminFichier) {
+    public static boolean verifierSiFichierExiste(String cheminFichier) {
         File fichier = new File(cheminFichier);
         return fichier.exists() && fichier.isFile();
     }
