@@ -14,6 +14,22 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
+
+<ul>
+  <li class="folder">
+    <div class="icon"></div>
+    <a href="files.html">Fichier test unitaire</a>
+    <ul>
+      <!-- Ajoutez ici des liens vers vos fichiers de test -->
+      <li class="leaf"><a href="test/BacklogTest_8java_source.html">BacklogTest.java</a></li>
+      <li class="leaf"><a href="test/ChronoTempsTest_8java_source.html">ChronoTempsTest.java</a></li>
+      <li class="leaf"><a href="test/FenetreTest_8java_source.html">FenetreTest.java</a></li>
+      <li class="leaf"><a href="test/ReglesPlanningPokerTest_8java_source.html">ReglesPlanningPokerTest.java</a></li>
+    </ul>
+  </li>
+</ul>
+
+
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
@@ -72,6 +88,66 @@ $(function() {
   <div class="headertitle"><div class="title">CAPI_Projet Documentation</div></div>
 </div><!--header-->
 <div class="contents">
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=11">
+      <title>CAPI_Projet: Page principale</title>
+  </head>
+  <body>
+      <h1>CAPI - Application de planning poker</h1>
+  
+      <h2>Support</h2>
+      <ul>
+          <li>Langage : Java</li>
+          <li>Editeur : IntelliJ</li>
+          <li>Bibliothèque : JFrame</li>
+          <li>Documentation : Doxygen</li>
+      </ul>
+  
+      <h2>Autrices</h2>
+      <ul>
+          <li>RANDRIAMITANDRINA Finaritra</li>
+          <li>VIVIER Maude</li>
+      </ul>
+  
+      <h2>Utilisation</h2>
+      <ol>
+          <li>Sur IntelliJ, ouvrir le projet <em>CAPI_Projet</em>.</li>
+          <li>Lancer le programme principal <em>Fenetre</em>. Le programme principal (main) se trouve dans le fichier <em>Fenetre.java</em>. Son chemin d'accès est : <em>CAPI\CAPI_Projet\src\main\java\Fenetre.java</em></li>
+          <li>Lancer une nouvelle partie de Planning Poker (ou reprenez une partie déjà sauvegardée dans un fichier JSON)</li>
+      </ol>
+  
+      <h2>Documentation</h2>
+      <p>Le fichier html de documentation du programme a été généré avec Doxygen. Vous le trouverez dans le fichier <em>index.html</em>. Son chemin d'accès est : <em>CAPI\CAPI_Projet\Doc\html\index.html</em></p>
+  
+      <h2>Description</h2>
+      <p>L'objectif de l'application est de permettre à des joueurs de faire une partie de planning poker, en respectant les règles vues en cours.</p>
+  
+      <p>L'application peut être à distance (chaque joueur utilise son propre dispositif) ou locale (les joueurs choisissent chacun à leur tour leurs cartes).</p>
+  
+      <p>Un menu permet de décider du nombre de joueurs et de rentrer un pseudo pour chacun des joueurs. Le menu doit aussi permettre de choisir parmi différentes règles de planning poker (règles strictes, moyenne, médiane, etc.)</p>
+  
+      <p>On doit pouvoir entrer une liste de fonctionnalités (backlog) en JSON (vous êtes libre d'utiliser la structure que vous souhaitez).</p>
+  
+      <p>Une fois que chacun a voté, l'application valide ou non la fonctionnalité en fonction des règles choisies via le menu. Si la fonctionnalité n'est pas validée, on recommence le vote.</p>
+  
+      <p>Lorsque tout le backlog est validé, l'application enregistre un fichier JSON avec, pour chaque fonctionnalité, la difficulté estimée par l'équipe.</p>
+  
+      <h3>Note</h3>
+      <p>Si tous les joueurs utilisent la carte café, l'application doit enregistrer un fichier JSON avec l'état d'avancement du backlog. Ce fichier JSON doit pouvoir être chargé via le menu pour "reprendre" une partie.</p>
+  
+      <p>Vous êtes très fortement encouragés à ajouter des fonctionnalités qui vous semblent utiles au bon déroulement du planning poker (chronomètre, espace de discussion, etc.).</p>
+  
+      <p>Vous devez, dans votre projet, utiliser au moins trois des design patterns présentés en cours. Vous devez justifier l'utilisation de ces designs patterns dans votre rapport, ainsi que de la façon dont vous les avez implémentés dans votre projet.</p>
+  
+      <hr>
+      <p>Généré par <a href="https://www.doxygen.org/index.html"><img src="doxygen.svg" width="104" height="31" alt="doxygen"></a> 1.9.8</p>
+  </body>
+  </html>
+  
+
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
