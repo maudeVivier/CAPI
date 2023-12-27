@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b283b575-3165-411c-aad2-86d6b1dc47c4" name="Changes" comment="" />
+    <list default="true" id="b283b575-3165-411c-aad2-86d6b1dc47c4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Rapport.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Rapport.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../~$apport.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../~$apport.docx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,6 +118,7 @@
       <workItem from="1703671370063" duration="310000" />
       <workItem from="1703677787530" duration="3068000" />
       <workItem from="1703683527222" duration="379000" />
+      <workItem from="1703685476908" duration="77000" />
     </task>
     <servers />
   </component>
