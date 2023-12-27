@@ -1,20 +1,31 @@
 {
+  "fonctionnalitesValidees" : 2,
   "fonctionnalites" : [ {
-    "description" : "Fonction1",
+    "description" : "Fonction1 : constructeur",
+    "difficulte" : "8"
+  }, {
+    "description" : "Fonction2 : destructeur",
     "difficulte" : "3"
   }, {
-    "description" : "Fonction2",
-    "difficulte" : "8"
+    "description" : "Fonction3 : getteur",
+    "difficulte" : null
+  }, {
+    "description" : "Fonction4 : setteur",
+    "difficulte" : null
   } ],
-  "modeDeJeu" : "MOYENNE",
+  "modeDeJeu" : "UNANIMITE",
   "joueurs" : [ {
     "id" : 1,
     "pseudo" : "Bob",
-    "voteCourant" : "8"
+    "voteCourant" : "cafe"
   }, {
     "id" : 2,
-    "pseudo" : "Bobette",
-    "voteCourant" : "8"
+    "pseudo" : "Martin",
+    "voteCourant" : "cafe"
+  }, {
+    "id" : 3,
+    "pseudo" : "Jinx",
+    "voteCourant" : "cafe"
   } ],
-  "tempsEcoule" : 19000
+  "tempsEcoule" : 33000
 }
