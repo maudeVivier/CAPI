@@ -18,8 +18,17 @@
 
 ## Documentation
 Le fichier html de documentation du programme a été généré avec Doxygen.
+
 Vous le trouverez dans le fichier index.html
+
 Son chemin d'accès est : *CAPI\CAPI_Projet\Doc\html\index.html*
+
+## Tests Unitaires
+Ce projet contient quatre fichiers de tests unitaires dans le répertoire *Test/java* de notre projet.
+
+Ces fichiers de test sont conçus pour vérifier le bon fonctionnement de certaines parties du code.
+
+Son chemin d'accès est : *CAPI\CAPI_Projet\src\test\java*
 
 ## Description
 L'objectif de l'application est de permettre à des joueurs de faire une partie de planning poker, en respectant les règles vues en cours.
